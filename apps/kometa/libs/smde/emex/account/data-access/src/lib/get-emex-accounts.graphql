@@ -1,0 +1,17 @@
+query GetEmexAccounts(
+  $where: EmexAccountFilterInput
+  $order: [EmexAccountSortInput!]
+  $take: Int
+  $skip: Int
+) {
+  emexAccounts(where: $where, order: $order, take: $take, skip: $skip) {
+    items {
+      ...EmexAccount
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+    totalCount
+  }
+}

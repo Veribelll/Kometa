@@ -1,0 +1,10 @@
+mutation SendNewPinCode($input: PostamatSendNewPinCodeInput!) {
+  postamatSendNewPinCode(input: $input) {
+    result
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

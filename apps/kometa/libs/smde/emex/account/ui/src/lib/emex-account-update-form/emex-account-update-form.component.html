@@ -1,0 +1,13 @@
+<form [formGroup]="formGroup" [validateOnSubmit]="true" (ngSubmit)="onSave()">
+  <p-form-body>
+    <p-form-field>
+      <label for="name" class="required">Наименование:</label>
+      <input id="name" formControlName="name" type="text" pInputText />
+    </p-form-field>
+    <p-form-field>
+      <label [for]="'userId'" class="required">Логин:</label>
+      <p-inputNumber inputId="userId" formControlName="userId"></p-inputNumber>
+    </p-form-field>
+  </p-form-body>
+  <p-form-actions (cancel)="onCancel()"></p-form-actions>
+</form>

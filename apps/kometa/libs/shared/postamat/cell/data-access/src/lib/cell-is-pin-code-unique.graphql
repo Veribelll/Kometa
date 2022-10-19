@@ -1,0 +1,3 @@
+query CellIsPinCodeUnique($postamatId: ID!, $pinCode: String!) {
+  cellsAny(postamatId: $postamatId, where: { pinCode: { eq: $pinCode } })
+}

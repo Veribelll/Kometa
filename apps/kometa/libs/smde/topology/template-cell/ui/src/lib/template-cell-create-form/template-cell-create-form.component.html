@@ -1,0 +1,84 @@
+<div>
+  <div class="flex justify-content-center">
+    <kometa-cell
+      [isCell]="isCellControl.value"
+      [name]="nameControl.value"
+      [width]="widthControl.value"
+      [height]="heightControl.value"
+      [imageUrl]="imageUrl"
+      class="mb-3"
+    ></kometa-cell>
+  </div>
+  <form [formGroup]="formGroup" [validateOnSubmit]="true" (ngSubmit)="onSave()">
+    <p-form-body>
+      <p-form-field class="flex align-items-center">
+        <label [for]="'isCell'">Ячейка:</label>
+        <p-inputSwitch inputId="isCell" formControlName="isCell" class="ml-2"></p-inputSwitch>
+      </p-form-field>
+      <p-form-field>
+        <label for="name">Наименование:</label>
+        <input id="name" formControlName="name" type="text" pInputText />
+      </p-form-field>
+      <p-form-field [size]="3">
+        <label [for]="'width'">Ширина:</label>
+        <p-inputNumber
+          inputId="width"
+          formControlName="width"
+          [showButtons]="true"
+          buttonLayout="horizontal"
+          [step]="1"
+          [min]="1"
+          [max]="5"
+          inputStyleClass="text-center"
+          decrementButtonClass="p-button-danger"
+          incrementButtonClass="p-button-success"
+          incrementButtonIcon="pi pi-plus"
+          decrementButtonIcon="pi pi-minus"
+        ></p-inputNumber>
+      </p-form-field>
+      <p-form-field [size]="3">
+        <label [for]="'height'">Высота:</label>
+        <p-inputNumber
+          inputId="height"
+          formControlName="height"
+          [showButtons]="true"
+          buttonLayout="horizontal"
+          [step]="1"
+          [min]="1"
+          [max]="5"
+          inputStyleClass="text-center"
+          decrementButtonClass="p-button-danger"
+          incrementButtonClass="p-button-success"
+          incrementButtonIcon="pi pi-plus"
+          decrementButtonIcon="pi pi-minus"
+        ></p-inputNumber>
+      </p-form-field>
+      <p-form-field [size]="6" *ngIf="isCellControl.value">
+        <label [for]="'sizeId'">Размер:</label>
+        <p-dropdown
+          inputId="sizeId"
+          formControlName="sizeId"
+          appendTo="body"
+          [options]="sizes"
+          optionValue="id"
+          optionLabel="name"
+          [autoDisplayFirst]="false"
+        ></p-dropdown>
+      </p-form-field>
+      <p-form-field>
+        <p-fileUpload
+          (onSelect)="onSelectImage($event)"
+          (onRemove)="onRemoveImage()"
+          [customUpload]="true"
+          [showUploadButton]="false"
+          [showCancelButton]="false"
+        ></p-fileUpload>
+      </p-form-field>
+    </p-form-body>
+    <p-form-actions
+      [invalid]="formGroup.invalid"
+      [pending]="formGroup.pending"
+      (cancel)="onCancel()"
+    ></p-form-actions>
+  </form>
+</div>

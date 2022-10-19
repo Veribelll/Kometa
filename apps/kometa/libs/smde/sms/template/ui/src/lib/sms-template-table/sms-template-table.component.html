@@ -1,0 +1,64 @@
+<ng-container *transloco="let t">
+  <p-table
+    #table
+    styleClass="p-datatable-gridlines"
+    dataKey="id"
+    [value]="smsTemplates"
+    [loading]="loading"
+    [totalRecords]="totalRecords"
+    [paginator]="true"
+    [rows]="25"
+    [rowsPerPageOptions]="[25, 50, 75]"
+    [responsive]="true"
+    [lazy]="true"
+    (onLazyLoad)="onLazyLoad($event)"
+  >
+    <ng-template pTemplate="caption">
+      <p-table-caption
+        (clear)="table.clear()"
+        (changeFilter)="table.filterGlobal($event, 'contains')"
+      ></p-table-caption>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th class="text-center">
+          <span>Тип ивента</span>
+        </th>
+
+        <th class="text-center">
+          <span>Наименование</span>
+        </th>
+
+        <th class="text-center" style="width: 300px">
+          <span>Текст</span>
+        </th>
+
+        <th class="text-center">
+          <span>Комментарий</span>
+        </th>
+
+        <th style="width: 200px"></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-smsTemplate>
+      <tr>
+        <td class="text-center">
+          {{ t('NotificationEventType:' + getEventType(smsTemplate)) }}
+        </td>
+        <td class="text-center">{{ smsTemplate.name }}</td>
+        <td class="text-justify">{{ smsTemplate.template }}</td>
+        <td class="text-justify">{{ smsTemplate.comment }}</td>
+        <td class="text-center">
+          <p-table-actions
+            [permissionDetails]="permissionDetails"
+            [permissionUpdate]="permissionUpdate"
+            [permissionDelete]="permissionDelete"
+            (details)="onDetails(smsTemplate)"
+            (update)="onUpdate(smsTemplate)"
+            (delete)="onDelete(smsTemplate)"
+          ></p-table-actions>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</ng-container>

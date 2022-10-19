@@ -1,0 +1,14 @@
+mutation UpdatePostamatFilePrinter($input: UpdatePostamatFilePrinterInput!) {
+  updatePostamatFilePrinter(input: $input) {
+    postamat {
+      filePrinter {
+        ...PostamatFilePrinter
+      }
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

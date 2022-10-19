@@ -1,0 +1,17 @@
+mutation UpdateTemplateSection($input: UpdateTemplateSectionInput!) {
+  updateTemplateSection(input: $input) {
+    templateSection {
+      ...TemplateSection
+    }
+    errors {
+      ... on TemplateSectionNameAlreadyExistsError {
+        code
+        message
+        details
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

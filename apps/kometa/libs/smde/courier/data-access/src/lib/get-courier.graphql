@@ -1,0 +1,5 @@
+query GetCourier($where: IdentityUserFilterInput) {
+  courier(where: $where) {
+    ...Courier
+  }
+}

@@ -1,0 +1,27 @@
+<div>
+  <div class="mb-3">
+    <p-tabMenu
+      #tabMenu
+      [model]="menuItems"
+      [activeItem]="activeItem"
+      (click)="activateMenu()"
+    ></p-tabMenu>
+  </div>
+  <div>
+    <kometa-postamat-file-printer-update
+      *ngIf="showFile"
+      [postamatId]="postamatId"
+      (cancel)="onCancel()"
+    ></kometa-postamat-file-printer-update>
+    <kometa-postamat-network-printer-update
+      *ngIf="showNetwork"
+      [postamatId]="postamatId"
+      (cancel)="onCancel()"
+    ></kometa-postamat-network-printer-update>
+    <kometa-postamat-serial-printer-update
+      *ngIf="showSerialPort"
+      [postamatId]="postamatId"
+      (cancel)="onCancel()"
+    ></kometa-postamat-serial-printer-update>
+  </div>
+</div>

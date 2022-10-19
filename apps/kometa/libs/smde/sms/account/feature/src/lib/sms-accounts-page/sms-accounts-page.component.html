@@ -1,0 +1,32 @@
+<div class="shadow-15">
+  <div class="mb-2">
+    <p-toolbar>
+      <button
+        *permission="'NotificationManagement.SmsAccounts.Create'"
+        pButton
+        pRipple
+        label="Добавить"
+        icon="pi pi-plus"
+        class="p-button-success mr-2"
+        (click)="menu.toggle($event)"
+      ></button>
+      <p-tieredMenu #menu [model]="menuToCreate" [popup]="true"></p-tieredMenu>
+    </p-toolbar>
+  </div>
+  <div>
+    <p-panel header="Смс аккаунты">
+      <kometa-sms-account-table
+        [loading]="(loading$ | async)!"
+        [smsAccounts]="(accounts$ | async)!"
+        [totalRecords]="(totalRecords$ | async)!"
+        [permissionDetails]="'NotificationManagement.SmsAccounts'"
+        [permissionUpdate]="'NotificationManagement.SmsAccounts.Update'"
+        [permissionDelete]="'NotificationManagement.SmsAccounts.Delete'"
+        (lazyLoad)="onLazyLoad($event)"
+        (details)="onDetails($event)"
+        (update)="onUpdate($event)"
+        (delete)="onDelete($event)"
+      ></kometa-sms-account-table>
+    </p-panel>
+  </div>
+</div>

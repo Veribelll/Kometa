@@ -1,0 +1,22 @@
+<div *ngIf="templateSection">
+  <div>
+    <div class="flex justify-content-center">
+      <kometa-section [cells]="cells"></kometa-section>
+    </div>
+  </div>
+  <div class="mt-4">
+    <form [formGroup]="formGroup" [validateOnSubmit]="true" (ngSubmit)="onSave()">
+      <p-form-body>
+        <p-form-field>
+          <label for="name">Наименование:</label>
+          <input id="name" formControlName="name" type="text" pInputText />
+        </p-form-field>
+      </p-form-body>
+      <p-form-actions
+        [invalid]="formGroup.invalid"
+        [pending]="formGroup.pending"
+        (cancel)="onCancel()"
+      ></p-form-actions>
+    </form>
+  </div>
+</div>

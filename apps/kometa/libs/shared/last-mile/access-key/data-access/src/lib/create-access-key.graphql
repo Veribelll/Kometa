@@ -1,0 +1,12 @@
+mutation CreateAccessKey($input: CreateAccessKeyInput!) {
+  createAccessKey(input: $input) {
+    accessKey {
+      ...AccessKey
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

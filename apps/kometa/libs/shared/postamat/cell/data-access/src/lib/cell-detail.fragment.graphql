@@ -1,0 +1,29 @@
+fragment CellDetail on Cell {
+  id
+  type
+  name
+  status
+  barcode
+  pinCode
+  servicePinCode
+  priority
+  isEnable
+  lock {
+    id
+    address
+  }
+  places {
+    packingPlaceId
+    packingPlace {
+      id
+      typeOrder
+      status
+      barcode
+      sizeId
+      size {
+        id
+        name
+      }
+    }
+  }
+}

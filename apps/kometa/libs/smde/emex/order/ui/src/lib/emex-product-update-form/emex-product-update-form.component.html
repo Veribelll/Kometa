@@ -1,0 +1,121 @@
+<form [formGroup]="formGroup" [validateOnSubmit]="true" (ngSubmit)="onSave()">
+  <p-form-body>
+    <p-form-field [size]="6">
+      <label [for]="'typeBalance'" class="required">Тип баланса:</label>
+      <p-dropdown
+        inputId="typeBalance"
+        formControlName="typeBalance"
+        appendTo="body"
+        [options]="typesBalance"
+        optionLabel="name"
+        optionValue="id"
+        [showClear]="true"
+        [autoDisplayFirst]="false"
+      ></p-dropdown>
+    </p-form-field>
+    <p-form-field [size]="6">
+      <label [for]="'typePayment'" class="required">Тип оплаты:</label>
+      <p-dropdown
+        inputId="typePayment"
+        formControlName="typePayment"
+        appendTo="body"
+        [options]="typesPayment"
+        optionLabel="name"
+        optionValue="id"
+        [showClear]="true"
+        [autoDisplayFirst]="false"
+      ></p-dropdown>
+    </p-form-field>
+    <p-form-field>
+      <label for="barcode">Штрих код:</label>
+      <input id="barcode" formControlName="barcode" type="text" pInputText />
+    </p-form-field>
+    <p-form-field [size]="6">
+      <label for="vendorCode" class="required">Артикул:</label>
+      <input id="vendorCode" formControlName="vendorCode" type="text" pInputText />
+    </p-form-field>
+    <p-form-field [size]="6">
+      <label for="manufacturer" class="required">Производитель:</label>
+      <input id="manufacturer" formControlName="manufacturer" type="text" pInputText />
+    </p-form-field>
+    <p-form-field>
+      <label for="name" class="required">Наименование:</label>
+      <input id="name" formControlName="name" type="text" pInputText />
+    </p-form-field>
+    <p-form-field [size]="3">
+      <label [for]="'quantity'" class="required">Кол-во:</label>
+      <p-inputNumber
+        inputId="quantity"
+        formControlName="quantity"
+        mode="decimal"
+        [min]="0"
+        [minFractionDigits]="2"
+        [maxFractionDigits]="5"
+      ></p-inputNumber>
+    </p-form-field>
+    <p-form-field [size]="3">
+      <label [for]="'price'" class="required">Цена:</label>
+      <p-inputNumber
+        inputId="price"
+        formControlName="price"
+        mode="currency"
+        [min]="0"
+        currency="RUB"
+        locale="ru-RU"
+      ></p-inputNumber>
+    </p-form-field>
+    <p-form-field [size]="3">
+      <label [for]="'vat'" class="required">Сумма НДС:</label>
+      <p-inputNumber
+        inputId="vat"
+        formControlName="vat"
+        mode="currency"
+        [min]="0"
+        currency="RUB"
+        locale="ru-RU"
+      ></p-inputNumber>
+    </p-form-field>
+    <p-form-field [size]="3">
+      <label [for]="'sum'" class="required">Сумма:</label>
+      <p-inputNumber
+        inputId="sum"
+        formControlName="sum"
+        mode="currency"
+        [min]="0"
+        currency="RUB"
+        locale="ru-RU"
+      ></p-inputNumber>
+    </p-form-field>
+    <p-form-field [size]="6">
+      <label for="manufacturerCountry">Страна производитель:</label>
+      <input
+        id="manufacturerCountry"
+        formControlName="manufacturerCountry"
+        type="text"
+        pInputText
+      />
+    </p-form-field>
+    <p-form-field [size]="6">
+      <label for="manufacturerCountryCode">Код страны производителя:</label>
+      <input
+        id="manufacturerCountryCode"
+        formControlName="manufacturerCountryCode"
+        type="text"
+        pInputText
+      />
+    </p-form-field>
+    <p-form-field>
+      <label for="marking">Маркировка:</label>
+      <input id="marking" formControlName="marking" type="text" pInputText />
+    </p-form-field>
+    <p-form-field>
+      <label for="gtd">Грузотаможенная декларация:</label>
+      <input id="gtd" formControlName="gtd" type="text" pInputText />
+    </p-form-field>
+  </p-form-body>
+  <p-form-actions
+    [invalid]="formGroup.invalid"
+    [pending]="formGroup.pending"
+    (cancel)="onCancel()"
+  ></p-form-actions>
+</form>

@@ -1,0 +1,3 @@
+query CellIsNameUnique($postamatId: ID!, $name: String!) {
+  cellsAny(postamatId: $postamatId, where: { name: { eq: $name } })
+}

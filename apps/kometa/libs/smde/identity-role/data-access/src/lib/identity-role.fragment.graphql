@@ -1,0 +1,7 @@
+fragment IdentityRole on IdentityRole {
+  id
+  isDefault
+  isPublic
+  isStatic
+  name
+}

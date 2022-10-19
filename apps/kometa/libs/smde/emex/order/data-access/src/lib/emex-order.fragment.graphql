@@ -1,0 +1,17 @@
+fragment EmexOrder on EmexOrder {
+  id
+  status
+  globalId
+  externalId
+  customer {
+    externalId
+    name
+    phone
+    email
+  }
+  creationTime
+  products {
+    ...EmexProduct
+  }
+  isLocked
+}

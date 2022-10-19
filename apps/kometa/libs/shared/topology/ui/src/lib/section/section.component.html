@@ -1,0 +1,14 @@
+<div class="flex flex-column justify-content-center align-items-center">
+  <div *ngFor="let cell of cells">
+    <kometa-cell
+      [isCell]="cell.isCell"
+      [name]="cell.name"
+      [width]="cell.width"
+      [height]="cell.height"
+      [imageUrl]="cell.imageUrl"
+      [isSelect]="select?.id === cell.id"
+      [disable]="cell.disable"
+      (selected)="onSelect(cell)"
+    ></kometa-cell>
+  </div>
+</div>

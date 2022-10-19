@@ -1,0 +1,32 @@
+<div class="shadow-15">
+  <div class="mb-2">
+    <p-toolbar>
+      <button
+        pButton
+        pRipple
+        *permission="'PackingPlaceManagement.ShipmentRequests.Create'"
+        label="Добавить"
+        icon="pi pi-plus"
+        class="p-button-success"
+        (click)="onCreate()"
+      ></button>
+    </p-toolbar>
+  </div>
+  <div>
+    <p-panel header="Заявки на отправку">
+      <kometa-shipment-request-table
+        [shipmentRequests]="(requests$ | async)!"
+        [loading]="(loading$ | async)!"
+        [totalRecords]="(totalRecords$ | async)!"
+        [permissionDetails]="'PackingPlaceManagement.ShipmentRequests'"
+        [permissionUpdate]="'PackingPlaceManagement.ShipmentRequests.Update'"
+        [permissionDelete]="'PackingPlaceManagement.ShipmentRequests.Delete'"
+        (lazyLoad)="onLazyLoad($event)"
+        (details)="onDetails($event)"
+        (update)="onUpdate($event)"
+        (cancel)="onCancel($event)"
+        (timeline)="onTimeline($event)"
+      ></kometa-shipment-request-table>
+    </p-panel>
+  </div>
+</div>

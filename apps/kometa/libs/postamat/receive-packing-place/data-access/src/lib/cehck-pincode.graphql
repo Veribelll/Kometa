@@ -1,0 +1,5 @@
+query CheckPinCode($postamatId: ID!, $pinCode: String!) {
+  cell(postamatId: $postamatId, where: { pinCode: { eq: $pinCode } }) {
+    id
+  }
+}

@@ -1,0 +1,5 @@
+query GetEmexOrder($where: EmexOrderFilterInput) {
+  emexOrder(where: $where) {
+    ...EmexOrder
+  }
+}

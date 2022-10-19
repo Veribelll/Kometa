@@ -1,0 +1,52 @@
+<p-table
+  #table
+  styleClass="p-datatable-gridlines"
+  dataKey="id"
+  [value]="lastMiles"
+  [loading]="loading"
+  [totalRecords]="totalRecords"
+  [paginator]="true"
+  [rows]="25"
+  [rowsPerPageOptions]="[25, 50, 75]"
+  [responsive]="true"
+  [lazy]="true"
+  [(selection)]="selected"
+  [selectionMode]="selectionMode!"
+  (onLazyLoad)="onLazyLoad($event)"
+  (selectionChange)="onSelectedChange($event)"
+>
+  <ng-template pTemplate="caption">
+    <p-table-caption
+      (clear)="table.clear()"
+      (changeFilter)="table.filterGlobal($event, 'contains')"
+    ></p-table-caption>
+  </ng-template>
+
+  <ng-template pTemplate="header">
+    <tr>
+      <th class="text-center">
+        <span>Наименование</span>
+      </th>
+
+      <th class="text-center">
+        <span>Адрес</span>
+      </th>
+
+      <th class="text-center">
+        <span>Заводской номер</span>
+      </th>
+
+      <th class="text-center">
+        <span>Внешний ID</span>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-lastMile let-rowIndex="rowIndex">
+    <tr [pSelectableRow]="lastMile" [pSelectableRowIndex]="rowIndex">
+      <td class="text-center">{{ lastMile.name }}</td>
+      <td class="text-center">{{ lastMile.address }}</td>
+      <td class="text-center">{{ lastMile.factoryNumber }}</td>
+      <td class="text-center">{{ lastMile.externalId }}</td>
+    </tr>
+  </ng-template>
+</p-table>

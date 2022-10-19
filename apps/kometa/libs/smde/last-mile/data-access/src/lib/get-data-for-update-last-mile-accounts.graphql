@@ -1,0 +1,21 @@
+query GetDataForUpdateLastMileAccounts($lastMileId: ID!) {
+  lastMileById(id: $lastMileId) {
+    id
+    accountIds {
+      emexAccountId
+      smsAccountId
+    }
+  }
+  emexAccounts {
+    items {
+      id
+      name
+    }
+  }
+  smsAccounts {
+    items {
+      id
+      name
+    }
+  }
+}

@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="..\..\..\common.props" />
+    <Import Project="..\..\..\fody.props" />
+    
+    <PropertyGroup>
+        <RootNamespace>Kometa</RootNamespace>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Volo.Abp.Core" Version="$(AbpPackageVersion)" />
+    </ItemGroup>
+</Project>

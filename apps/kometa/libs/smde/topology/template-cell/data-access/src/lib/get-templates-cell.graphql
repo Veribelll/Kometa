@@ -1,0 +1,17 @@
+query GetTemplatesCell(
+  $where: TemplateCellFilterInput
+  $order: [TemplateCellSortInput!]
+  $take: Int
+  $skip: Int
+) {
+  templatesCell(where: $where, order: $order, take: $take, skip: $skip) {
+    items {
+      ...TemplateCell
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+    totalCount
+  }
+}

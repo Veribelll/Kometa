@@ -1,0 +1,43 @@
+<p-table
+  styleClass="p-datatable-gridlines"
+  dataKey="id"
+  [value]="locks"
+  [loading]="loading"
+  [lazy]="true"
+  (onLazyLoad)="onLazyLoad($event)"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th class="text-center" style="min-width: 200px">
+        <span class="w-full">Наименование</span>
+      </th>
+
+      <th class="text-center" style="min-width: 100px">
+        <span class="w-full">Адрес замка</span>
+      </th>
+
+      <th class="text-center" style="min-width: 100px">
+        <span class="w-full">Состояние</span>
+      </th>
+      <th style="min-width: 150px"></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-lock>
+    <tr>
+      <td class="text-center" style="min-width: 200px">
+        <span class="w-full">{{ lock.controller.name }}</span>
+      </td>
+      <td class="text-center" style="min-width: 100px">
+        <span class="w-full">{{ lock.address }}</span>
+      </td>
+      <td class="text-center" style="min-width: 100px">
+        <span class="w-full">{{ lock.status$ | async }}</span>
+      </td>
+      <td class="text-center" style="min-width: 150px">
+        <div>
+          <button type="button" pButton pRipple label="Открыть" (click)="onOpen(lock)"></button>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

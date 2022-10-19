@@ -1,0 +1,11 @@
+<ng-container *ngIf="formGroup" [formGroup]="formGroup">
+  <label [for]="'contractorIds'" class="required">Организации:</label>
+  <p-multiSelect
+    inputId="contractorIds"
+    formControlName="contractorIds"
+    appendTo="body"
+    [options]="contractors"
+    optionLabel="name"
+    optionValue="id"
+  ></p-multiSelect>
+</ng-container>

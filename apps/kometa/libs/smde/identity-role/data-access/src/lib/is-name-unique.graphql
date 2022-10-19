@@ -1,0 +1,3 @@
+query IdentityRoleIsNameUnique($name: String!) {
+  identityRolesAny(where: { name: { eq: $name } })
+}

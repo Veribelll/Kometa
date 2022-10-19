@@ -1,0 +1,5 @@
+query GetLastMile($where: LastMileFilterInput) {
+  lastMile(where: $where) {
+    ...LastMileDetail
+  }
+}

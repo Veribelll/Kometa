@@ -1,0 +1,25 @@
+<form [formGroup]="formGroup" [validateOnSubmit]="true" (ngSubmit)="onSave()">
+  <p-form-body>
+    <p-form-field class="flex align-items-center">
+      <label [for]="'isAutoUpdate'">Авто обновление:</label>
+      <p-inputSwitch
+        inputId="isAutoUpdate"
+        formControlName="isAutoUpdate"
+        class="ml-2"
+      ></p-inputSwitch>
+    </p-form-field>
+    <p-form-field class="flex align-items-center">
+      <label [for]="'receptionWaitingListOnly'">Прием только по списку ожидания:</label>
+      <p-inputSwitch
+        inputId="receptionWaitingListOnly"
+        formControlName="receptionWaitingListOnly"
+        class="ml-2"
+      ></p-inputSwitch>
+    </p-form-field>
+    <p-form-field>
+      <label for="adminPhone">Телефон администратора:</label>
+      <input id="adminPhone" formControlName="adminPhone" type="text" pInputText pKeyboard />
+    </p-form-field>
+  </p-form-body>
+  <p-form-actions (cancel)="onCancel()"></p-form-actions>
+</form>

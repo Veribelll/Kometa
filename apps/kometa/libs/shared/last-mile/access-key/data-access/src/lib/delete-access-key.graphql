@@ -1,0 +1,12 @@
+mutation DeleteAccessKey($input: DeleteAccessKeyInput!) {
+  deleteAccessKey(input: $input) {
+    accessKey {
+      ...AccessKey
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

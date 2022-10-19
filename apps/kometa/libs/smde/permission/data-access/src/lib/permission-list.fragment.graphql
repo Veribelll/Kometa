@@ -1,0 +1,6 @@
+fragment PermissionList on PermissionList {
+  entityDisplayName
+  groups {
+    ...PermissionGroup
+  }
+}

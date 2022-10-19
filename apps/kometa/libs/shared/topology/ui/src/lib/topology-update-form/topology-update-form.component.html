@@ -1,0 +1,30 @@
+<form [formGroup]="formGroup" [validateOnSubmit]="true" (ngSubmit)="onSave()">
+  <p-form-body>
+    <p-form-field>
+      <label for="prefixName">Префикс названия ячеек:</label>
+      <input id="prefixName" formControlName="prefixName" type="text" pInputText />
+    </p-form-field>
+    <p-form-field>
+      <label for="prefixBarcode">Префикс ШК ячеек:</label>
+      <input id="prefixBarcode" formControlName="prefixBarcode" type="text" pInputText />
+    </p-form-field>
+    <p-form-field>
+      <label [for]="'templatePostamatId'">Шаблон постамата:</label>
+      <p-dropdown
+        inputId="templatePostamatId"
+        formControlName="templatePostamatId"
+        appendTo="body"
+        [options]="templatesPostamat"
+        optionLabel="name"
+        optionValue="id"
+        [showClear]="true"
+        [autoDisplayFirst]="false"
+      ></p-dropdown>
+    </p-form-field>
+  </p-form-body>
+  <p-form-actions
+    [invalid]="formGroup.invalid"
+    [pending]="formGroup.pending"
+    (cancel)="onCancel()"
+  ></p-form-actions>
+</form>

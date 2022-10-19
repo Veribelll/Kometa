@@ -1,0 +1,3 @@
+query TenantIsNameUnique($name: String!) {
+  tenantsAny(where: { name: { eq: $name } })
+}

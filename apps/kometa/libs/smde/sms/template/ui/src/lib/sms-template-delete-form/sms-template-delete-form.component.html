@@ -1,0 +1,8 @@
+<div *ngIf="smsTemplate">
+  <p class="m-1">
+    Вы действительно хотите удалить смс шаблон:
+    <br />
+    <span class="font-bold">'{{ smsTemplate.name }}'</span>?
+  </p>
+  <p-form-delete-actions (delete)="onDelete()" (cancel)="onCancel()"></p-form-delete-actions>
+</div>

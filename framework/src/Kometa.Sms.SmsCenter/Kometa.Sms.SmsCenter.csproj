@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="..\..\..\common.props" />
+    <Import Project="..\..\..\fody.props" />
+
+    <PropertyGroup>
+        <RootNamespace>Kometa.Sms.SmsCenter</RootNamespace>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.Http.Client" Version="$(AbpPackageVersion)" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\Kometa.Core\Kometa.Core.csproj" />
+    </ItemGroup>
+
+</Project>

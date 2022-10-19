@@ -1,0 +1,9 @@
+﻿{
+    "culture": "ru",
+    "texts": {
+        "Permission:Create": "Создание",
+        "Permission:Update": "Редактирование",
+        "Permission:Delete": "Удаление",
+        "Volo.Authorization:010002": "Авторизация не удалась! Данная политика не предоставлена: {PolicyName}" 
+    }
+}

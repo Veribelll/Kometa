@@ -1,0 +1,5 @@
+query GetEmexAccount($where: EmexAccountFilterInput) {
+  emexAccount(where: $where) {
+    ...EmexAccount
+  }
+}

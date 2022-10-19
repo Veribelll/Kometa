@@ -1,0 +1,5 @@
+query GetPostamat($where: PostamatFilterInput) {
+  postamat(where: $where) {
+    ...Postamat
+  }
+}

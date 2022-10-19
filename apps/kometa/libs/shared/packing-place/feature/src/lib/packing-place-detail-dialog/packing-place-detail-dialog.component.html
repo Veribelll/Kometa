@@ -1,0 +1,15 @@
+<div>
+  <kometa-packing-place-detail-skeleton
+    *ngIf="(loading$ | async)!; else detail"
+  ></kometa-packing-place-detail-skeleton>
+  <ng-template #detail>
+    <ng-container *ngIf="packingPlace$ | async; let packingPlace">
+      <kometa-packing-place-detail-form [packingPlace]="packingPlace">
+        <kometa-emex-product-table
+          *ngIf="packingPlace.typeOrder === typeOrder.Emex"
+          [packingPlaceId]="packingPlace.id"
+        ></kometa-emex-product-table>
+      </kometa-packing-place-detail-form>
+    </ng-container>
+  </ng-template>
+</div>

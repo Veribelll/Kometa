@@ -1,0 +1,26 @@
+query GetSmsAccounts(
+  $where: SmsAccountFilterInput
+  $order: [SmsAccountSortInput!]
+  $take: Int
+  $skip: Int
+) {
+  smsAccounts(where: $where, order: $order, take: $take, skip: $skip) {
+    items {
+      id
+      contractor {
+        id
+        name
+      }
+      name
+      sender
+      ... on SmsCenterAccount {
+        login
+      }
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+    totalCount
+  }
+}

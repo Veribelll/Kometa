@@ -1,0 +1,6 @@
+fragment AccountBank on AccountBank {
+  bankName
+  bic
+  correspondentAccount
+  paymentAccount
+}

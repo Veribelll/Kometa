@@ -1,0 +1,9 @@
+<div *ngIf="postamat">
+  <p-detail-body>
+    <p-detail-field label="Наименование:" [value]="postamat.name"></p-detail-field>
+    <p-detail-field label="Код активации:" [value]="postamat.token"></p-detail-field>
+    <p-detail-field label="Заводской номер:" [value]="postamat.factoryNumber"></p-detail-field>
+    <p-detail-field label="Внешний ID:" [value]="postamat.externalId"></p-detail-field>
+    <p-detail-field label="Адрес:" [value]="postamat.address"></p-detail-field>
+  </p-detail-body>
+</div>

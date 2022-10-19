@@ -1,0 +1,10 @@
+<div>
+  <input
+    class="input text-center text-3xl w-full mb-2"
+    pInputText
+    [value]="(value$ | async)!"
+    (input)="onInputChange($event)"
+    placeholder="Tap on the virtual keyboard to start"
+  />
+  <div class="simple-keyboard"></div>
+</div>

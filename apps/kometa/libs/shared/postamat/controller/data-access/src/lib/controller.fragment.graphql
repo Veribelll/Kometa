@@ -1,0 +1,15 @@
+fragment Controller on ControllerBase {
+  id
+  name
+  settings {
+    baudRate
+    dataBits
+    parity
+    stopBits
+    portName
+  }
+  locks {
+    id
+    address
+  }
+}

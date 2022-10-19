@@ -1,0 +1,45 @@
+<p-table
+  #table
+  styleClass="p-datatable-gridlines"
+  dataKey="id"
+  [value]="templatesPostamat"
+  [loading]="loading"
+  [totalRecords]="totalRecords"
+  [paginator]="true"
+  [rows]="25"
+  [rowsPerPageOptions]="[25, 50, 75]"
+  [responsive]="true"
+  [lazy]="true"
+  (onLazyLoad)="onLazyLoad($event)"
+>
+  <ng-template pTemplate="caption">
+    <p-table-caption
+      (clear)="table.clear()"
+      (changeFilter)="table.filterGlobal($event, 'contains')"
+    ></p-table-caption>
+  </ng-template>
+
+  <ng-template pTemplate="header">
+    <tr>
+      <th class="text-center">
+        <span>Наименование</span>
+      </th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-templatePostamat>
+    <tr>
+      <td class="text-center">{{ templatePostamat.name }}</td>
+      <td class="text-center">
+        <p-table-actions
+          [permissionDetails]="permissionDetails"
+          [permissionUpdate]="permissionUpdate"
+          [permissionDelete]="permissionDelete"
+          (details)="onDetails(templatePostamat)"
+          (update)="onUpdate(templatePostamat)"
+          (delete)="onDelete(templatePostamat)"
+        ></p-table-actions>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

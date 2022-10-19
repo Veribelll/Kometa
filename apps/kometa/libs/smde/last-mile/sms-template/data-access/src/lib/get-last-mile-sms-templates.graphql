@@ -1,0 +1,8 @@
+query GetLastMileSmsTemplates($lastMileId: ID!) {
+  lastMileById(id: $lastMileId) {
+    id
+    smsTemplates {
+      ...LastMileSmsTemplate
+    }
+  }
+}

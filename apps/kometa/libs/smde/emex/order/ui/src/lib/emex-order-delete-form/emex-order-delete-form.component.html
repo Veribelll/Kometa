@@ -1,0 +1,8 @@
+<div *ngIf="order">
+  <p class="m-1">
+    Вы действительно хотите удалить заказ:
+    <br />
+    <span class="font-bold">'{{ order.externalId }}'</span>?
+  </p>
+  <p-form-delete-actions (delete)="onDelete()" (cancel)="onCancel()"></p-form-delete-actions>
+</div>

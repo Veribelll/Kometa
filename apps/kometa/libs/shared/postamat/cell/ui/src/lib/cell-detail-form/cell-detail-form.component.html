@@ -1,0 +1,60 @@
+<ng-container *transloco="let t">
+  <div *ngIf="cell">
+    <p-detail-body>
+      <p-detail-field label="Тип:" [value]="t('TypeCell:' + getTypeCell(cell))"></p-detail-field>
+      <p-detail-field
+        label="Статус:"
+        [value]="t('CellStatus:' + getStatusCell(cell))"
+      ></p-detail-field>
+      <p-detail-field label="Наименование:" [value]="cell.name"></p-detail-field>
+      <p-detail-field label="ШК:" [value]="cell.barcode"></p-detail-field>
+      <p-detail-field label="Пин-код:" [value]="cell.pinCode"></p-detail-field>
+      <p-detail-field label="Сервисный пин-код:" [value]="cell.servicePinCode"></p-detail-field>
+      <p-detail-field label="Приоритет:" [value]="cell.priority"></p-detail-field>
+      <p-detail-field label="Активирована:" [value]="cell.isEnable"></p-detail-field>
+    </p-detail-body>
+    <div class="mt-4">
+      <p-panel header="Упаковочные места">
+        <p-table styleClass="p-datatable-gridlines" dataKey="id" [value]="cell.places ?? []">
+          <ng-template pTemplate="header">
+            <tr>
+              <th class="text-center">
+                <span>Статус</span>
+              </th>
+
+              <th class="text-center">
+                <span>Штрих код</span>
+              </th>
+
+              <th class="text-center">
+                <span>Размер</span>
+              </th>
+
+              <th></th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-place>
+            <tr>
+              <td class="text-center">
+                {{ t('PackingPlaceStatus:' + getStatusPackingPlace(place.packingPlace)) }}
+              </td>
+              <td class="text-center">{{ place.packingPlace.barcode }}</td>
+              <td class="text-center">
+                {{ place.packingPlace.size?.name }}
+              </td>
+              <td class="text-center">
+                <p-table-actions
+                  [permissionDetails]="'PackingPlaceManagement.PackingPlaces'"
+                  [displayUpdate]="false"
+                  [displayDelete]="false"
+                  (details)="onPackingPlaceDetails(place.packingPlace)"
+                >
+                </p-table-actions>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-panel>
+    </div>
+  </div>
+</ng-container>

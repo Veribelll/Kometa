@@ -1,0 +1,11 @@
+<p-panel header="Упаковочные места">
+  <kometa-packing-place-in-transit-table
+    [packingPlaces]="(packingPlaces$ | async)!"
+    [loading]="(loading$ | async)!"
+    [totalRecords]="(totalRecords$ | async)!"
+    [permissionDetails]="'PackingPlaceManagement.PackingPlaces'"
+    (lazyLoad)="onLazyLoad($event)"
+    (details)="onDetails($event)"
+    (timeline)="onTimeline($event)"
+  ></kometa-packing-place-in-transit-table>
+</p-panel>

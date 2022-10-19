@@ -1,0 +1,6 @@
+fragment PostamatNetworkPrinter on NetworkPrinter {
+  ipAddress
+  port
+  reconnectOnTimeout
+  isEnabled
+}

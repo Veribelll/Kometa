@@ -1,0 +1,12 @@
+mutation ActivateCell($input: ActivateCellInput!) {
+  activateCell(input: $input) {
+    cell {
+      ...Cell
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

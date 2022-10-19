@@ -1,0 +1,7 @@
+fragment PermissionGroup on PermissionGroup {
+  name
+  displayName
+  permissions {
+    ...PermissionGrantInfo
+  }
+}

@@ -1,0 +1,12 @@
+mutation CreateIdentityRole($input: CreateIdentityRoleInput!) {
+  createIdentityRole(input: $input) {
+    identityRole {
+      ...IdentityRole
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

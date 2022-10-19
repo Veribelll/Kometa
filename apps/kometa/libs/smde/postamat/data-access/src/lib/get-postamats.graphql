@@ -1,0 +1,17 @@
+query GetPostamats(
+  $where: PostamatFilterInput
+  $order: [PostamatSortInput!]
+  $take: Int
+  $skip: Int
+) {
+  postamats(where: $where, order: $order, take: $take, skip: $skip) {
+    items {
+      ...Postamat
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+    totalCount
+  }
+}

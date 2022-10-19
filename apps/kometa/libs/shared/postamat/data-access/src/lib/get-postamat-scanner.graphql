@@ -1,0 +1,7 @@
+query GetPostamatScanner($postamatId: ID!) {
+  postamatById(id: $postamatId) {
+    scanner {
+      ...PostamatScanner
+    }
+  }
+}

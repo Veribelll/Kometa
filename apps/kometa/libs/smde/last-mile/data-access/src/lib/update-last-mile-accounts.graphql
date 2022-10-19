@@ -1,0 +1,12 @@
+mutation UpdateLastMileAccounts($input: UpdateLastMileAccountsInput!) {
+  updateLastMileAccounts(input: $input) {
+    lastMile {
+      id
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

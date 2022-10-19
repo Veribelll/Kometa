@@ -1,0 +1,3 @@
+query ReturnRequestIsCodeUnique($code: String!) {
+  returnRequestsAny(where: { code: { eq: $code } })
+}

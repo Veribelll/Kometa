@@ -1,0 +1,7 @@
+<div *ngIf="employee">
+  <p class="m-1">
+    Вы действительно хотите удалить работника:
+    <span class="font-bold">'{{ employee | fio }}'</span>?
+  </p>
+  <p-form-delete-actions (delete)="onDelete()" (cancel)="onCancel()"></p-form-delete-actions>
+</div>

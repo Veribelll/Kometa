@@ -1,0 +1,23 @@
+<p-form-body [formGroup]="formGroup">
+  <p-form-field [size]="5">
+    <label for="customerName" class="required">ФИО клиента:</label>
+    <input id="customerName" formControlName="name" type="text" pInputText />
+  </p-form-field>
+  <p-form-field [size]="3" class="required">
+    <label [for]="'customerPhone'">Телефон клиента:</label>
+    <p-inputMask
+      inputId="customerPhone"
+      formControlName="phone"
+      mask="+7(999)999-99-99"
+      [unmask]="true"
+    ></p-inputMask>
+  </p-form-field>
+  <p-form-field [size]="4">
+    <label for="customerEmail">Email клиента:</label>
+    <input id="customerEmail" formControlName="email" type="email" pInputText />
+  </p-form-field>
+  <p-form-field>
+    <label for="customerExternalId" class="required">ID клиента:</label>
+    <input id="customerExternalId" formControlName="externalId" type="text" pInputText />
+  </p-form-field>
+</p-form-body>

@@ -1,0 +1,17 @@
+mutation CreatePackingPlace($input: CreatePackingPlaceInput!) {
+  createPackingPlace(input: $input) {
+    packingPlace {
+      ...PackingPlace
+    }
+    errors {
+      ... on PackingPlaceBarcodeAlreadyExistsError {
+        code
+        message
+        details
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

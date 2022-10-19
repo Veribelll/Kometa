@@ -1,0 +1,14 @@
+fragment PackingPlaceForPlacement on PackingPlace {
+  id
+  barcode
+  customerId
+  customer {
+    id
+    externalId
+  }
+  sizeId
+  size {
+    id
+    name
+  }
+}

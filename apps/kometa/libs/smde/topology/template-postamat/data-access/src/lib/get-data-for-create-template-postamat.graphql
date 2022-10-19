@@ -1,0 +1,25 @@
+query GetDataForCreateTemplatePostamat {
+  templatesSection {
+    items {
+      id
+      name
+      cells {
+        position
+        templateCellId
+        templateCell {
+          id
+          isCell
+          name
+          width
+          height
+          sizeId
+          size {
+            id
+            name
+          }
+          imageUrl
+        }
+      }
+    }
+  }
+}

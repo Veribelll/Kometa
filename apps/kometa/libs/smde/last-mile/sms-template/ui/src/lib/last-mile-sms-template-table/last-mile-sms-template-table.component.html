@@ -1,0 +1,72 @@
+<ng-container *transloco="let t">
+  <p-table
+    styleClass="p-datatable-gridlines"
+    dataKey="typeOrder"
+    [value]="smsTemplates"
+    [loading]="loading"
+    [lazy]="true"
+    (onLazyLoad)="onLazyLoad($event)"
+  >
+    <ng-template pTemplate="caption">
+      <button
+        pButton
+        pRipple
+        label="Скопировать настройки"
+        class="p-button-info"
+        icon="pi pi-copy"
+      ></button>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th class="text-center">
+          <span>Тип ивента</span>
+        </th>
+
+        <th class="text-center">
+          <span>Шаблон</span>
+        </th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-smsTemplate let-rowIndex="rowIndex" let-expanded="expanded">
+      <tr
+        *ngIf="rowGroupMetadata[smsTemplate.typeOrder].index === rowIndex"
+        [class.not-expanded]="!expanded"
+      >
+        <td colspan="3">
+          <div class="flex align-items-center">
+            <button
+              type="button"
+              pButton
+              pRipple
+              [pRowToggler]="smsTemplate"
+              class="p-button-text p-button-rounded p-button-plain p-mr-2"
+              [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"
+            ></button>
+            <span class="p-text-bold p-ml-2">
+              Тип заказа:
+              {{ t('TypeOrder:' + getTypeOrder(smsTemplate)) }}
+            </span>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="rowexpansion" let-smsTemplate>
+      <tr>
+        <td class="text-center">
+          {{ t('NotificationEventType:' + getEventType(smsTemplate)) }}
+        </td>
+        <td class="text-center">{{ smsTemplate.smsTemplate?.name }}</td>
+        <td class="text-center">
+          <p-table-actions
+            [displayDetails]="false"
+            [permissionUpdate]="permissionUpdate"
+            [permissionDelete]="permissionDelete"
+            (update)="onUpdate(smsTemplate)"
+            (delete)="onDelete(smsTemplate)"
+          ></p-table-actions>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</ng-container>

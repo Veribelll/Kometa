@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="..\..\..\..\common.props" />
+    <Import Project="..\..\..\..\fody.props" />
+
+    <PropertyGroup>
+        <RootNamespace>Smde</RootNamespace>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="$(AbpPackageVersion)" />
+        <PackageReference Include="Volo.Abp.BlobStoring" Version="$(AbpPackageVersion)" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Smde.Application.Contracts\Smde.Application.Contracts.csproj" />
+    </ItemGroup>
+</Project>

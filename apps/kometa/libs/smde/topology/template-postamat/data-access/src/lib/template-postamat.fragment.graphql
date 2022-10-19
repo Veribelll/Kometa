@@ -1,0 +1,29 @@
+fragment TemplatePostamat on TemplatePostamat {
+  id
+  name
+  sections {
+    position
+    templateSectionId
+    templateSection {
+      id
+      name
+      cells {
+        position
+        templateCellId
+        templateCell {
+          id
+          name
+          width
+          height
+          isCell
+          imageUrl
+          sizeId
+          size {
+            id
+            name
+          }
+        }
+      }
+    }
+  }
+}

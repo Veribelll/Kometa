@@ -1,0 +1,23 @@
+overwrite: true
+schema:
+  - apps/smde/schema.graphql
+generates:
+  libs/shared/abp/src/lib/graphql-types.ts:
+    documents:
+      - libs/shared/abp/**/*.graphql
+    plugins:
+      - graphql-codegen-typescript-operation-types
+      - typescript-operations
+      - typed-document-node
+    config:
+      omitObjectTypes: true
+      preResolveTypes: true
+  libs/shared/abp/src/lib/graphql-apollo.ts:
+    documents:
+      - libs/shared/abp/**/*.graphql
+    plugins:
+      - typescript-apollo-angular
+    config:
+      documentMode: 'external'
+      importOperationTypesFrom: 'Operations'
+      importDocumentNodeExternallyFrom: './graphql-types.ts'

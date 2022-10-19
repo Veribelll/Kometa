@@ -1,0 +1,22 @@
+mutation UpdateReturnRequest($input: UpdateReturnRequestInput!) {
+  updateReturnRequest(input: $input) {
+    returnRequest {
+      ...ReturnRequest
+    }
+    errors {
+      ... on ReturnRequestCodeAlreadyExistsError {
+        code
+        message
+        details
+      }
+      ... on ReturnRequestLockedError {
+        code
+        message
+        details
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

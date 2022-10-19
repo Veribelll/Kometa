@@ -1,0 +1,11 @@
+<div>
+  <kometa-cell-detail-skeleton
+    *ngIf="(loading$ | async)!; else form"
+  ></kometa-cell-detail-skeleton>
+  <ng-template #form>
+    <kometa-cell-detail-form
+      [cell]="(cell$ | async)!"
+      (packingPlaceDetails)="onPackingPlaceDetails($event)"
+    ></kometa-cell-detail-form>
+  </ng-template>
+</div>

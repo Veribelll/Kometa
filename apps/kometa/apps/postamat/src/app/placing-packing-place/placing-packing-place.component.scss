@@ -1,0 +1,23 @@
+.place-order {
+  font-size: 24px;
+  text-align: left;
+  padding-left: 200px;
+  background: url('~apps/postamat/src/assets/PlaceOrderNoText.png');
+  background-size: cover;
+  border: 0;
+  outline: none;
+  width: 600px;
+  height: 135px;
+}
+
+.place-order:active {
+  background: url('~apps/postamat/src/assets/PlaceOrderNoText.png') 0px -145px;
+  background-size: cover;
+}
+
+:host ::ng-deep .button-xxl {
+  span {
+    font-size: 40px !important;
+    padding: 5px;
+  }
+}

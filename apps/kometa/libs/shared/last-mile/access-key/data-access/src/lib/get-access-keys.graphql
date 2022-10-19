@@ -1,0 +1,5 @@
+query GetAccessKeys($lastMileId: ID!, $where: AccessKeyFilterInput, $order: [AccessKeySortInput!]) {
+  accessKeys(lastMileId: $lastMileId, where: $where, order: $order) {
+    ...AccessKey
+  }
+}

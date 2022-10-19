@@ -1,0 +1,5 @@
+query GetPackingPlaceById($packingPlaceId: ID!) {
+  packingPlaceById(id: $packingPlaceId) {
+    ...PackingPlaceDetail
+  }
+}

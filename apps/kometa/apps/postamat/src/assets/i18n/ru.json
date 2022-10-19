@@ -1,0 +1,64 @@
+{
+  "TypeOrder:Emex": "Emex",
+
+  "PackingPlaceStatus:Created": "Создано",
+  "PackingPlaceStatus:InProcessSend": "В процессе отправки",
+  "PackingPlaceStatus:Sent": "Отправлено",
+  "PackingPlaceStatus:Accepted": "Принято",
+  "PackingPlaceStatus:Issued": "Выдано",
+  "PackingPlaceStatus:InProcessReturn": "В процессе возвращения",
+  "PackingPlaceStatus:Returned": "Возвращен",
+  "PackingPlaceStatus:Cancelled": "Отменен",
+
+  "ShipmentRequestStatus:Created": "Создана",
+  "ShipmentRequestStatus:Sent": "Отправлена",
+  "ShipmentRequestStatus:PartiallyAccepted": "Частично принята",
+  "ShipmentRequestStatus:Accepted": "Принята",
+  "ShipmentRequestStatus:Canceled": "Отменена",
+
+  "ReturnRequestStatus:AtCourier": "У курьера",
+  "ReturnRequestStatus:InLastMile": "В последней миле",
+  "ReturnRequestStatus:Returned": "Возвращено",
+  "ReturnRequestStatus:Canceled": "Отменена",
+
+  "EmexTypeBalance:None": "Оплата картой",
+  "EmexTypeBalance:Emex": "Оплата с баланса",
+
+  "EmexTypePayment:Prepayment": "Предоплата",
+  "EmexTypePayment:FullCashless": "Полная оплата",
+
+  "EmexOrderStatus:Created": "Создан",
+  "EmexOrderStatus:PartiallySent": "Частично отправлен",
+  "EmexOrderStatus:Sent": "Отправлен",
+  "EmexOrderStatus:PartiallyAccepted": "Частично принят",
+  "EmexOrderStatus:Accepted": "Принят",
+  "EmexOrderStatus:PartiallyIssued": "Частично выдан",
+  "EmexOrderStatus:Issued": "Выдан",
+  "EmexOrderStatus:Return": "Возвращен",
+
+  "EmexProductStatus:Created": "Создан",
+  "EmexProductStatus:Sent": "Отправлен",
+  "EmexProductStatus:Accepted": "Принят",
+  "EmexProductStatus:Issued": "Выдан",
+  "EmexProductStatus:Return": "Возвращен",
+
+  "LastMileStatus:Activated": "Активирована",
+  "LastMileStatus:Deactivated": "Не активирована",
+
+  "TypeCell:Cell": "Ячейка",
+  "TypeCell:Virtual": "Вирт. ячейка",
+  "TypeCell:Service": "Сервисная ячейка",
+  "CellStatus:Free": "Свободна",
+  "CellStatus:Busy": "Занята товаром",
+  "CellStatus:ServerReserve": "Зарезервирована сервером",
+  "CellStatus:BusyToReturn": "Зарезервирована для возврата",
+  "CellStatus:Returned": "Вернули товар",
+
+  "NotificationEventType:PackingPlaceIssuing": "Выдача упаковочного места",
+  "NotificationEventType:PackingPlaceReturning": "Возврат упаковочного места",
+  "NotificationEventType:PackingPlaceAccepting": "Принятие упаковочного места в последней миле",
+  "NotificationEventType:PackingPlaceSending": "Отправка упаковочного места",
+  "NotificationEventType:PackingPlaceCanceled": "Отмена упаковочного места",
+  "NotificationEventType:PinForIssuing": "Пин код для получения товара",
+  "NotificationEventType:PinForReturning": "Пин код для возврата товара"
+}

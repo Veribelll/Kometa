@@ -1,0 +1,8 @@
+<div *ngIf="accessKey">
+  <p class="m-1">
+    Вы действительно хотите удалить ключ доступа:
+    <br />
+    <span class="font-bold">'{{ accessKey.barcode }}'</span>?
+  </p>
+  <p-form-delete-actions (delete)="onDelete()" (cancel)="onCancel()"></p-form-delete-actions>
+</div>

@@ -1,0 +1,15 @@
+<div class="flex">
+  <div>
+    <button
+      pButton
+      label="Очистить"
+      class="p-button-outlined"
+      icon="pi pi-filter-slash"
+      (click)="onClear()"
+    ></button>
+    <ng-content></ng-content>
+  </div>
+  <div class="ml-auto">
+    <input [formControl]="formControl" pInputText type="text" placeholder="Поиск" pKeyboard />
+  </div>
+</div>

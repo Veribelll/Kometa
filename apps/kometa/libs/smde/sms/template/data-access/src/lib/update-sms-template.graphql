@@ -1,0 +1,17 @@
+mutation UpdateSmsTemplate($input: UpdateSmsTemplateInput!) {
+  updateSmsTemplate(input: $input) {
+    smsTemplate {
+      ...SmsTemplate
+    }
+    errors {
+      ... on SmsTemplateNameAlreadyExistsError {
+        code
+        message
+        details
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

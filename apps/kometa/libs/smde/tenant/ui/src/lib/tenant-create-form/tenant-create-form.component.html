@@ -1,0 +1,39 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSave()" [validateOnSubmit]="true">
+  <p-form-body>
+    <p-form-field>
+      <label for="name" class="required">Наименование:</label>
+      <input id="name" formControlName="name" type="text" pInputText />
+    </p-form-field>
+    <p-form-field>
+      <label for="emailForDocuments" class="required">Email для документов:</label>
+      <input id="emailForDocuments" formControlName="emailForDocuments" type="email" pInputText />
+    </p-form-field>
+    <p-form-field>
+      <label for="adminEmailAddress" class="required">Email для аккаунта:</label>
+      <input id="adminEmailAddress" formControlName="adminEmailAddress" type="email" pInputText />
+    </p-form-field>
+    <p-form-field [size]="6">
+      <label for="adminPassword" class="required">Пароль:</label>
+      <input id="adminPassword" formControlName="adminPassword" type="password" pPassword />
+    </p-form-field>
+    <p-form-field [size]="6">
+      <label for="adminPasswordConfirm" class="required">Подтвердите пароль:</label>
+      <input
+        id="adminPasswordConfirm"
+        formControlName="adminPasswordConfirm"
+        type="password"
+        pPassword
+        [feedback]="false"
+      />
+    </p-form-field>
+  </p-form-body>
+  <ng-content-default>
+    <ng-content select="[actions]"></ng-content>
+    <p-form-actions
+      default
+      [invalid]="formGroup.invalid"
+      [pending]="formGroup.pending"
+      (cancel)="onCancel()"
+    ></p-form-actions>
+  </ng-content-default>
+</form>

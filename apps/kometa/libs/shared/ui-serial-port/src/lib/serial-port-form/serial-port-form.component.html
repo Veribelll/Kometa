@@ -1,0 +1,70 @@
+<p-form-body [formGroup]="formGroup">
+  <p-form-field>
+    <label [for]="'baudRate'" class="required">BaudRate:</label>
+    <p-dropdown
+      inputId="baudRate"
+      formControlName="baudRate"
+      appendTo="body"
+      optionLabel="name"
+      optionValue="id"
+      [options]="baudRates"
+      [showClear]="true"
+      [autoDisplayFirst]="false"
+    ></p-dropdown>
+  </p-form-field>
+  <p-form-field>
+    <label [for]="'dataBits'" class="required">DataBits</label>
+    <p-inputNumber
+      inputId="dataBits"
+      formControlName="dataBits"
+      [min]="1"
+      [step]="1"
+      [showButtons]="true"
+      buttonLayout="horizontal"
+      decrementButtonClass="p-button-danger"
+      incrementButtonClass="p-button-success"
+      incrementButtonIcon="pi pi-plus"
+      decrementButtonIcon="pi pi-minus"
+      inputStyleClass="p-text-center"
+    ></p-inputNumber>
+  </p-form-field>
+  <p-form-field>
+    <label [for]="'parity'" class="required">Parity:</label>
+    <p-dropdown
+      inputId="parity"
+      formControlName="parity"
+      appendTo="body"
+      [options]="parities"
+      optionLabel="name"
+      optionValue="id"
+      [showClear]="true"
+      [autoDisplayFirst]="false"
+    ></p-dropdown>
+  </p-form-field>
+  <p-form-field>
+    <label [for]="'stopBits'" class="required">StopBits:</label>
+    <p-dropdown
+      inputId="stopBits"
+      formControlName="stopBits"
+      appendTo="body"
+      [options]="stopBits"
+      optionLabel="name"
+      optionValue="id"
+      [showClear]="true"
+      [autoDisplayFirst]="false"
+    ></p-dropdown>
+  </p-form-field>
+  <p-form-field>
+    <label [for]="'portName'" class="required">PortName:</label>
+    <p-dropdown
+      inputId="portName"
+      formControlName="portName"
+      appendTo="body"
+      [options]="_portNames"
+      optionLabel="name"
+      optionValue="id"
+      [showClear]="true"
+      [autoDisplayFirst]="false"
+    ></p-dropdown>
+  </p-form-field>
+</p-form-body>

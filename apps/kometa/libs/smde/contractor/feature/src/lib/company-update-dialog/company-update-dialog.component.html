@@ -1,0 +1,13 @@
+<div>
+  <kometa-contractor-skeleton
+    *ngIf="(loading$ | async)!; else form"
+  ></kometa-contractor-skeleton>
+  <ng-template #form>
+    <kometa-company-update-form
+      *ngIf="formGroup"
+      [formGroup]="formGroup"
+      (save)="onSave($event)"
+      (cancel)="onCancel()"
+    ></kometa-company-update-form>
+  </ng-template>
+</div>

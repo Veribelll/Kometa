@@ -1,0 +1,17 @@
+mutation DeleteReturnRequest($input: DeleteReturnRequestInput!) {
+  deleteReturnRequest(input: $input) {
+    returnRequest {
+      ...ReturnRequest
+    }
+    errors {
+      ... on ReturnRequestLockedError {
+        code
+        message
+        details
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

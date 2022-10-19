@@ -1,0 +1,22 @@
+mutation ReturnReturnRequest($input: ReturnReturnRequestInput!) {
+  returnReturnRequest(input: $input) {
+    returnRequest {
+      ...ReturnRequest
+    }
+    errors {
+      ... on ReturnRequestIncorrectStatusError {
+        code
+        message
+        details
+      }
+      ... on PackingPlaceIncorrectStatusError {
+        code
+        message
+        details
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

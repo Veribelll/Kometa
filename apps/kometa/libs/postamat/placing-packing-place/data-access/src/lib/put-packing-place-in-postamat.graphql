@@ -1,0 +1,13 @@
+mutation PutPackingPlaceInPostamat($input: PutPackingPlaceInPostamatInput!) {
+  putPackingPlaceInPostamat(input: $input) {
+    postamat {
+      id
+    }
+    errors {
+      ... on Error {
+        message
+      }
+      __typename
+    }
+  }
+}

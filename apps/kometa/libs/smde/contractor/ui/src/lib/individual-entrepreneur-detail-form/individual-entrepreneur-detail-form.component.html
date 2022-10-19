@@ -1,0 +1,40 @@
+<p-detail-body *ngIf="individualEntrepreneur">
+  <p-detail-field label="Наименование:" [value]="individualEntrepreneur.name"></p-detail-field>
+  <p-detail-field label="ИНН:" [value]="individualEntrepreneur.inn"></p-detail-field>
+  <p-detail-field label="ОКПО:" [value]="individualEntrepreneur.okpo"></p-detail-field>
+  <p-detail-field label="ОГРНИП:" [value]="individualEntrepreneur.ogrnip"></p-detail-field>
+  <p-detail-field
+    label="Юридический адрес:"
+    [value]="individualEntrepreneur.address"
+  ></p-detail-field>
+  <p-detail-field
+    label="Фактический адрес:"
+    [value]="individualEntrepreneur.actualAddress"
+  ></p-detail-field>
+  <p-detail-field
+    label="Почтовый адрес:"
+    [value]="individualEntrepreneur.mailingAddress"
+  ></p-detail-field>
+  <div class="mt-2">
+    <p-fieldset legend="Реквизиты банка">
+      <p-detail-body>
+        <p-detail-field
+          label="Наименование:"
+          [value]="individualEntrepreneur.accountBank.bankName"
+        ></p-detail-field>
+        <p-detail-field
+          label="БИК:"
+          [value]="individualEntrepreneur.accountBank.bic"
+        ></p-detail-field>
+        <p-detail-field
+          label="Расчетный счёт:"
+          [value]="individualEntrepreneur.accountBank.paymentAccount"
+        ></p-detail-field>
+        <p-detail-field
+          label="Корреспондентский счёт:"
+          [value]="individualEntrepreneur.accountBank.correspondentAccount"
+        ></p-detail-field>
+      </p-detail-body>
+    </p-fieldset>
+  </div>
+</p-detail-body>

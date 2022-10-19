@@ -1,0 +1,12 @@
+fragment SmsAccount on SmsAccount {
+  id
+  contractor {
+    id
+    name
+  }
+  name
+  sender
+  ... on SmsCenterAccount {
+    login
+  }
+}

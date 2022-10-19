@@ -1,0 +1,16 @@
+fragment TemplateSection on TemplateSection {
+  id
+  name
+  cells {
+    position
+    templateCellId
+    templateCell {
+      id
+      name
+      width
+      height
+      isCell
+      imageUrl
+    }
+  }
+}

@@ -1,0 +1,8 @@
+<div *ngIf="templateCell">
+  <p class="m-1">
+    Вы действительно хотите удалить шаблон ячейки:
+    <br />
+    <span class="font-bold">'{{ templateCell.name }}'</span>?
+  </p>
+  <p-form-delete-actions (delete)="onDelete()" (cancel)="onCancel()"></p-form-delete-actions>
+</div>

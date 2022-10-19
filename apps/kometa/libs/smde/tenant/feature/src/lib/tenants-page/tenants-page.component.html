@@ -1,0 +1,31 @@
+<div class="shadow-15">
+  <div class="mb-2">
+    <p-toolbar>
+      <button
+        pButton
+        pRipple
+        *permission="'AbpTenantManagement.Tenants.Create'"
+        label="Добавить"
+        icon="pi pi-plus"
+        class="p-button-success"
+        (click)="onCreate()"
+      ></button>
+    </p-toolbar>
+  </div>
+  <div>
+    <p-panel header="Арендаторы">
+      <kometa-tenant-table
+        [tenants]="(tenants$ | async)!"
+        [loading]="(loading$ | async)!"
+        [totalRecords]="(totalRecords$ | async)!"
+        [permissionDetails]="'AbpTenantManagement.Tenants'"
+        [permissionUpdate]="'AbpTenantManagement.Tenants.Update'"
+        [permissionDelete]="'AbpTenantManagement.Tenants.Delete'"
+        (lazyLoad)="onLazyLoad($event)"
+        (details)="onDetails($event)"
+        (update)="onUpdate($event)"
+        (delete)="onDelete($event)"
+      ></kometa-tenant-table>
+    </p-panel>
+  </div>
+</div>

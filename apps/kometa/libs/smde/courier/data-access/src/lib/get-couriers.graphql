@@ -1,0 +1,17 @@
+query GetCouriers(
+  $where: IdentityUserFilterInput
+  $order: [IdentityUserSortInput!]
+  $take: Int
+  $skip: Int
+) {
+  couriers(where: $where, order: $order, take: $take, skip: $skip) {
+    items {
+      ...Courier
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+    totalCount
+  }
+}

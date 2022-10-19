@@ -1,0 +1,22 @@
+query GetEmployeesForSelect(
+  $where: IdentityUserFilterInput
+  $order: [IdentityUserSortInput!]
+  $take: Int
+  $skip: Int
+) {
+  employees(where: $where, order: $order, take: $take, skip: $skip) {
+    items {
+      id
+      surname
+      name
+      middleName
+      phoneNumber
+      email
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+    totalCount
+  }
+}

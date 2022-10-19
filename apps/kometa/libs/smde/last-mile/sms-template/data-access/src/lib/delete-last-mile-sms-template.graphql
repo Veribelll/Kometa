@@ -1,0 +1,12 @@
+mutation DeleteLastMileSmsTemplate($input: DeleteLastMileSmsTemplateInput!) {
+  deleteLastMileSmsTemplate(input: $input) {
+    lastMileSmsTemplate {
+      ...LastMileSmsTemplate
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

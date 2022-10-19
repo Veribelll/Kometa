@@ -1,0 +1,14 @@
+mutation UpdatePostamatScanner($input: UpdatePostamatScannerInput!) {
+  updatePostamatScanner(input: $input) {
+    postamat {
+      scanner {
+        ...PostamatScanner
+      }
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

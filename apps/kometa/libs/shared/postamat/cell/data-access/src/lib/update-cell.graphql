@@ -1,0 +1,12 @@
+mutation UpdateCell($input: UpdateCellInput!) {
+  updateCell(input: $input) {
+    cell {
+      ...Cell
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

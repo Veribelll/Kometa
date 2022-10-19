@@ -1,0 +1,12 @@
+mutation DeleteEmexOrder($input: DeleteEmexOrderInput!) {
+  deleteEmexOrder(input: $input) {
+    emexOrder {
+      ...EmexOrder
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

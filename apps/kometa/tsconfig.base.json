@@ -1,0 +1,488 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": [
+      "es2017",
+      "dom",
+      "esnext.asynciterable"
+    ],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "noImplicitOverride": true,
+    "paths": {
+      "@kometa/postamat/activate/data-access": [
+        "libs/postamat/activate/data-access/src/index.ts"
+      ],
+      "@kometa/postamat/activate/feature": [
+        "libs/postamat/activate/feature/src/index.ts"
+      ],
+      "@kometa/postamat/activate/types": [
+        "libs/postamat/activate/types/src/index.ts"
+      ],
+      "@kometa/postamat/admin-panel/data-access": [
+        "libs/postamat/admin-panel/data-access/src/index.ts"
+      ],
+      "@kometa/postamat/admin-panel/feature": [
+        "libs/postamat/admin-panel/feature/src/index.ts"
+      ],
+      "@kometa/postamat/admin-panel/types": [
+        "libs/postamat/admin-panel/types/src/index.ts"
+      ],
+      "@kometa/postamat/admin-panel/ui": [
+        "libs/postamat/admin-panel/ui/src/index.ts"
+      ],
+      "@kometa/postamat/core": [
+        "libs/postamat/core/src/index.ts"
+      ],
+      "@kometa/postamat/driver/feature": [
+        "libs/postamat/driver/feature/src/index.ts"
+      ],
+      "@kometa/postamat/feature-scanner": [
+        "libs/postamat/feature-scanner/src/index.ts"
+      ],
+      "@kometa/postamat/placing-packing-place/data-access": [
+        "libs/postamat/placing-packing-place/data-access/src/index.ts"
+      ],
+      "@kometa/postamat/placing-packing-place/feature": [
+        "libs/postamat/placing-packing-place/feature/src/index.ts"
+      ],
+      "@kometa/postamat/placing-packing-place/types": [
+        "libs/postamat/placing-packing-place/types/src/index.ts"
+      ],
+      "@kometa/postamat/placing-packing-place/ui": [
+        "libs/postamat/placing-packing-place/ui/src/index.ts"
+      ],
+      "@kometa/postamat/receive-packing-place/data-access": [
+        "libs/postamat/receive-packing-place/data-access/src/index.ts"
+      ],
+      "@kometa/postamat/receive-packing-place/feature": [
+        "libs/postamat/receive-packing-place/feature/src/index.ts"
+      ],
+      "@kometa/postamat/receive-packing-place/types": [
+        "libs/postamat/receive-packing-place/types/src/index.ts"
+      ],
+      "@kometa/postamat/return-packing-place/data-access": [
+        "libs/postamat/return-packing-place/data-access/src/index.ts"
+      ],
+      "@kometa/postamat/return-packing-place/feature": [
+        "libs/postamat/return-packing-place/feature/src/index.ts"
+      ],
+      "@kometa/postamat/return-packing-place/types": [
+        "libs/postamat/return-packing-place/types/src/index.ts"
+      ],
+      "@kometa/postamat/ui": [
+        "libs/postamat/ui/src/index.ts"
+      ],
+      "@kometa/shared/abp": [
+        "libs/shared/abp/src/index.ts"
+      ],
+      "@kometa/shared/dadata": [
+        "libs/shared/dadata/src/index.ts"
+      ],
+      "@kometa/shared/driver/data-access": [
+        "libs/shared/driver/data-access/src/index.ts"
+      ],
+      "@kometa/shared/driver/feature": [
+        "libs/shared/driver/feature/src/index.ts"
+      ],
+      "@kometa/shared/driver/types": [
+        "libs/shared/driver/types/src/index.ts"
+      ],
+      "@kometa/shared/employee/controls": [
+        "libs/shared/employee/controls/src/index.ts"
+      ],
+      "@kometa/shared/employee/data-access": [
+        "libs/shared/employee/data-access/src/index.ts"
+      ],
+      "@kometa/shared/employee/types": [
+        "libs/shared/employee/types/src/index.ts"
+      ],
+      "@kometa/shared/employee/ui": [
+        "libs/shared/employee/ui/src/index.ts"
+      ],
+      "@kometa/shared/last-mile/access-key/data-access": [
+        "libs/shared/last-mile/access-key/data-access/src/index.ts"
+      ],
+      "@kometa/shared/last-mile/access-key/feature": [
+        "libs/shared/last-mile/access-key/feature/src/index.ts"
+      ],
+      "@kometa/shared/last-mile/access-key/types": [
+        "libs/shared/last-mile/access-key/types/src/index.ts"
+      ],
+      "@kometa/shared/last-mile/access-key/ui": [
+        "libs/shared/last-mile/access-key/ui/src/index.ts"
+      ],
+      "@kometa/shared/ng": [
+        "libs/shared/ng/src/index.ts"
+      ],
+      "@kometa/shared/packing-place/data-access": [
+        "libs/shared/packing-place/data-access/src/index.ts"
+      ],
+      "@kometa/shared/packing-place/feature": [
+        "libs/shared/packing-place/feature/src/index.ts"
+      ],
+      "@kometa/shared/packing-place/types": [
+        "libs/shared/packing-place/types/src/index.ts"
+      ],
+      "@kometa/shared/packing-place/ui": [
+        "libs/shared/packing-place/ui/src/index.ts"
+      ],
+      "@kometa/shared/postamat/cell/data-access": [
+        "libs/shared/postamat/cell/data-access/src/index.ts"
+      ],
+      "@kometa/shared/postamat/cell/feature": [
+        "libs/shared/postamat/cell/feature/src/index.ts"
+      ],
+      "@kometa/shared/postamat/cell/types": [
+        "libs/shared/postamat/cell/types/src/index.ts"
+      ],
+      "@kometa/shared/postamat/cell/ui": [
+        "libs/shared/postamat/cell/ui/src/index.ts"
+      ],
+      "@kometa/shared/postamat/controller/data-access": [
+        "libs/shared/postamat/controller/data-access/src/index.ts"
+      ],
+      "@kometa/shared/postamat/controller/feature": [
+        "libs/shared/postamat/controller/feature/src/index.ts"
+      ],
+      "@kometa/shared/postamat/controller/types": [
+        "libs/shared/postamat/controller/types/src/index.ts"
+      ],
+      "@kometa/shared/postamat/controller/ui": [
+        "libs/shared/postamat/controller/ui/src/index.ts"
+      ],
+      "@kometa/shared/postamat/data-access": [
+        "libs/shared/postamat/data-access/src/index.ts"
+      ],
+      "@kometa/shared/postamat/feature": [
+        "libs/shared/postamat/feature/src/index.ts"
+      ],
+      "@kometa/shared/postamat/types": [
+        "libs/shared/postamat/types/src/index.ts"
+      ],
+      "@kometa/shared/postamat/ui": [
+        "libs/shared/postamat/ui/src/index.ts"
+      ],
+      "@kometa/shared/primeng/ui-detail": [
+        "libs/shared/primeng/ui-detail/src/index.ts"
+      ],
+      "@kometa/shared/primeng/ui-form": [
+        "libs/shared/primeng/ui-form/src/index.ts"
+      ],
+      "@kometa/shared/primeng/ui-table": [
+        "libs/shared/primeng/ui-table/src/index.ts"
+      ],
+      "@kometa/shared/topology/data-access": [
+        "libs/shared/topology/data-access/src/index.ts"
+      ],
+      "@kometa/shared/topology/feature": [
+        "libs/shared/topology/feature/src/index.ts"
+      ],
+      "@kometa/shared/topology/types": [
+        "libs/shared/topology/types/src/index.ts"
+      ],
+      "@kometa/shared/topology/ui": [
+        "libs/shared/topology/ui/src/index.ts"
+      ],
+      "@kometa/shared/typed-form": [
+        "libs/shared/typed-form/src/index.ts"
+      ],
+      "@kometa/shared/ui-serial-port": [
+        "libs/shared/ui-serial-port/src/index.ts"
+      ],
+      "@kometa/shared/util-graphql": [
+        "libs/shared/util-graphql/src/index.ts"
+      ],
+      "@kometa/shared/utils": [
+        "libs/shared/utils/src/index.ts"
+      ],
+      "@kometa/shared/validate": [
+        "libs/shared/validate/src/index.ts"
+      ],
+      "@kometa/smde/contractor/data-access": [
+        "libs/smde/contractor/data-access/src/index.ts"
+      ],
+      "@kometa/smde/contractor/feature": [
+        "libs/smde/contractor/feature/src/index.ts"
+      ],
+      "@kometa/smde/contractor/types": [
+        "libs/smde/contractor/types/src/index.ts"
+      ],
+      "@kometa/smde/contractor/ui": [
+        "libs/smde/contractor/ui/src/index.ts"
+      ],
+      "@kometa/smde/core": [
+        "libs/smde/core/src/index.ts"
+      ],
+      "@kometa/smde/courier/controls": [
+        "libs/smde/courier/controls/src/index.ts"
+      ],
+      "@kometa/smde/courier/data-access": [
+        "libs/smde/courier/data-access/src/index.ts"
+      ],
+      "@kometa/smde/courier/feature": [
+        "libs/smde/courier/feature/src/index.ts"
+      ],
+      "@kometa/smde/courier/types": [
+        "libs/smde/courier/types/src/index.ts"
+      ],
+      "@kometa/smde/courier/ui": [
+        "libs/smde/courier/ui/src/index.ts"
+      ],
+      "@kometa/smde/emex/account/data-access": [
+        "libs/smde/emex/account/data-access/src/index.ts"
+      ],
+      "@kometa/smde/emex/account/feature": [
+        "libs/smde/emex/account/feature/src/index.ts"
+      ],
+      "@kometa/smde/emex/account/types": [
+        "libs/smde/emex/account/types/src/index.ts"
+      ],
+      "@kometa/smde/emex/account/ui": [
+        "libs/smde/emex/account/ui/src/index.ts"
+      ],
+      "@kometa/smde/emex/order/data-access": [
+        "libs/smde/emex/order/data-access/src/index.ts"
+      ],
+      "@kometa/smde/emex/order/feature": [
+        "libs/smde/emex/order/feature/src/index.ts"
+      ],
+      "@kometa/smde/emex/order/types": [
+        "libs/smde/emex/order/types/src/index.ts"
+      ],
+      "@kometa/smde/emex/order/ui": [
+        "libs/smde/emex/order/ui/src/index.ts"
+      ],
+      "@kometa/smde/employee/data-access": [
+        "libs/smde/employee/data-access/src/index.ts"
+      ],
+      "@kometa/smde/employee/feature": [
+        "libs/smde/employee/feature/src/index.ts"
+      ],
+      "@kometa/smde/employee/types": [
+        "libs/smde/employee/types/src/index.ts"
+      ],
+      "@kometa/smde/employee/ui": [
+        "libs/smde/employee/ui/src/index.ts"
+      ],
+      "@kometa/smde/identity-role/data-access": [
+        "libs/smde/identity-role/data-access/src/index.ts"
+      ],
+      "@kometa/smde/identity-role/feature": [
+        "libs/smde/identity-role/feature/src/index.ts"
+      ],
+      "@kometa/smde/identity-role/types": [
+        "libs/smde/identity-role/types/src/index.ts"
+      ],
+      "@kometa/smde/identity-role/ui": [
+        "libs/smde/identity-role/ui/src/index.ts"
+      ],
+      "@kometa/smde/last-mile/controls": [
+        "libs/smde/last-mile/controls/src/index.ts"
+      ],
+      "@kometa/smde/last-mile/data-access": [
+        "libs/smde/last-mile/data-access/src/index.ts"
+      ],
+      "@kometa/smde/last-mile/feature": [
+        "libs/smde/last-mile/feature/src/index.ts"
+      ],
+      "@kometa/smde/last-mile/return-period/data-access": [
+        "libs/smde/last-mile/return-period/data-access/src/index.ts"
+      ],
+      "@kometa/smde/last-mile/return-period/feature": [
+        "libs/smde/last-mile/return-period/feature/src/index.ts"
+      ],
+      "@kometa/smde/last-mile/return-period/types": [
+        "libs/smde/last-mile/return-period/types/src/index.ts"
+      ],
+      "@kometa/smde/last-mile/return-period/ui": [
+        "libs/smde/last-mile/return-period/ui/src/index.ts"
+      ],
+      "@kometa/smde/last-mile/sms-template/data-access": [
+        "libs/smde/last-mile/sms-template/data-access/src/index.ts"
+      ],
+      "@kometa/smde/last-mile/sms-template/feature": [
+        "libs/smde/last-mile/sms-template/feature/src/index.ts"
+      ],
+      "@kometa/smde/last-mile/sms-template/types": [
+        "libs/smde/last-mile/sms-template/types/src/index.ts"
+      ],
+      "@kometa/smde/last-mile/sms-template/ui": [
+        "libs/smde/last-mile/sms-template/ui/src/index.ts"
+      ],
+      "@kometa/smde/last-mile/storage-period/data-access": [
+        "libs/smde/last-mile/storage-period/data-access/src/index.ts"
+      ],
+      "@kometa/smde/last-mile/storage-period/feature": [
+        "libs/smde/last-mile/storage-period/feature/src/index.ts"
+      ],
+      "@kometa/smde/last-mile/storage-period/types": [
+        "libs/smde/last-mile/storage-period/types/src/index.ts"
+      ],
+      "@kometa/smde/last-mile/storage-period/ui": [
+        "libs/smde/last-mile/storage-period/ui/src/index.ts"
+      ],
+      "@kometa/smde/last-mile/types": [
+        "libs/smde/last-mile/types/src/index.ts"
+      ],
+      "@kometa/smde/last-mile/ui": [
+        "libs/smde/last-mile/ui/src/index.ts"
+      ],
+      "@kometa/smde/packing-place/controls": [
+        "libs/smde/packing-place/controls/src/index.ts"
+      ],
+      "@kometa/smde/packing-place/data-access": [
+        "libs/smde/packing-place/data-access/src/index.ts"
+      ],
+      "@kometa/smde/packing-place/feature": [
+        "libs/smde/packing-place/feature/src/index.ts"
+      ],
+      "@kometa/smde/packing-place/types": [
+        "libs/smde/packing-place/types/src/index.ts"
+      ],
+      "@kometa/smde/packing-place/ui": [
+        "libs/smde/packing-place/ui/src/index.ts"
+      ],
+      "@kometa/smde/permission/data-access": [
+        "libs/smde/permission/data-access/src/index.ts"
+      ],
+      "@kometa/smde/permission/feature": [
+        "libs/smde/permission/feature/src/index.ts"
+      ],
+      "@kometa/smde/permission/types": [
+        "libs/smde/permission/types/src/index.ts"
+      ],
+      "@kometa/smde/permission/ui": [
+        "libs/smde/permission/ui/src/index.ts"
+      ],
+      "@kometa/smde/postamat/data-access": [
+        "libs/smde/postamat/data-access/src/index.ts"
+      ],
+      "@kometa/smde/postamat/feature": [
+        "libs/smde/postamat/feature/src/index.ts"
+      ],
+      "@kometa/smde/postamat/types": [
+        "libs/smde/postamat/types/src/index.ts"
+      ],
+      "@kometa/smde/postamat/ui": [
+        "libs/smde/postamat/ui/src/index.ts"
+      ],
+      "@kometa/smde/return-request/data-access": [
+        "libs/smde/return-request/data-access/src/index.ts"
+      ],
+      "@kometa/smde/return-request/feature": [
+        "libs/smde/return-request/feature/src/index.ts"
+      ],
+      "@kometa/smde/return-request/types": [
+        "libs/smde/return-request/types/src/index.ts"
+      ],
+      "@kometa/smde/return-request/ui": [
+        "libs/smde/return-request/ui/src/index.ts"
+      ],
+      "@kometa/smde/shipment-request/data-access": [
+        "libs/smde/shipment-request/data-access/src/index.ts"
+      ],
+      "@kometa/smde/shipment-request/feature": [
+        "libs/smde/shipment-request/feature/src/index.ts"
+      ],
+      "@kometa/smde/shipment-request/types": [
+        "libs/smde/shipment-request/types/src/index.ts"
+      ],
+      "@kometa/smde/shipment-request/ui": [
+        "libs/smde/shipment-request/ui/src/index.ts"
+      ],
+      "@kometa/smde/sms/account/controls": [
+        "libs/smde/sms/account/controls/src/index.ts"
+      ],
+      "@kometa/smde/sms/account/data-access": [
+        "libs/smde/sms/account/data-access/src/index.ts"
+      ],
+      "@kometa/smde/sms/account/feature": [
+        "libs/smde/sms/account/feature/src/index.ts"
+      ],
+      "@kometa/smde/sms/account/types": [
+        "libs/smde/sms/account/types/src/index.ts"
+      ],
+      "@kometa/smde/sms/account/ui": [
+        "libs/smde/sms/account/ui/src/index.ts"
+      ],
+      "@kometa/smde/sms/template/controls": [
+        "libs/smde/sms/template/controls/src/index.ts"
+      ],
+      "@kometa/smde/sms/template/data-access": [
+        "libs/smde/sms/template/data-access/src/index.ts"
+      ],
+      "@kometa/smde/sms/template/feature": [
+        "libs/smde/sms/template/feature/src/index.ts"
+      ],
+      "@kometa/smde/sms/template/types": [
+        "libs/smde/sms/template/types/src/index.ts"
+      ],
+      "@kometa/smde/sms/template/ui": [
+        "libs/smde/sms/template/ui/src/index.ts"
+      ],
+      "@kometa/smde/tenant/data-access": [
+        "libs/smde/tenant/data-access/src/index.ts"
+      ],
+      "@kometa/smde/tenant/feature": [
+        "libs/smde/tenant/feature/src/index.ts"
+      ],
+      "@kometa/smde/tenant/types": [
+        "libs/smde/tenant/types/src/index.ts"
+      ],
+      "@kometa/smde/tenant/ui": [
+        "libs/smde/tenant/ui/src/index.ts"
+      ],
+      "@kometa/smde/topology/template-cell/data-access": [
+        "libs/smde/topology/template-cell/data-access/src/index.ts"
+      ],
+      "@kometa/smde/topology/template-cell/feature": [
+        "libs/smde/topology/template-cell/feature/src/index.ts"
+      ],
+      "@kometa/smde/topology/template-cell/types": [
+        "libs/smde/topology/template-cell/types/src/index.ts"
+      ],
+      "@kometa/smde/topology/template-cell/ui": [
+        "libs/smde/topology/template-cell/ui/src/index.ts"
+      ],
+      "@kometa/smde/topology/template-postamat/data-access": [
+        "libs/smde/topology/template-postamat/data-access/src/index.ts"
+      ],
+      "@kometa/smde/topology/template-postamat/feature": [
+        "libs/smde/topology/template-postamat/feature/src/index.ts"
+      ],
+      "@kometa/smde/topology/template-postamat/types": [
+        "libs/smde/topology/template-postamat/types/src/index.ts"
+      ],
+      "@kometa/smde/topology/template-postamat/ui": [
+        "libs/smde/topology/template-postamat/ui/src/index.ts"
+      ],
+      "@kometa/smde/topology/template-section/data-access": [
+        "libs/smde/topology/template-section/data-access/src/index.ts"
+      ],
+      "@kometa/smde/topology/template-section/feature": [
+        "libs/smde/topology/template-section/feature/src/index.ts"
+      ],
+      "@kometa/smde/topology/template-section/types": [
+        "libs/smde/topology/template-section/types/src/index.ts"
+      ],
+      "@kometa/smde/topology/template-section/ui": [
+        "libs/smde/topology/template-section/ui/src/index.ts"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
+}

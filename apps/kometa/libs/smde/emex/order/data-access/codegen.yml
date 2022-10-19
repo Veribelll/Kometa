@@ -1,0 +1,13 @@
+overwrite: true
+schema:
+  - apps/smde/schema.graphql
+generates:
+  libs/smde/emex/order/data-access/src/lib/graphql-apollo.ts:
+    documents:
+      - libs/smde/emex/order/data-access/**/*.graphql
+    plugins:
+      - typescript-apollo-angular
+    config:
+      documentMode: 'external'
+      importOperationTypesFrom: 'Operations'
+      importDocumentNodeExternallyFrom: '@kometa/smde/emex/order/types'

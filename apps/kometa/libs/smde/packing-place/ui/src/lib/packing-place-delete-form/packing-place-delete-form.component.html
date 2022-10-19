@@ -1,0 +1,8 @@
+<div *ngIf="packingPlace">
+  <p class="m-1">
+    Вы действительно хотите удалить упаковочное место:
+    <br />
+    <span class="font-bold">'{{ packingPlace.barcode }}'</span>?
+  </p>
+  <p-form-delete-actions (delete)="onDelete()" (cancel)="onCancel()"></p-form-delete-actions>
+</div>

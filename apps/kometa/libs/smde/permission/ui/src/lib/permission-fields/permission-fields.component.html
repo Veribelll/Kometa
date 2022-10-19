@@ -1,0 +1,18 @@
+<div [formGroup]="formGroup" *ngFor="let permission of permissions" class="p-p-0">
+  <div class="p-field-checkbox">
+    <p-checkbox
+      [binary]="true"
+      [inputId]="permission.name"
+      [formControlName]="permission.name"
+      (onChange)="onChange(permission, $event)"
+    ></p-checkbox>
+    <label class="pl-2" [for]="permission.name">{{ permission.displayName }}</label>
+    <div class="mt-2 ml-4">
+      <kometa-permission-fields
+        [permissions]="permission.children"
+        [formGroup]="formGroup"
+        (changeChild)="onChangeChild($event)"
+      ></kometa-permission-fields>
+    </div>
+  </div>
+</div>

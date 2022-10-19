@@ -1,0 +1,12 @@
+mutation UpdatePostamatDisplay($input: UpdatePostamatDisplayInput!) {
+  updatePostamatDisplay(input: $input) {
+    postamat {
+      id
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

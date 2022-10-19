@@ -1,0 +1,88 @@
+{
+  "root": true,
+  "ignorePatterns": ["**/*"],
+  "plugins": ["@nrwl/nx"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "@nrwl/nx/enforce-module-boundaries": [
+          "error",
+          {
+            "enforceBuildableLibDependency": true,
+            "allow": [],
+            "depConstraints": [
+              {
+                "sourceTag": "type:ui",
+                "onlyDependOnLibsWithTags": ["type:types", "type:ui", "type:util", "type:controls"],
+                "bannedExternalImports": ["*apollo*"]
+              },
+              {
+                "sourceTag": "type:types",
+                "onlyDependOnLibsWithTags": ["type:types"],
+                "bannedExternalImports": ["*apollo*", "primeng*"]
+              },
+              {
+                "sourceTag": "type:data-access",
+                "onlyDependOnLibsWithTags": ["type:types", "type:data-access"],
+                "bannedExternalImports": ["primeng*"]
+              },
+              {
+                "sourceTag": "type:controls",
+                "onlyDependOnLibsWithTags": [
+                  "type:util",
+                  "type:ui",
+                  "type:types",
+                  "type:data-access"
+                ]
+              },
+              {
+                "sourceTag": "type:feature",
+                "onlyDependOnLibsWithTags": [
+                  "type:ui",
+                  "type:types",
+                  "type:data-access",
+                  "type:util",
+                  "type:feature"
+                ]
+              },
+              {
+                "sourceTag": "type:app",
+                "onlyDependOnLibsWithTags": [
+                  "type:ui",
+                  "type:types",
+                  "type:feature",
+                  "type:data-access",
+                  "type:controls",
+                  "type:util"
+                ]
+              },
+              {
+                "sourceTag": "scope:shared",
+                "onlyDependOnLibsWithTags": ["scope:shared"]
+              },
+              {
+                "sourceTag": "scope:smde",
+                "onlyDependOnLibsWithTags": ["scope:smde", "scope:shared"]
+              },
+              {
+                "sourceTag": "scope:postamat",
+                "onlyDependOnLibsWithTags": ["scope:postamat", "scope:shared"]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@nrwl/nx/typescript"],
+      "rules": {}
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "extends": ["plugin:@nrwl/nx/javascript"],
+      "rules": {}
+    }
+  ]
+}

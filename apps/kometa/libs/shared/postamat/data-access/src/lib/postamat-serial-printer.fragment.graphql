@@ -1,0 +1,10 @@
+fragment PostamatSerialPrinter on SerialPrinter {
+  settings {
+    baudRate
+    dataBits
+    parity
+    stopBits
+    portName
+  }
+  isEnabled
+}

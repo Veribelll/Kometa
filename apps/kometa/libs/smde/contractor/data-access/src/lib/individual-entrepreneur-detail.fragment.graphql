@@ -1,0 +1,10 @@
+fragment IndividualEntrepreneurDetail on IndividualEntrepreneur {
+  ...IndividualEntrepreneur
+  accountBank {
+    ...AccountBank
+  }
+  okpo
+  ogrnip
+  actualAddress
+  mailingAddress
+}

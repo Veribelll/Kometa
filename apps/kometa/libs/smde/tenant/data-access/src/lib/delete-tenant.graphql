@@ -1,0 +1,12 @@
+mutation DeleteTenant($input: DeleteTenantInput!) {
+  deleteTenant(input: $input) {
+    tenant {
+      ...Tenant
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

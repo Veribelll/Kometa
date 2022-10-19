@@ -1,0 +1,23 @@
+query GetControllersForDriver($postamatId: ID!) {
+  controllers(postamatId: $postamatId) {
+    id
+    name
+    settings {
+      baudRate
+      dataBits
+      parity
+      stopBits
+      portName
+    }
+    locks {
+      id
+      address
+      cell {
+        id
+        name
+      }
+    }
+    __typename
+  }
+  __typename
+}

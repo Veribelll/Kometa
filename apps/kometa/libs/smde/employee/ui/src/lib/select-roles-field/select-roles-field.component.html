@@ -1,0 +1,11 @@
+<ng-container *ngIf="formGroup" [formGroup]="formGroup">
+  <label [for]="'roleIds'" class="required">Роли:</label>
+  <p-multiSelect
+    inputId="roleIds"
+    formControlName="roleIds"
+    appendTo="body"
+    [options]="identityRoles"
+    optionLabel="name"
+    optionValue="id"
+  ></p-multiSelect>
+</ng-container>

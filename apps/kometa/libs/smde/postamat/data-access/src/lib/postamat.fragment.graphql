@@ -1,0 +1,10 @@
+fragment Postamat on Postamat {
+  id
+  defaultCourierId
+  status
+  name
+  factoryNumber
+  externalId
+  token
+  address
+}

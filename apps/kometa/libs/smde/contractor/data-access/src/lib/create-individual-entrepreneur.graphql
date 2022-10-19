@@ -1,0 +1,30 @@
+mutation CreateIndividualEntrepreneur($input: CreateIndividualEntrepreneurInput!) {
+  createIndividualEntrepreneur(input: $input) {
+    individualEntrepreneur {
+      ...IndividualEntrepreneur
+    }
+    errors {
+      ... on ContractorInnAlreadyExistsError {
+        contractor {
+          id
+          name
+        }
+        code
+        message
+        details
+      }
+      ... on ContractorNameAlreadyExistsError {
+        contractor {
+          id
+          name
+        }
+        code
+        message
+        details
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

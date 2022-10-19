@@ -1,0 +1,30 @@
+mutation CreateCompany($input: CreateCompanyInput!) {
+  createCompany(input: $input) {
+    company {
+      ...Company
+    }
+    errors {
+      ... on ContractorInnAlreadyExistsError {
+        contractor {
+          id
+          name
+        }
+        code
+        message
+        details
+      }
+      ... on ContractorNameAlreadyExistsError {
+        contractor {
+          id
+          name
+        }
+        code
+        message
+        details
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

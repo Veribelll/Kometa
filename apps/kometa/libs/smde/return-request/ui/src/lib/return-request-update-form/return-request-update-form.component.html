@@ -1,0 +1,32 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSave()" [validateOnSubmit]="true">
+  <p-form-body>
+    <p-form-field>
+      <label [for]="'courierId'" class="required">Курьер:</label>
+      <kometa-courier-select-control
+        inputId="courierId"
+        selectionMode="single"
+        formControlName="courierId"
+      ></kometa-courier-select-control>
+    </p-form-field>
+    <p-form-field>
+      <label [for]="'comment'">Комментарий:</label>
+      <textarea
+        id="comment"
+        type="text"
+        [rows]="3"
+        [autoResize]="true"
+        formControlName="comment"
+        pInputTextarea
+      ></textarea>
+    </p-form-field>
+  </p-form-body>
+  <ng-content-default>
+    <ng-content select="[actions]"></ng-content>
+    <p-form-actions
+      default
+      [invalid]="formGroup.invalid"
+      [pending]="formGroup.pending"
+      (cancel)="onCancel()"
+    ></p-form-actions>
+  </ng-content-default>
+</form>

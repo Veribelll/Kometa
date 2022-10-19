@@ -1,0 +1,14 @@
+<form [formGroup]="formGroup" [validateOnSubmit]="true" (ngSubmit)="onSave()">
+  <p-form-body>
+    <p-form-field>
+      <kometa-sms-template-select-control
+        inputId="smsTemplateId"
+        selectionMode="single"
+        formControlName="smsTemplateId"
+        [where]="where"
+      ></kometa-sms-template-select-control>
+    </p-form-field>
+  </p-form-body>
+  <p-form-actions [invalid]="formGroup.invalid" [pending]="formGroup.pending" (cancel)="onCancel()">
+  </p-form-actions>
+</form>

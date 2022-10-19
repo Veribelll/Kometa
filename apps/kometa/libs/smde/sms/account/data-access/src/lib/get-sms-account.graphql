@@ -1,0 +1,5 @@
+query GetSmsAccount($where: SmsAccountFilterInput) {
+  smsAccount(where: $where) {
+    ...SmsAccount
+  }
+}

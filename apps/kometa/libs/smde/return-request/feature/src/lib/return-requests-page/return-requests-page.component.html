@@ -1,0 +1,35 @@
+<div class="shadow-15">
+  <div class="mb-2">
+    <p-toolbar>
+      <button
+        pButton
+        pRipple
+        *permission="'PackingPlaceManagement.ReturnRequests.Create'"
+        label="Добавить"
+        icon="pi pi-plus"
+        class="p-button-success"
+        (click)="onCreate()"
+      ></button>
+    </p-toolbar>
+  </div>
+  <div>
+    <p-panel header="Заявки на возврат">
+      <kometa-return-request-table
+        [returnRequests]="(returnRequests$ | async)!"
+        [loading]="(loading$ | async)!"
+        [totalRecords]="(totalRecords$ | async)!"
+        [permissionDetails]="'PackingPlaceManagement.ReturnRequests'"
+        [permissionUpdate]="'PackingPlaceManagement.ReturnRequests.Update'"
+        [permissionDelete]="'PackingPlaceManagement.ReturnRequests.Delete'"
+        [permissionReturn]="'PackingPlaceManagement.ReturnRequests.Return'"
+        [permissionCancel]="'PackingPlaceManagement.ReturnRequests.Cancel'"
+        (lazyLoad)="onLazyLoad($event)"
+        (details)="onDetails($event)"
+        (update)="onUpdate($event)"
+        (return)="onReturn($event)"
+        (cancel)="onCancel($event)"
+        (timeline)="onTimeline($event)"
+      ></kometa-return-request-table>
+    </p-panel>
+  </div>
+</div>

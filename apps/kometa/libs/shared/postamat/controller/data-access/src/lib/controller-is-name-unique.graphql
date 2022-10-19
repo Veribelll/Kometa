@@ -1,0 +1,3 @@
+query ControllerIsNameUnique($postamatId: ID!, $name: String!) {
+  controllersAny(postamatId: $postamatId, where: { name: { eq: $name } })
+}

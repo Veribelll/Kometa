@@ -1,0 +1,12 @@
+query GetTenants($where: TenantFilterInput, $order: [TenantSortInput!], $take: Int, $skip: Int) {
+  tenants(where: $where, order: $order, take: $take, skip: $skip) {
+    items {
+      ...Tenant
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+    totalCount
+  }
+}

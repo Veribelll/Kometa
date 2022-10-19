@@ -1,0 +1,25 @@
+fragment AccessKey on AccessKey {
+  id
+  barcode
+  lastMileId
+  identityUserId
+  identityUser {
+    id
+    surname
+    name
+    middleName
+    phoneNumber
+    contractors {
+      id
+      name
+    }
+    roles {
+      id
+      name
+    }
+    email
+  }
+  expiresDt
+  lastEntrance
+  isDisposable
+}

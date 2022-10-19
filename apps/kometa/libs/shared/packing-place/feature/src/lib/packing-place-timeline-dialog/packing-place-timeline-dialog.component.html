@@ -1,0 +1,10 @@
+<div>
+  <kometa-packing-place-timeline-skeleton
+    *ngIf="(loading$ | async)!; else timeline"
+  ></kometa-packing-place-timeline-skeleton>
+  <ng-template #timeline>
+    <kometa-packing-place-timeline-form
+      [changesHistory]="(changesHistory | async)!"
+    ></kometa-packing-place-timeline-form>
+  </ng-template>
+</div>

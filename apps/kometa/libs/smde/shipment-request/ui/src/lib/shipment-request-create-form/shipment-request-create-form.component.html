@@ -1,0 +1,46 @@
+<form [formGroup]="formGroup" [validateOnSubmit]="true" (ngSubmit)="onSave()">
+  <p-form-body>
+    <p-form-field>
+      <label for="code" class="required">Код:</label>
+      <input id="code" formControlName="code" type="text" pInputText />
+    </p-form-field>
+    <p-form-field>
+      <label [for]="'lastMileId'" class="required">Последняя миля:</label>
+      <kometa-last-mile-select-control
+        inputId="lastMileId"
+        selectionMode="single"
+        formControlName="lastMileId"
+      ></kometa-last-mile-select-control>
+    </p-form-field>
+    <p-form-field>
+      <label [for]="'courierId'" class="required">Курьер:</label>
+      <kometa-courier-select-control
+        inputId="courierId"
+        selectionMode="single"
+        formControlName="courierId"
+      ></kometa-courier-select-control>
+    </p-form-field>
+    <p-form-field>
+      <label [for]="'packingPlaceIds'" class="required">Упаковочные места:</label>
+      <kometa-packing-place-select-control
+        inputId="packingPlaceIds"
+        selectionMode="multiple"
+        formControlName="packingPlaceIds"
+        [where]="packingPlaceWhere"
+      ></kometa-packing-place-select-control>
+    </p-form-field>
+    <p-form-field>
+      <label for="cause" class="required">Причина:</label>
+      <textarea pInputTextarea id="cause" formControlName="cause"></textarea>
+    </p-form-field>
+    <p-form-field>
+      <label for="comment">Комментарий для курьера:</label>
+      <textarea pInputTextarea id="comment" formControlName="comment"></textarea>
+    </p-form-field>
+  </p-form-body>
+  <p-form-actions
+    [invalid]="formGroup.invalid"
+    [pending]="formGroup.pending"
+    (cancel)="onCancel()"
+  ></p-form-actions>
+</form>

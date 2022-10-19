@@ -1,0 +1,29 @@
+<div>
+  <div class="mb-2">
+    <p-toolbar>
+      <button
+        *permission="'LastMileManagement.AccessKeys'"
+        label="Добавить"
+        pButton
+        pRipple
+        icon="pi pi-plus"
+        class="p-button-success"
+        (click)="onCreate()"
+      ></button>
+    </p-toolbar>
+  </div>
+  <div>
+    <p-panel header="Ключи доступа">
+      <kometa-access-key-table
+        [accessKeys]="(accessKeys$ | async)!"
+        [loading]="(loading$ | async)!"
+        [permissionDetails]="'LastMileManagement.AccessKeys'"
+        [permissionUpdate]="'LastMileManagement.AccessKeys.Update'"
+        [permissionDelete]="'LastMileManagement.AccessKeys.Delete'"
+        (lazyLoad)="onLazyLoad($event)"
+        (update)="onUpdate($event)"
+        (delete)="onDelete($event)"
+      ></kometa-access-key-table>
+    </p-panel>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="p-shadow-15">
+  <div class="mb-2">
+    <p-toolbar>
+      <button
+        pButton
+        pRipple
+        *permission="'AbpIdentity.Roles.Create'"
+        label="Добавить"
+        icon="pi pi-plus"
+        class="p-button-success"
+        (click)="onCreate()"
+      ></button>
+    </p-toolbar>
+  </div>
+  <div>
+    <p-panel header="Роли">
+      <kometa-identity-role-table
+        [identityRoles]="(identityRoles$ | async)!"
+        [loading]="(loading$ | async)!"
+        [totalRecords]="(totalRecords$ | async)!"
+        [permissionDetails]="'AbpIdentity.Roles'"
+        [permissionUpdate]="'AbpIdentity.Roles.Update'"
+        [permissionDelete]="'AbpIdentity.Roles.Delete'"
+        (lazyLoad)="onLazyLoad($event)"
+        (details)="onDetails($event)"
+        (update)="onUpdate($event)"
+        (delete)="onDelete($event)"
+        (updatePermissions)="onUpdatePermissions($event)"
+      ></kometa-identity-role-table>
+    </p-panel>
+  </div>
+</div>

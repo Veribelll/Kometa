@@ -1,0 +1,32 @@
+<div class="flex flex-column">
+  <div class="grid align-items-end">
+    <div class="col">
+      <kometa-section [cells]="(selectCells$ | async)!"></kometa-section>
+    </div>
+    <div class="col">
+      <kometa-panel-edit-cells
+        [selectItems]="(selectCells$ | async)!"
+        [selectableList]="selectableList"
+        (addCell)="onAddCell($event)"
+        (removeCell)="onRemoveCell($event)"
+        (upCell)="onUpCell($event)"
+        (downCell)="onDownCell($event)"
+      ></kometa-panel-edit-cells>
+    </div>
+  </div>
+  <div class="mt-4">
+    <form [formGroup]="formGroup" [validateOnSubmit]="true" (ngSubmit)="onSave()">
+      <p-form-body>
+        <p-form-field>
+          <label for="name">Наименование:</label>
+          <input id="name" formControlName="name" type="text" pInputText />
+        </p-form-field>
+      </p-form-body>
+      <p-form-actions
+        [invalid]="formGroup.invalid"
+        [pending]="formGroup.pending"
+        (cancel)="onCancel()"
+      ></p-form-actions>
+    </form>
+  </div>
+</div>

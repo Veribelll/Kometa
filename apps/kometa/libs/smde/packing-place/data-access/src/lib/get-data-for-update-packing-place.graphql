@@ -1,0 +1,8 @@
+query GetDataForUpdatePackingPlace {
+  sizes {
+    items {
+      id
+      name
+    }
+  }
+}

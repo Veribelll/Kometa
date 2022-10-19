@@ -1,0 +1,7 @@
+fragment Courier on IdentityUser {
+  id
+  surname
+  name
+  middleName
+  phoneNumber
+}

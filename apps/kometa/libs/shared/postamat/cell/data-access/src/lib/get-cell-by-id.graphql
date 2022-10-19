@@ -1,0 +1,5 @@
+query GetCellById($cellId: ID!) {
+  cellById(cellId: $cellId) {
+    ...CellDetail
+  }
+}

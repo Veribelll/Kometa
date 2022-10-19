@@ -1,0 +1,41 @@
+<div>
+  <ng-container *ngIf="displayDetails">
+    <button
+      *permission="permissionDetails"
+      type="button"
+      pButton
+      pRipple
+      pTooltip="Детали"
+      icon="pi pi-search"
+      class="p-button-rounded p-button-info mr-2"
+      (click)="onDetails()"
+    ></button>
+  </ng-container>
+  <ng-content select="first"></ng-content>
+  <ng-container *ngIf="displayUpdate">
+    <button
+      *permission="permissionUpdate"
+      type="button"
+      pButton
+      pRipple
+      pTooltip="Изменить"
+      icon="pi pi-pencil"
+      class="p-button-rounded p-button-success mr-2"
+      (click)="onUpdate()"
+    ></button>
+  </ng-container>
+  <ng-content></ng-content>
+  <ng-container *ngIf="displayDelete">
+    <button
+      *permission="permissionDelete"
+      type="button"
+      pButton
+      pRipple
+      pTooltip="Удалить"
+      icon="pi pi-trash"
+      class="p-button-rounded p-button-warning"
+      (click)="onDelete()"
+    ></button>
+  </ng-container>
+  <ng-content select="end"></ng-content>
+</div>

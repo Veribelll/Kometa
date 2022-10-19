@@ -1,0 +1,3 @@
+query SmsTemplateIsNameUnique($name: String!) {
+  smsTemplatesAny(where: { name: { eq: $name } })
+}

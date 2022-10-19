@@ -1,0 +1,7 @@
+fragment PostamatScanner on PostamatScanner {
+  baudRate
+  dataBits
+  parity
+  stopBits
+  portName
+}

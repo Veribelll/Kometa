@@ -1,0 +1,81 @@
+<ng-container *transloco="let t">
+  <p-table
+    #table
+    styleClass="p-datatable-gridlines"
+    dataKey="id"
+    [value]="orders"
+    [loading]="loading"
+    [totalRecords]="totalRecords"
+    [paginator]="true"
+    [rows]="25"
+    [rowsPerPageOptions]="[25, 50, 75]"
+    [responsive]="true"
+    [lazy]="true"
+    (onLazyLoad)="onLazyLoad($event)"
+  >
+    <ng-template pTemplate="caption">
+      <p-table-caption
+        (clear)="table.clear()"
+        (changeFilter)="table.filterGlobal($event, 'contains')"
+      ></p-table-caption>
+    </ng-template>
+
+    <ng-template pTemplate="header">
+      <tr>
+        <th class="text-center">
+          <span>Статус</span>
+        </th>
+
+        <th class="text-center">
+          <span>GlobalId</span>
+        </th>
+
+        <th class="text-center">
+          <span>ID заказа</span>
+        </th>
+
+        <th class="text-center">
+          <span>ID клиента</span>
+        </th>
+
+        <th class="text-center">
+          <span>ФИО клиента</span>
+        </th>
+
+        <th class="text-center">
+          <span>Телефон клиента</span>
+        </th>
+
+        <th class="text-center">
+          <span>Email клиента</span>
+        </th>
+
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-order>
+      <tr>
+        <td class="text-center">{{ t('EmexOrderStatus:' + getStatus(order)) }}</td>
+        <td class="text-center">{{ order.globalId }}</td>
+        <td class="text-center">{{ order.externalId }}</td>
+        <td class="text-center">{{ order.customer.externalId }}</td>
+        <td class="text-center">{{ order.customer.name }}</td>
+        <td class="text-center">{{ order.customer.phone }}</td>
+        <td class="text-center">{{ order.customer.email }}</td>
+        <td class="text-center">
+          <p-table-actions
+            [permissionDetails]="permissionDetails"
+            [permissionUpdate]="permissionUpdate"
+            [permissionDelete]="permissionDelete"
+            [displayUpdate]="!order.isLocked"
+            [displayDelete]="!order.isLocked"
+            (details)="onDetails(order)"
+            (update)="onUpdate(order)"
+            (delete)="onDelete(order)"
+          >
+          </p-table-actions>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</ng-container>

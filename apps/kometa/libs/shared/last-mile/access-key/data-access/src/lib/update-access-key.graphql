@@ -1,0 +1,12 @@
+mutation UpdateAccessKey($input: UpdateAccessKeyInput!) {
+  updateAccessKey(input: $input) {
+    accessKey {
+      ...AccessKey
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

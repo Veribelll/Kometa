@@ -1,0 +1,3 @@
+query AccessKeyIsBarcodeUnique($lastMileId: ID!, $barcode: String!) {
+  accessKeysAny(lastMileId: $lastMileId, where: { barcode: { eq: $barcode } })
+}

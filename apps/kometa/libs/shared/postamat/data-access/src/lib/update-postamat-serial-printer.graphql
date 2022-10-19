@@ -1,0 +1,14 @@
+mutation UpdatePostamatSerialPrinter($input: UpdatePostamatSerialPrinterInput!) {
+  updatePostamatSerialPrinter(input: $input) {
+    postamat {
+      serialPrinter {
+        ...PostamatSerialPrinter
+      }
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

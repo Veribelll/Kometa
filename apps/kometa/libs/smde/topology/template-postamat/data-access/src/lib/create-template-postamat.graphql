@@ -1,0 +1,17 @@
+mutation CreateTemplatePostamat($input: CreateTemplatePostamatInput!) {
+  createTemplatePostamat(input: $input) {
+    templatePostamat {
+      ...TemplatePostamat
+    }
+    errors {
+      ... on TemplatePostamatNameAlreadyExistsError {
+        code
+        message
+        details
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

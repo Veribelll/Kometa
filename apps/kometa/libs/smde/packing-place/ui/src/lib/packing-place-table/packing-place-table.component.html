@@ -1,0 +1,121 @@
+<ng-container *transloco="let t">
+  <p-table
+    #table
+    styleClass="p-datatable-gridlines"
+    dataKey="id"
+    [value]="packingPlaces"
+    [loading]="loading"
+    [totalRecords]="totalRecords"
+    [paginator]="true"
+    [rows]="25"
+    [rowsPerPageOptions]="[25, 50, 75]"
+    [responsive]="true"
+    [lazy]="true"
+    (onLazyLoad)="onLazyLoad($event)"
+  >
+    <ng-template pTemplate="caption">
+      <p-table-caption
+        (clear)="table.clear()"
+        (changeFilter)="table.filterGlobal($event, 'contains')"
+      ></p-table-caption>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th class="text-center">
+          <span>Статус</span>
+        </th>
+
+        <th class="text-center">
+          <span>Штрих код</span>
+        </th>
+
+        <th class="text-center">
+          <span>Последняя миля</span>
+        </th>
+
+        <th class="text-center">
+          <span>Клиент</span>
+        </th>
+
+        <th class="text-center">
+          <span>Курьер</span>
+        </th>
+
+        <th class="text-center">
+          <span>Размер</span>
+        </th>
+
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-packingPlace>
+      <tr>
+        <td class="text-center">
+          <span class="w-full">
+            {{ t('PackingPlaceStatus:' + getStatus(packingPlace)) }}
+          </span>
+        </td>
+        <td class="text-center">
+          <span>
+            {{ packingPlace.barcode }}
+          </span>
+        </td>
+        <td class="text-center">
+          <span>
+            {{ packingPlace.lastMile?.name }}
+          </span>
+        </td>
+        <td class="text-center">
+          <span>{{ packingPlace.customer | fio }}</span>
+        </td>
+        <td class="text-center">
+          <span>{{ packingPlace.courier | fio }}</span>
+        </td>
+        <td class="text-center">
+          <span>
+            {{ packingPlace.size?.name }}
+          </span>
+        </td>
+        <td class="text-center">
+          <p-table-actions
+            [permissionDetails]="permissionDetails"
+            [permissionUpdate]="permissionUpdate"
+            [permissionDelete]="permissionDelete"
+            [displayUpdate]="!packingPlace.isLocked"
+            [displayDelete]="!packingPlace.isLocked"
+            (details)="onDetails(packingPlace)"
+            (update)="onUpdate(packingPlace)"
+            (delete)="onDelete(packingPlace)"
+          >
+            <ng-container ngProjectAs="first">
+              <ng-container *ngIf="showSend(packingPlace)">
+                <button
+                  *permission="permissionUpdate"
+                  type="button"
+                  pButton
+                  pRipple
+                  pTooltip="Отправить"
+                  icon="pi pi-send"
+                  class="p-button-rounded p-button-info mr-2"
+                  (click)="onSend(packingPlace)"
+                ></button>
+              </ng-container>
+              <ng-container>
+                <button
+                  *permission="permissionDetails"
+                  type="button"
+                  pButton
+                  pRipple
+                  pTooltip="История"
+                  icon="pi pi-clock"
+                  class="p-button-rounded mr-2"
+                  (click)="onTimeline(packingPlace)"
+                ></button>
+              </ng-container>
+            </ng-container>
+          </p-table-actions>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</ng-container>

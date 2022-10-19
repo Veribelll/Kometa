@@ -1,0 +1,22 @@
+<div class="flex align-items-center justify-content-center h-full">
+  <div class="flex flex-column align-items-center">
+    <div class="mb-6">
+      <kometa-place-order-button
+        routerLink="/receive-packing-place"
+      ></kometa-place-order-button>
+    </div>
+    <div class="mb-6">
+      <kometa-receive-order-button
+        (click)="onAuth('/placing-packing-place')"
+      ></kometa-receive-order-button>
+    </div>
+    <div class="mb-6">
+      <kometa-return-order-button></kometa-return-order-button>
+    </div>
+  </div>
+</div>
+<a
+  style="top: 160px; width: 70px; height: 70px"
+  class="absolute"
+  (click)="onAuth('/admin-panel')"
+></a>

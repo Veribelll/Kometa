@@ -1,0 +1,8 @@
+query GetDataForCreatePackingPlace {
+  sizes {
+    items {
+      id
+      name
+    }
+  }
+}

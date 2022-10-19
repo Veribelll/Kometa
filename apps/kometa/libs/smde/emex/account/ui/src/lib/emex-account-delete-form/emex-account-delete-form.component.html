@@ -1,0 +1,8 @@
+<div *ngIf="account">
+  <p class="m-1">
+    Вы действительно хотите удалить аккаунт:
+    <br />
+    <span class="font-bold">'{{ account.name }}'</span>?
+  </p>
+  <p-form-delete-actions (delete)="onDelete()" (cancel)="onCancel()"></p-form-delete-actions>
+</div>

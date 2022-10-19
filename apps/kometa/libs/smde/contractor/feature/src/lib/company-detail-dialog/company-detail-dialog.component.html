@@ -1,0 +1,10 @@
+<div>
+  <kometa-contractor-skeleton
+    *ngIf="(loading$ | async)!; else detail"
+  ></kometa-contractor-skeleton>
+  <ng-template #detail>
+    <kometa-company-detail-form
+      [company]="(company$ | async)!"
+    ></kometa-company-detail-form>
+  </ng-template>
+</div>

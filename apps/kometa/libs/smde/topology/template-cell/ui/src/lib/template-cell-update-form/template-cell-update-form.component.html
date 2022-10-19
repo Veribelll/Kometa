@@ -1,0 +1,37 @@
+<div *ngIf="templateCell">
+  <div class="flex justify-content-center">
+    <kometa-cell
+      [isCell]="templateCell.isCell"
+      [name]="nameControl.value"
+      [width]="templateCell.width"
+      [height]="templateCell.height"
+      [imageUrl]="templateCell.imageUrl"
+      class="mb-3"
+    ></kometa-cell>
+  </div>
+  <form [formGroup]="formGroup" [validateOnSubmit]="true" (ngSubmit)="onSave()">
+    <p-form-body>
+      <p-form-field>
+        <label for="name">Наименование:</label>
+        <input id="name" formControlName="name" type="text" pInputText />
+      </p-form-field>
+      <p-form-field *ngIf="templateCell.isCell">
+        <label [for]="'sizeId'">Размер:</label>
+        <p-dropdown
+          inputId="sizeId"
+          formControlName="sizeId"
+          appendTo="body"
+          [options]="sizes"
+          optionValue="id"
+          optionLabel="name"
+          [autoDisplayFirst]="false"
+        ></p-dropdown>
+      </p-form-field>
+    </p-form-body>
+    <p-form-actions
+      [invalid]="formGroup.invalid"
+      [pending]="formGroup.pending"
+      (cancel)="onCancel()"
+    ></p-form-actions>
+  </form>
+</div>

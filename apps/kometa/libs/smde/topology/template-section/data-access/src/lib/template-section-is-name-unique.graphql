@@ -1,0 +1,3 @@
+query TemplateSectionIsNameUnique($name: String!) {
+  templatesSectionAny(where: { name: { eq: $name } })
+}

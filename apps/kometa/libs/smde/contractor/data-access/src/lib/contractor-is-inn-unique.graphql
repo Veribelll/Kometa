@@ -1,0 +1,3 @@
+query ContractorIsInnUnique($inn: String!) {
+  contractorsAny(where: { inn: { eq: $inn } })
+}

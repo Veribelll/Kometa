@@ -1,0 +1,6 @@
+fragment LastMile on LastMile {
+  id
+  name
+  address
+  externalId
+}

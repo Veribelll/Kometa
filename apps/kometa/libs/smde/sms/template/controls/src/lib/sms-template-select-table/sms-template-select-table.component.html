@@ -1,0 +1,64 @@
+<ng-container *transloco="let t">
+  <p-table
+    #table
+    styleClass="p-datatable-gridlines"
+    dataKey="id"
+    [value]="smsTemplates"
+    [loading]="loading"
+    [totalRecords]="totalRecords"
+    [paginator]="true"
+    [rows]="25"
+    [rowsPerPageOptions]="[25, 50, 75]"
+    [responsive]="true"
+    [lazy]="true"
+    [(selection)]="selected"
+    [selectionMode]="selectionMode!"
+    (onLazyLoad)="onLazyLoad($event)"
+    (selectionChange)="onSelectedChange($event)"
+  >
+    <ng-template pTemplate="caption">
+      <p-table-caption
+        (clear)="table.clear()"
+        (changeFilter)="table.filterGlobal($event, 'contains')"
+      ></p-table-caption>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th class="text-center">
+          <span>Тип ивента</span>
+        </th>
+
+        <th class="text-center">
+          <span>Наименование</span>
+        </th>
+
+        <th class="text-center">
+          <span>Текст</span>
+        </th>
+
+        <th class="text-center">
+          <span>Комментарий</span>
+        </th>
+
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-smsTemplate let-rowIndex="rowIndex">
+      <tr [pSelectableRow]="smsTemplate" [pSelectableRowIndex]="rowIndex">
+        <td class="text-center">
+          {{ t('NotificationEventType:' + getEventType(smsTemplate)) }}
+        </td>
+        <td class="text-center">{{ smsTemplate.name }}</td>
+        <td class="text-justify">{{ smsTemplate.template }}</td>
+        <td class="text-justify">{{ smsTemplate.comment }}</td>
+        <td class="text-center">
+          <p-table-actions
+            [displayUpdate]="false"
+            [displayDelete]="false"
+            (details)="onDetails(smsTemplate)"
+          ></p-table-actions>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</ng-container>

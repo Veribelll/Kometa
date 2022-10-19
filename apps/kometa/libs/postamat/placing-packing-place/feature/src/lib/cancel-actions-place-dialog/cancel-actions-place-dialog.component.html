@@ -1,0 +1,59 @@
+<div>
+  <p-table
+    [value]="placedList"
+    [scrollable]="true"
+    scrollHeight="230px"
+    selectionMode="single"
+    [(selection)]="selected"
+    [metaKeySelection]="true"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="min-width: 100px" class="text-center">
+          <span class="w-full text-2xl">Ид клиента</span>
+        </th>
+        <th style="min-width: 100px" class="text-center">
+          <span class="w-full text-2xl">ШК</span>
+        </th>
+        <th style="min-width: 100px" class="text-center">
+          <span class="w-full text-2xl">Ячейка</span>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-placed let-rowIndex="rowIndex">
+      <tr [pSelectableRow]="placed" [pSelectableRowIndex]="rowIndex">
+        <td style="min-width: 100px" class="text-center">
+          <span class="w-full text-2xl">{{ placed.packingPlace.customer?.externalId }}</span>
+        </td>
+        <td style="min-width: 100px" class="text-center">
+          <span class="w-full text-2xl">{{ placed.packingPlace.barcode }}</span>
+        </td>
+        <td style="min-width: 100px" class="text-center">
+          <span class="w-full text-2xl">{{ placed.cell.name }}</span>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <div class="flex flex-row justify-content-center">
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="Выйти"
+      class="p-button-outlined p-button-secondary p-button-lg mr-4"
+      (click)="onExit()"
+    ></button>
+
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="Отменить"
+      icon="pi pi-trash"
+      class="p-button-outlined p-button-danger p-button-lg"
+      [disabled]="!selected"
+      (click)="onCancel()"
+    ></button>
+  </div>
+</div>

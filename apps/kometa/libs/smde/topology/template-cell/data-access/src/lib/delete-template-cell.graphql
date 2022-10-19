@@ -1,0 +1,12 @@
+mutation DeleteTemplateCell($input: DeleteTemplateCellInput!) {
+  deleteTemplateCell(input: $input) {
+    templateCell {
+      ...TemplateCell
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

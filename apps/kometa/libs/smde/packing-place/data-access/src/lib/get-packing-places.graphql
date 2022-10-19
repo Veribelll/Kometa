@@ -1,0 +1,17 @@
+query GetPackingPlaces(
+  $where: PackingPlaceFilterInput
+  $order: [PackingPlaceSortInput!]
+  $take: Int
+  $skip: Int
+) {
+  packingPlaces(where: $where, order: $order, take: $take, skip: $skip) {
+    items {
+      ...PackingPlace
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+    totalCount
+  }
+}

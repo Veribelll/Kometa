@@ -1,0 +1,21 @@
+mutation CreateTenant($input: CreateTenantInput!) {
+  createTenant(input: $input) {
+    tenant {
+      ...Tenant
+    }
+    errors {
+      ... on TenantNameAlreadyExistsError {
+        code
+        message
+        details
+        tenant {
+          id
+          name
+        }
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

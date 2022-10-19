@@ -1,0 +1,50 @@
+<p-form-body *ngIf="formGroup" [formGroup]="formGroup">
+  <p-form-field>
+    <dadata-organization-name-field
+      inputId="name"
+      label="Наименование:"
+      classLabel="required"
+      formControlName="name"
+      type="LEGAL"
+      (selectOrganization)="onSelectOrganization($event)"
+    ></dadata-organization-name-field>
+  </p-form-field>
+  <p-form-field>
+    <label [for]="'inn'" class="required">ИНН:</label>
+    <p-inputMask inputId="inn" formControlName="inn" mask="9999999999"></p-inputMask>
+  </p-form-field>
+  <p-form-field>
+    <label [for]="'okpo'">ОКПО:</label>
+    <p-inputMask inputId="okpo" formControlName="okpo" mask="99999999"></p-inputMask>
+  </p-form-field>
+  <p-form-field>
+    <label [for]="'kpp'">КПП:</label>
+    <p-inputMask inputId="kpp" formControlName="kpp" mask="999999999"></p-inputMask>
+  </p-form-field>
+  <p-form-field>
+    <label [for]="'ogrn'">ОГРН:</label>
+    <p-inputMask inputId="ogrn" formControlName="ogrn" mask="9999999999999"></p-inputMask>
+  </p-form-field>
+  <p-form-field>
+    <dadata-address-field
+      inputId="address"
+      label="Юридический адрес:"
+      classLabel="required"
+      formControlName="address"
+    ></dadata-address-field>
+  </p-form-field>
+  <p-form-field>
+    <dadata-address-field
+      inputId="actualAddress"
+      label="Фактический адрес:"
+      formControlName="actualAddress"
+    ></dadata-address-field>
+  </p-form-field>
+  <p-form-field>
+    <dadata-address-field
+      inputId="mailingAddress"
+      label="Почтовый адрес:"
+      formControlName="mailingAddress"
+    ></dadata-address-field>
+  </p-form-field>
+</p-form-body>

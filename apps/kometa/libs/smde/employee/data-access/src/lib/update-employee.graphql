@@ -1,0 +1,17 @@
+mutation UpdateEmployee($input: UpdateEmployeeInput!) {
+  updateEmployee(input: $input) {
+    identityUser {
+      ...Employee
+    }
+    errors {
+      ... on IdentityUserEmailAlreadyExistsError {
+        code
+        message
+        details
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

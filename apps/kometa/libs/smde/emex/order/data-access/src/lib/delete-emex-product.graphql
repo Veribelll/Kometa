@@ -1,0 +1,12 @@
+mutation DeleteEmexProduct($input: DeleteEmexProductInput!) {
+  deleteEmexProduct(input: $input) {
+    emexProduct {
+      ...EmexProduct
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+mutation DeleteIdentityRole($input: DeleteIdentityRoleInput!) {
+  deleteIdentityRole(input: $input) {
+    identityRole {
+      ...IdentityRole
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

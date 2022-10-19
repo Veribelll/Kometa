@@ -1,0 +1,3 @@
+query ContractorIsNameUnique($name: String!) {
+  contractorsAny(where: { name: { eq: $name } })
+}

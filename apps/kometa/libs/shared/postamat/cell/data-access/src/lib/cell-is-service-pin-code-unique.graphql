@@ -1,0 +1,3 @@
+query CellIsServicePinCodeUnique($postamatId: ID!, $servicePinCode: String!) {
+  cellsAny(postamatId: $postamatId, where: { servicePinCode: { eq: $servicePinCode } })
+}

@@ -1,0 +1,12 @@
+mutation DeleteTemplateSection($input: DeleteTemplateSectionInput!) {
+  deleteTemplateSection(input: $input) {
+    templateSection {
+      ...TemplateSection
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

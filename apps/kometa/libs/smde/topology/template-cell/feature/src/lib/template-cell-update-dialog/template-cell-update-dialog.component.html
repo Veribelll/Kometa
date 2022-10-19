@@ -1,0 +1,7 @@
+<kometa-template-cell-update-form
+  [formGroup]="formGroup"
+  [templateCell]="templateCell"
+  [sizes]="(sizes$ | async)!"
+  (save)="onSave($event)"
+  (cancel)="onCancel()"
+></kometa-template-cell-update-form>

@@ -1,0 +1,22 @@
+query GetPackingPlacesInTransit(
+  $postamatId: ID!
+  $order: [PackingPlaceSortInput!]
+  $take: Int
+  $skip: Int
+) {
+  packingPlaces(
+    where: { lastMileId: { eq: $postamatId }, status: { in: [InProcessSend, Sent] } }
+    order: $order
+    take: $take
+    skip: $skip
+  ) {
+    items {
+      ...PackingPlaceInTransit
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+    totalCount
+  }
+}

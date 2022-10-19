@@ -1,0 +1,17 @@
+mutation CreateEmployee($input: CreateEmployeeInput!) {
+  createEmployee(input: $input) {
+    identityUser {
+      ...Employee
+    }
+    errors {
+      ... on IdentityUserEmailAlreadyExistsError {
+        code
+        message
+        details
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

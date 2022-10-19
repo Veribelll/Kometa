@@ -1,0 +1,12 @@
+mutation UpdateLastMileReturnPeriod($input: UpdateLastMileReturnPeriodInput!) {
+  updateLastMileReturnPeriod(input: $input) {
+    lastMileReturnPeriod {
+      ...LastMileReturnPeriod
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

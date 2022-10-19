@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\..\..\common.props" />
+  <Import Project="..\..\..\..\fody.props" />
+  
+  <PropertyGroup>
+    <RootNamespace>Smde</RootNamespace>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Smde.Application\Smde.Application.csproj" />
+    <ProjectReference Include="..\Smde.Domain.Tests\Smde.Domain.Tests.csproj" />
+  </ItemGroup>
+</Project>

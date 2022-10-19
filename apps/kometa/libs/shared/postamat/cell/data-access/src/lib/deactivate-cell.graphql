@@ -1,0 +1,12 @@
+mutation DeactivateCell($input: DeactivateCellInput!) {
+  deactivateCell(input: $input) {
+    cell {
+      ...Cell
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

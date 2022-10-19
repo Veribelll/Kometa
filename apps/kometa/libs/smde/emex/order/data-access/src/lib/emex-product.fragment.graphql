@@ -1,0 +1,23 @@
+fragment EmexProduct on EmexProduct {
+  id
+  status
+  typeBalance
+  typePayment
+  barcode
+  name
+  vendorCode
+  price
+  sum
+  quantity
+  vat
+  manufacturer
+  manufacturerCountry
+  manufacturerCountryCode
+  marking
+  gtd
+  packingPlace {
+    id
+    status
+    barcode
+  }
+}

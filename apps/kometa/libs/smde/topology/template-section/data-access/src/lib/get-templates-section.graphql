@@ -1,0 +1,17 @@
+query GetTemplatesSection(
+  $where: TemplateSectionFilterInput
+  $order: [TemplateSectionSortInput!]
+  $take: Int
+  $skip: Int
+) {
+  templatesSection(where: $where, order: $order, take: $take, skip: $skip) {
+    items {
+      ...TemplateSection
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+    totalCount
+  }
+}

@@ -1,0 +1,11 @@
+<ng-container *transloco="let t">
+  <div *ngIf="smsTemplate">
+    <p class="m-1">
+      Вы действительно хотите удалить смс шаблон:
+      <br />
+      <span class="font-bold">{{ t('NotificationEventType:' + getEventType(smsTemplate)) }}</span>
+      <span>?</span>
+    </p>
+    <p-form-delete-actions (delete)="onDelete()" (cancel)="onCancel()"></p-form-delete-actions>
+  </div>
+</ng-container>

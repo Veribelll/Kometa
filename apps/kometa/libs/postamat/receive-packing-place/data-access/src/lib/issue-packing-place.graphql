@@ -1,0 +1,12 @@
+mutation IssuePackingPlace($input: IssuePackingPlaceInPostamatInput!) {
+  issuePackingPlaceInPostamat(input: $input) {
+    postamat {
+      id
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

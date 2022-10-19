@@ -1,0 +1,12 @@
+query GetControllers(
+  $postamatId: ID!
+  $where: ControllerBaseFilterInput
+  $order: [ControllerBaseSortInput!]
+) {
+  controllers(postamatId: $postamatId, where: $where, order: $order) {
+    ...Controller
+    ... on PromixController {
+      ...PromixController
+    }
+  }
+}

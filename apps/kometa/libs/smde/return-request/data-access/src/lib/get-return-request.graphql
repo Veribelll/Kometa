@@ -1,0 +1,5 @@
+query GetReturnRequest($where: ReturnRequestFilterInput) {
+  returnRequest(where: $where) {
+    ...ReturnRequest
+  }
+}

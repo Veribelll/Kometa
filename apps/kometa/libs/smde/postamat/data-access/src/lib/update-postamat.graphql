@@ -1,0 +1,12 @@
+mutation UpdatePostamat($input: UpdatePostamatInput!) {
+  updatePostamat(input: $input) {
+    postamat {
+      ...Postamat
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

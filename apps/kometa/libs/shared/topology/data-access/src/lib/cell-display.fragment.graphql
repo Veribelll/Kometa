@@ -1,0 +1,20 @@
+fragment CellDisplay on CellDisplay {
+  x
+  y
+  cellId
+  templateCellId
+  cell {
+    id
+    type
+    name
+    barcode
+  }
+  templateCell {
+    id
+    isCell
+    name
+    width
+    height
+    imageUrl
+  }
+}

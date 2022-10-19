@@ -1,0 +1,12 @@
+{
+  "$schema": "../../../../../node_modules/nx-electron/src/validation/maker.schema.json",
+  "appId": "com.electron.${name}",
+  "productName": "kometa-postamat",
+  "copyright": "Copyright © 2022 Sharypov Artem",
+  "electronCompile": false,
+  "npmRebuild": false,
+  "asar": true,
+  "linux": {
+    "target": "AppImage"
+  }
+}

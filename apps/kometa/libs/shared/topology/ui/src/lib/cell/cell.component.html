@@ -1,0 +1,23 @@
+<div style="user-select: none" (click)="onSelected()">
+  <div *ngIf="!isEmptyImage" pRipple class="flex justify-content-center align-items-center">
+    <img
+      *ngIf="!isEmptyImage"
+      [src]="src"
+      [style.width]="widthStyle"
+      [style.height]="heightStyle"
+      alt="cell"
+    />
+  </div>
+  <div
+    *ngIf="isEmptyImage"
+    pRipple
+    [class.surface-600]="!isSelect && !disable"
+    [class.surface-300]="isSelect && !disable"
+    [class.surface-900]="disable"
+    class="flex justify-content-center align-items-center"
+    [style.width]="widthStyle"
+    [style.height]="heightStyle"
+  >
+    <span *ngIf="isCell">{{ name }}</span>
+  </div>
+</div>

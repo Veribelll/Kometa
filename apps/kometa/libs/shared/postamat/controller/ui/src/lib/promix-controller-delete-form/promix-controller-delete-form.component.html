@@ -1,0 +1,8 @@
+<div *ngIf="controller">
+  <p class="m-1">
+    Вы действительно хотите удалить promix контроллер:
+    <br />
+    <span class="font-bold">'{{ controller.name }}'</span>?
+  </p>
+  <p-form-delete-actions (delete)="onDelete()" (cancel)="onCancel()"></p-form-delete-actions>
+</div>

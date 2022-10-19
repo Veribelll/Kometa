@@ -1,0 +1,7 @@
+<kometa-employee-create-form
+  [formGroup]="formGroup"
+  [contractors]="(contractors$ | async)!"
+  [identityRoles]="(identityRoles$ | async)!"
+  (save)="onSave($event)"
+  (cancel)="onCancel()"
+></kometa-employee-create-form>

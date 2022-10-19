@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="..\..\..\..\common.props" />
+    <Import Project="..\..\..\..\fody.props" />
+
+    <PropertyGroup>
+        <RootNamespace>Smde</RootNamespace>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="System.IO.Ports" Version="$(MicrosoftPackageVersion)" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.Emailing" Version="$(AbpPackageVersion)" />
+        <PackageReference Include="Volo.Abp.Identity.Domain" Version="$(AbpPackageVersion)" />
+        <PackageReference Include="Volo.Abp.PermissionManagement.Domain" Version="$(AbpPackageVersion)" />
+        <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Identity" Version="$(AbpPackageVersion)" />
+        <PackageReference Include="Volo.Abp.IdentityServer.Domain" Version="$(AbpPackageVersion)" />
+        <PackageReference Include="Volo.Abp.PermissionManagement.Domain.IdentityServer" Version="$(AbpPackageVersion)" />
+        <PackageReference Include="Volo.Abp.BackgroundJobs.Domain" Version="$(AbpPackageVersion)" />
+        <PackageReference Include="Volo.Abp.AuditLogging.Domain" Version="$(AbpPackageVersion)" />
+        <PackageReference Include="Volo.Abp.TenantManagement.Domain" Version="$(AbpPackageVersion)" />
+        <PackageReference Include="Volo.Abp.FeatureManagement.Domain" Version="$(AbpPackageVersion)" />
+        <PackageReference Include="Volo.Abp.SettingManagement.Domain" Version="$(AbpPackageVersion)" />
+        <PackageReference Include="Volo.Abp.BlobStoring" Version="$(AbpPackageVersion)" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\..\framework\src\Kometa.Ddd.Domain\Kometa.Ddd.Domain.csproj" />
+        <ProjectReference Include="..\..\..\..\framework\src\Kometa.Sms.SmsCenter\Kometa.Sms.SmsCenter.csproj" />
+        <ProjectReference Include="..\Smde.Domain.Shared\Smde.Domain.Shared.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Folder Include="Topology" />
+    </ItemGroup>
+
+</Project>

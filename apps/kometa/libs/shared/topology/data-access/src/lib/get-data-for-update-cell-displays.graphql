@@ -1,0 +1,52 @@
+query GetDataForUpdateCellDisplays($postamatId: ID!) {
+  postamatById(id: $postamatId) {
+    cells(where: { type: { in: [CELL, SERVICE] }, isEnable: { eq: true } }) {
+      id
+      type
+      name
+      barcode
+    }
+    displays {
+      x
+      y
+      cellId
+      templateCellId
+      templateCell {
+        id
+        isCell
+        name
+        width
+        height
+        imageUrl
+      }
+    }
+  }
+  templatesSection {
+    items {
+      id
+      name
+      cells {
+        position
+        templateCellId
+        templateCell {
+          id
+          name
+          width
+          height
+          isCell
+          imageUrl
+        }
+      }
+    }
+  }
+  templatesCell {
+    items {
+      id
+      name
+      width
+      height
+      isCell
+      imageUrl
+    }
+  }
+}

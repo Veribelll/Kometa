@@ -1,0 +1,23 @@
+fragment PackingPlaceInTransit on PackingPlace {
+  id
+  status
+  barcode
+  typeOrder
+  customerId
+  customer {
+    id
+    name
+  }
+  courierId
+  courier {
+    id
+    surname
+    name
+    middleName
+  }
+  sizeId
+  size {
+    id
+    name
+  }
+}

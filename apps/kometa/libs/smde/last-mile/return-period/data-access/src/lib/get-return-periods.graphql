@@ -1,0 +1,7 @@
+query GetLastMileReturnPeriods($lastMileId: ID!) {
+  lastMileById(id: $lastMileId) {
+    returnPeriods {
+      ...LastMileReturnPeriod
+    }
+  }
+}

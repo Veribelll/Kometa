@@ -1,0 +1,94 @@
+<ng-container *transloco="let t">
+  <p-table
+    #table
+    styleClass="p-datatable-gridlines"
+    dataKey="id"
+    [value]="packingPlaces"
+    [loading]="loading"
+    [totalRecords]="totalRecords"
+    [paginator]="true"
+    [rows]="25"
+    [rowsPerPageOptions]="[25, 50, 75]"
+    [responsive]="true"
+    [lazy]="true"
+    [(selection)]="selected"
+    [selectionMode]="selectionMode!"
+    (onLazyLoad)="onLazyLoad($event)"
+    (selectionChange)="onSelectedChange($event)"
+  >
+    <ng-template pTemplate="caption">
+      <p-table-caption
+        (clear)="table.clear()"
+        (changeFilter)="table.filterGlobal($event, 'contains')"
+      ></p-table-caption>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th class="text-center">
+          <span class="w-full">Статус</span>
+        </th>
+
+        <th class="text-center">
+          <span class="w-full">Штрих код</span>
+        </th>
+
+        <th class="text-center">
+          <span class="w-full">Последняя миля</span>
+        </th>
+
+        <th class="text-center">
+          <span class="w-full">Клиент</span>
+        </th>
+
+        <th class="text-center">
+          <span class="w-full">Курьер</span>
+        </th>
+
+        <th class="text-center">
+          <span class="w-full">Размер</span>
+        </th>
+
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-packingPlace let-rowIndex="rowIndex">
+      <tr [pSelectableRow]="packingPlace" [pSelectableRowIndex]="rowIndex">
+        <td class="text-center">
+          <span class="w-full">
+            {{ t('PackingPlaceStatus:' + getStatus(packingPlace)) }}
+          </span>
+        </td>
+        <td class="text-center">
+          <span class="w-full">
+            {{ packingPlace.barcode }}
+          </span>
+        </td>
+        <td class="text-center">
+          <span class="w-full">
+            {{ packingPlace.lastMile?.name }}
+          </span>
+        </td>
+        <td class="text-center">
+          <span class="w-full">{{ packingPlace.customer | fio }}</span>
+        </td>
+        <td class="text-center">
+          <span class="w-full">{{ packingPlace.courier | fio }}</span>
+        </td>
+        <td class="text-center">
+          <span class="w-full">
+            {{ packingPlace.size?.name }}
+          </span>
+        </td>
+        <td class="text-center">
+          <p-table-actions
+            [permissionDetails]="permissionDetails"
+            [displayUpdate]="false"
+            [displayDelete]="false"
+            (details)="onDetails(packingPlace)"
+          >
+          </p-table-actions>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</ng-container>

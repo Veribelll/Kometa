@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="..\..\..\..\common.props" />
+    <Import Project="..\..\..\..\fody.props" />
+
+    <PropertyGroup>
+        <RootNamespace>Smde</RootNamespace>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.Ddd.Application.Contracts" Version="$(AbpPackageVersion)" />
+        <PackageReference Include="Volo.Abp.Authorization.Abstractions" Version="$(AbpPackageVersion)" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.ObjectExtending" Version="$(AbpPackageVersion)" />
+        <PackageReference Include="Volo.Abp.Account.Application.Contracts" Version="$(AbpPackageVersion)" />
+        <PackageReference Include="Volo.Abp.Identity.Application.Contracts" Version="$(AbpPackageVersion)" />
+        <PackageReference Include="Volo.Abp.PermissionManagement.Application.Contracts" Version="$(AbpPackageVersion)" />
+        <PackageReference Include="Volo.Abp.TenantManagement.Application.Contracts" Version="$(AbpPackageVersion)" />
+        <PackageReference Include="Volo.Abp.FeatureManagement.Application.Contracts" Version="$(AbpPackageVersion)" />
+        <PackageReference Include="Volo.Abp.SettingManagement.Application.Contracts" Version="$(AbpPackageVersion)" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\..\framework\src\Kometa.Json\Kometa.Json.csproj" />
+        <ProjectReference Include="..\Smde.Domain.Shared\Smde.Domain.Shared.csproj" />
+    </ItemGroup>
+</Project>

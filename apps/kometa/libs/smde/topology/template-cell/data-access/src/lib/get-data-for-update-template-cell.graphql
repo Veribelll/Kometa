@@ -1,0 +1,8 @@
+query GetDataForUpdateTemplateCell {
+  sizes {
+    items {
+      id
+      name
+    }
+  }
+}

@@ -1,0 +1,22 @@
+mutation UpdateEmexAccount($input: UpdateEmexAccountInput!) {
+  updateEmexAccount(input: $input) {
+    emexAccount {
+      ...EmexAccount
+    }
+    errors {
+      ... on EmexAccountNameAlreadyExistsError {
+        code
+        message
+        details
+      }
+      ... on EmexAccountUserIdAlreadyExistsError {
+        code
+        message
+        details
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

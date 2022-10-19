@@ -1,0 +1,17 @@
+.button {
+  background: url('~apps/postamat/src/assets/ButtonYellow.png');
+  background-size: cover;
+  border: 0;
+  outline: none;
+  width: 450px;
+  height: 135px;
+  font-size: 24px;
+  text-align: center;
+  padding-right: 40px;
+  padding-bottom: 10px;
+}
+
+.button:active {
+  background: url('~apps/postamat/src/assets/ButtonYellow.png') 0px -135px;
+  background-size: cover;
+}

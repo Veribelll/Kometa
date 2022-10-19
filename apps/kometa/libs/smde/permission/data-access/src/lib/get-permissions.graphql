@@ -1,0 +1,5 @@
+query GetPermissions($providerName: String!, $providerKey: String!) {
+  permissions(providerName: $providerName, providerKey: $providerKey) {
+    ...PermissionList
+  }
+}

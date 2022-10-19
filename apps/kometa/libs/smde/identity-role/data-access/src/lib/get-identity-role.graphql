@@ -1,0 +1,5 @@
+query GetIdentityRole($where: IdentityRoleFilterInput) {
+  identityRole(where: $where) {
+    ...IdentityRole
+  }
+}

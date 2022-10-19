@@ -1,0 +1,17 @@
+mutation UpdatePackingPlace($input: UpdatePackingPlaceInput!) {
+  updatePackingPlace(input: $input) {
+    packingPlace {
+      ...PackingPlace
+    }
+    errors {
+      ... on PackingPlaceBarcodeAlreadyExistsError {
+        code
+        message
+        details
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

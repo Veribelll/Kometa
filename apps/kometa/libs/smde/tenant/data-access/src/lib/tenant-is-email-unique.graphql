@@ -1,0 +1,3 @@
+query TenantIsEmailUnique($email: String!) {
+  isEmailUnique(email: $email)
+}

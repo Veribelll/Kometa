@@ -1,0 +1,35 @@
+mutation CreateEmexOrder($input: CreateEmexOrderInput!) {
+  createEmexOrder(input: $input) {
+    emexOrder {
+      ...EmexOrder
+    }
+    errors {
+      ... on EmexOrderExternalIdAlreadyExistsError {
+        code
+        message
+        details
+      }
+      ... on EmexOrderCustomerIdIsNotEqualError {
+        code
+        message
+        details
+        packingPlace {
+          id
+          barcode
+        }
+      }
+      ... on PackingPlaceLockedError {
+        code
+        message
+        details
+        packingPlace {
+          id
+          barcode
+        }
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+<kometa-emex-order-create-form
+  [formGroup]="formGroup"
+  (save)="onSave($event)"
+  (cancel)="onCancel()"
+>
+  <p-panel>
+    <ng-template pTemplate="header">
+      <button
+        pButton
+        pRipple
+        type="button"
+        label="Добавить продукт"
+        icon="pi pi-plus"
+        class="p-button-success mr-2"
+        style="width: 200px"
+        (click)="onCreateProduct()"
+      ></button>
+    </ng-template>
+    <kometa-emex-product-table
+      [products]="(products$ | async)!"
+      [permissionDetails]="'Emex.Orders'"
+      [permissionUpdate]="'Emex.Orders.Update'"
+      [permissionDelete]="'Emex.Orders.Delete'"
+      (update)="onUpdateProduct($event)"
+      (delete)="onDeleteProduct($event)"
+    ></kometa-emex-product-table>
+  </p-panel>
+</kometa-emex-order-create-form>

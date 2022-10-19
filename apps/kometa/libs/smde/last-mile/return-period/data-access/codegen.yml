@@ -1,0 +1,13 @@
+overwrite: true
+schema:
+  - apps/smde/schema.graphql
+generates:
+  libs/smde/last-mile/return-period/data-access/src/lib/graphql-apollo.ts:
+    documents:
+      - libs/smde/last-mile/return-period/data-access/**/*.graphql
+    plugins:
+      - typescript-apollo-angular
+    config:
+      documentMode: 'external'
+      importOperationTypesFrom: 'Operations'
+      importDocumentNodeExternallyFrom: '@kometa/smde/last-mile/return-period/types'

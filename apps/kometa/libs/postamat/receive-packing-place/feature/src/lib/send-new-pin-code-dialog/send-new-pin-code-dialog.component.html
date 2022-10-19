@@ -1,0 +1,21 @@
+<div class="flex flex-row justify-content-between">
+  <div class="flex flex-column align-items-center mr-4">
+    <label [for]="'phone'" class="text-4xl">ВВЕДИТЕ ТЕЛЕФОН</label>
+    <p-inputMask
+      inputId="phone"
+      mask="+7?(999)999-99-99"
+      styleClass="text-center text-4xl mb-3"
+      [ngModel]="phone"
+      [unmask]="true"
+    ></p-inputMask>
+    <p-key-pin [(pin)]="phone"></p-key-pin>
+  </div>
+  <div class="flex flex-column justify-content-center">
+    <div class="mb-4">
+      <kometa-yellow-button label="ПОДТВЕРДИТЬ" (click)="onSend()"></kometa-yellow-button>
+    </div>
+    <div>
+      <kometa-yellow-button label="Отмена" (click)="onCancel()"></kometa-yellow-button>
+    </div>
+  </div>
+</div>

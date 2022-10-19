@@ -1,0 +1,33 @@
+<div class="shadow-15">
+  <div class="mb-2">
+    <p-toolbar>
+      <button
+        pButton
+        pRipple
+        *permission="'PackingPlaceManagement.PackingPlaces.Create'"
+        label="Добавить"
+        icon="pi pi-plus"
+        class="p-button-success"
+        (click)="onCreate()"
+      ></button>
+    </p-toolbar>
+  </div>
+  <div>
+    <p-panel header="Упаковочные места">
+      <kometa-packing-place-table
+        [packingPlaces]="(packingPlaces$ | async)!"
+        [loading]="(loading$ | async)!"
+        [totalRecords]="(totalRecords$ | async)!"
+        [permissionDetails]="'PackingPlaceManagement.PackingPlaces'"
+        [permissionUpdate]="'PackingPlaceManagement.PackingPlaces.Update'"
+        [permissionDelete]="'PackingPlaceManagement.PackingPlaces.Delete'"
+        (lazyLoad)="onLazyLoad($event)"
+        (details)="onDetails($event)"
+        (update)="onUpdate($event)"
+        (delete)="onDelete($event)"
+        (send)="onSend($event)"
+        (timeline)="onTimeline($event)"
+      ></kometa-packing-place-table>
+    </p-panel>
+  </div>
+</div>

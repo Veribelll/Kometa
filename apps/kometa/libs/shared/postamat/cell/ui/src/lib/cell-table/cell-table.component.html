@@ -1,0 +1,130 @@
+<ng-container *transloco="let t">
+  <p-table
+    #table
+    styleClass="p-datatable-gridlines"
+    dataKey="id"
+    [value]="cells"
+    [loading]="loading"
+    [paginator]="false"
+    [responsive]="true"
+    [lazy]="true"
+    [scrollable]="scrollable"
+    [scrollHeight]="scrollHeight!"
+    (onLazyLoad)="onLazyLoad($event)"
+  >
+    <ng-template pTemplate="caption">
+      <p-table-caption
+        (clear)="table.clear()"
+        (changeFilter)="table.filterGlobal($event, 'contains')"
+      ></p-table-caption>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th class="text-center" style="min-width: 80px">
+          <span class="w-full">Тип</span>
+        </th>
+
+        <th class="text-center" style="min-width: 150px">
+          <span class="w-full">Наименование</span>
+        </th>
+
+        <th class="text-center" style="min-width: 100px">
+          <span class="w-full">ШК</span>
+        </th>
+
+        <th class="text-center" style="min-width: 100px">
+          <span class="w-full">Статус</span>
+        </th>
+
+        <th class="text-center" style="min-width: 100px">
+          <span class="w-full">Замок</span>
+        </th>
+
+        <th class="text-center" style="min-width: 50px">
+          <span class="w-full">Вкл</span>
+        </th>
+
+        <th style="min-width: 270px"></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-cell>
+      <tr>
+        <td class="text-center" style="min-width: 80px">
+          <span class="w-full">{{ t('TypeCell:' + getType(cell)) }}</span>
+        </td>
+        <td class="text-center" style="min-width: 150px">
+          <span class="w-full">{{ cell.name }}</span>
+        </td>
+        <td class="text-center" style="min-width: 100px">
+          <span class="w-full">{{ cell.barcode }}</span>
+        </td>
+        <td class="text-center" style="min-width: 100px">
+          <span class="w-full">{{ t('CellStatus:' + getStatus(cell)) }}</span>
+        </td>
+        <td class="text-center" style="min-width: 100px">
+          <span class="w-full">{{ cell.lock?.address }}</span>
+        </td>
+        <td class="text-center" style="min-width: 50px">
+          <span class="w-full">
+            <i
+              class="pi"
+              [ngClass]="{
+                'true-icon pi-check-circle': cell.isEnable,
+                'false-icon pi-times-circle': !cell.isEnable
+              }"
+            ></i>
+          </span>
+        </td>
+        <td class="p-text-center" style="min-width: 270px">
+          <p-table-actions
+            [permissionDetails]="permissionDetails"
+            [permissionUpdate]="permissionUpdate"
+            [permissionDelete]="permissionDelete"
+            (details)="onDetails(cell)"
+            (update)="onUpdate(cell)"
+            (delete)="onDelete(cell)"
+          >
+            <ng-container>
+              <ng-container *ngIf="showAssignLock(cell)">
+                <button
+                  *permission="permissionUpdate"
+                  type="button"
+                  pButton
+                  pRipple
+                  pTooltip="Назначить замок"
+                  icon="pi pi-lock"
+                  class="p-button-rounded p-button-secondary mr-2"
+                  (click)="onAssignLock(cell)"
+                ></button>
+              </ng-container>
+              <ng-container *ngIf="!cell.isEnable">
+                <button
+                  *permission="permissionUpdate"
+                  type="button"
+                  pButton
+                  pRipple
+                  pTooltip="Активировать"
+                  icon="pi pi-check"
+                  class="p-button-rounded p-button-success mr-2"
+                  (click)="onActivate(cell)"
+                ></button>
+              </ng-container>
+              <ng-container *ngIf="cell.isEnable">
+                <button
+                  *permission="permissionUpdate"
+                  type="button"
+                  pButton
+                  pRipple
+                  pTooltip="Деактивировать"
+                  icon="pi pi-ban"
+                  class="p-button-rounded p-button-danger mr-2"
+                  (click)="onDeactivate(cell)"
+                ></button>
+              </ng-container>
+            </ng-container>
+          </p-table-actions>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</ng-container>

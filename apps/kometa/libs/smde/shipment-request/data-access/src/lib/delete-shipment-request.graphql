@@ -1,0 +1,17 @@
+mutation DeleteShipmentRequest($input: DeleteShipmentRequestInput!) {
+  deleteShipmentRequest(input: $input) {
+    shipmentRequest {
+      ...ShipmentRequest
+    }
+    errors {
+      ... on ShipmentRequestLockedError {
+        code
+        message
+        details
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

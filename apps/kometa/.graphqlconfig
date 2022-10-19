@@ -1,0 +1,14 @@
+{
+  "name": "Kometa",
+  "projects": {
+  },
+  "schemaPath": "apps/smde/schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "Smde": {
+        "url": "http://localhost:9001/graphql",
+        "introspect": true
+      }
+    }
+  }
+}

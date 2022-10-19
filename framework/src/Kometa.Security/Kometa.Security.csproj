@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="..\..\..\common.props" />
+    <Import Project="..\..\..\fody.props" />
+    
+    <PropertyGroup>
+        <RootNamespace>Kometa.Security</RootNamespace>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+    
+    <ItemGroup>
+      <PackageReference Include="Volo.Abp.EventBus.Abstractions" Version="$(AbpPackageVersion)" />
+      <PackageReference Include="Volo.Abp.Security" Version="$(AbpPackageVersion)" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Kometa.Core\Kometa.Core.csproj" />
+    </ItemGroup>
+</Project>

@@ -1,0 +1,5 @@
+query GetPostamatById($postamatId: ID!) {
+  postamatById(id: $postamatId) {
+    ...Postamat
+  }
+}

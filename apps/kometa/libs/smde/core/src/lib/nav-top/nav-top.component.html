@@ -1,0 +1,39 @@
+<div>
+  <p-menubar [model]="(items$ | async)!">
+    <div class="flex flex-row">
+      <p-dropdown
+        [options]="(contractors$ | async)!"
+        [(ngModel)]="contractorId"
+        class="mr-4"
+        placeholder="Контрагент"
+        optionValue="id"
+        optionLabel="name"
+        [showClear]="false"
+        [autoDisplayFirst]="false"
+        appendTo="body"
+        (onChange)="onChangeContractorId($event)"
+      ></p-dropdown>
+
+      <div>
+        <button
+          pButton
+          *ngIf="!(isLogin$ | async)!"
+          (click)="onSingIn()"
+          type="button"
+          label="Вход"
+          icon="pi pi-power-off"
+        ></button>
+
+        <button
+          *ngIf="isLogin$ | async"
+          (click)="onLogout()"
+          pButton
+          pRipple
+          type="button"
+          label="Выход"
+          icon="pi pi-power-on"
+        ></button>
+      </div>
+    </div>
+  </p-menubar>
+</div>

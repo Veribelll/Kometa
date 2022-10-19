@@ -1,0 +1,34 @@
+fragment ReturnRequest on ReturnRequest {
+  id
+  code
+  status
+  cause
+  comment
+  courierId
+  courier {
+    id
+    surname
+    name
+    middleName
+    phoneNumber
+  }
+  atCourierId
+  atCourier {
+    id
+    surname
+    name
+    middleName
+    phoneNumber
+  }
+  atLastMileId
+  atLastMile {
+    id
+    name
+    externalId
+    address
+  }
+  changesHistory {
+    creationTime
+    status
+  }
+}

@@ -1,0 +1,9 @@
+<p-detail-body *ngIf="employee">
+  <p-detail-field label="Организации:" [value]="contractors"></p-detail-field>
+  <p-detail-field label="Фамилия:" [value]="employee.surname"></p-detail-field>
+  <p-detail-field label="Имя:" [value]="employee.name"></p-detail-field>
+  <p-detail-field label="Отчество:" [value]="employee.middleName"></p-detail-field>
+  <p-detail-field label="Роли:" [value]="roles"></p-detail-field>
+  <p-detail-field label="Номер телефона:" [value]="employee.phoneNumber"></p-detail-field>
+  <p-detail-field label="Email:" [value]="employee.email"></p-detail-field>
+</p-detail-body>

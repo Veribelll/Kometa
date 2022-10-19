@@ -1,0 +1,5 @@
+fragment LastMileReturnPeriod on LastMileReturnPeriod {
+  lastMileId
+  typeOrder
+  period
+}

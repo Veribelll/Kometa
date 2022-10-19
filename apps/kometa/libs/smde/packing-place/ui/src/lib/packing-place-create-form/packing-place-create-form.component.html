@@ -1,0 +1,55 @@
+<form [formGroup]="formGroup" [validateOnSubmit]="true" (ngSubmit)="onSave()">
+  <p-form-body>
+    <p-form-field>
+      <label [for]="'typeOrder'" class="required">Тип заказа:</label>
+      <p-dropdown
+        inputId="typeOrder"
+        formControlName="typeOrder"
+        appendTo="body"
+        [options]="typesOrder"
+        optionLabel="name"
+        optionValue="id"
+        [showClear]="true"
+        [autoDisplayFirst]="false"
+      ></p-dropdown>
+    </p-form-field>
+    <p-form-field>
+      <label for="barcode" class="required">Штрих-код:</label>
+      <input id="barcode" formControlName="barcode" type="text" pInputText />
+    </p-form-field>
+    <p-form-field>
+      <label [for]="'lastMileId'">Последня миля:</label>
+      <kometa-last-mile-select-control
+        inputId="lastMileId"
+        selectionMode="single"
+        formControlName="lastMileId"
+      ></kometa-last-mile-select-control>
+    </p-form-field>
+    <p-form-field>
+      <label [for]="'courierId'">Курьер:</label>
+      <kometa-courier-select-control
+        inputId="courierId"
+        selectionMode="single"
+        formControlName="courierId"
+      ></kometa-courier-select-control>
+    </p-form-field>
+    <p-form-field>
+      <label [for]="'sizeId'">Размер:</label>
+      <p-dropdown
+        inputId="sizeId"
+        formControlName="sizeId"
+        appendTo="body"
+        [options]="sizes"
+        optionLabel="name"
+        optionValue="id"
+        [showClear]="true"
+        [autoDisplayFirst]="false"
+      ></p-dropdown>
+    </p-form-field>
+  </p-form-body>
+  <p-form-actions
+    [invalid]="formGroup.invalid"
+    [pending]="formGroup.pending"
+    (cancel)="onCancel()"
+  ></p-form-actions>
+</form>

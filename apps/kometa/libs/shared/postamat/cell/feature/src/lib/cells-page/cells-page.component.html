@@ -1,0 +1,53 @@
+<div>
+  <div class="mb-2">
+    <p-toolbar>
+      <div class="flex flex-row">
+        <button
+          *permission="'LastMileManagement.Postamats.ManageCells'"
+          label="Добавить"
+          pButton
+          pRipple
+          icon="pi pi-plus"
+          class="p-button-success mr-2"
+          (click)="onCreate()"
+        ></button>
+        <button
+          *permission="'LastMileManagement.Postamats.ManageCells'"
+          label="Отображение"
+          pButton
+          pRipple
+          icon="pi pi-desktop"
+          class="p-button-info mr-2"
+          (click)="onUpdateDisplay()"
+        ></button>
+        <button
+          *permission="'LastMileManagement.Postamats.ManageCells'"
+          label="Топология"
+          pButton
+          pRipple
+          icon="pi pi-table"
+          class="p-button-info"
+          (click)="onUpdateTopology()"
+        ></button>
+      </div>
+    </p-toolbar>
+  </div>
+  <div>
+    <p-panel header="Ячейки">
+      <kometa-cell-table
+        [cells]="(cells$ | async)!"
+        [loading]="(loading$ | async)!"
+        [permissionUpdate]="'LastMileManagement.Postamats.ManageCells'"
+        [permissionDetails]="'LastMileManagement.Postamats.ManageCells'"
+        [permissionDelete]="'LastMileManagement.Postamats.ManageCells'"
+        (lazyLoad)="onLazyLoad($event)"
+        (details)="onDetails($event)"
+        (update)="onUpdate($event)"
+        (assignLock)="onAssignLock($event)"
+        (activate)="onActivate($event)"
+        (deactivate)="onDeactivate($event)"
+        (delete)="onDelete($event)"
+      ></kometa-cell-table>
+    </p-panel>
+  </div>
+</div>

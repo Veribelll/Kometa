@@ -1,0 +1,12 @@
+mutation CancelShipmentRequest($input: CancelShipmentRequestInput!) {
+  cancelShipmentRequest(input: $input) {
+    shipmentRequest {
+      ...ShipmentRequest
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

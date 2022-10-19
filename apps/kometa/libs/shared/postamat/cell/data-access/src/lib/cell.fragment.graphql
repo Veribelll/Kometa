@@ -1,0 +1,16 @@
+fragment Cell on Cell {
+  id
+  type
+  name
+  status
+  barcode
+  pinCode
+  servicePinCode
+  priority
+  isEnable
+  lockId
+  lock {
+    id
+    address
+  }
+}

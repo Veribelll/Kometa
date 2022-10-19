@@ -1,0 +1,10 @@
+<ng-container *transloco="let t">
+  <p-timeline [value]="changesHistory">
+    <ng-template pTemplate="content" let-event>
+      <small class="p-text-secondary">{{ event.creationTime | date: 'dd.MM.yyyy HH:mm' }}</small>
+    </ng-template>
+    <ng-template pTemplate="opposite" let-event>
+      {{ t('PackingPlaceStatus:' + getStatus(event)) }}
+    </ng-template>
+  </p-timeline>
+</ng-container>

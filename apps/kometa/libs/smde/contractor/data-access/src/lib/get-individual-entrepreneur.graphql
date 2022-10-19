@@ -1,0 +1,5 @@
+query GetIndividualEntrepreneur($id: ID!) {
+  individualEntrepreneurById(id: $id) {
+    ...IndividualEntrepreneurDetail
+  }
+}

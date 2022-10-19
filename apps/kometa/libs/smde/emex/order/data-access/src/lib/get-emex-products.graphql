@@ -1,0 +1,33 @@
+query GetEmexProducts(
+  $where: EmexProductFilterInput
+  $order: [EmexProductSortInput!]
+  $take: Int
+  $skip: Int
+) {
+  emexProducts(where: $where, order: $order, take: $take, skip: $skip) {
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+    items {
+      ...EmexProduct
+      order {
+        id
+        contractorId
+        contractor {
+          id
+          name
+        }
+        globalId
+        externalId
+        customer {
+          externalId
+          name
+          phone
+          email
+        }
+      }
+    }
+    totalCount
+  }
+}

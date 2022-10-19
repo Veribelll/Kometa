@@ -1,0 +1,3 @@
+query EmexAccountIsNameUnique($name: String!) {
+  emexAccountsAny(where: { name: { eq: $name } })
+}

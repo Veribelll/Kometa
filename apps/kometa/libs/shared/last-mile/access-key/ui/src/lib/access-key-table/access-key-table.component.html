@@ -1,0 +1,68 @@
+<p-table
+  #table
+  styleClass="p-datatable-gridlines"
+  dataKey="id"
+  [value]="accessKeys"
+  [loading]="loading"
+  [paginator]="false"
+  [responsive]="true"
+  [lazy]="true"
+  [scrollable]="scrollable"
+  [scrollHeight]="scrollHeight!"
+  (onLazyLoad)="onLazyLoad($event)"
+>
+  <ng-template pTemplate="caption">
+    <p-table-caption
+      (clear)="table.clear()"
+      (changeFilter)="table.filterGlobal($event, 'contains')"
+    ></p-table-caption>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th class="text-center" style="min-width: 80px">
+        <span class="w-full">ШК</span>
+      </th>
+
+      <th class="text-center" style="min-width: 150px">
+        <span class="w-full">Работник</span>
+      </th>
+
+      <th class="text-center" style="min-width: 100px">
+        <span class="w-full">Истекает в</span>
+      </th>
+
+      <th class="text-center" style="min-width: 100px">
+        <span class="w-full">Времменый</span>
+      </th>
+
+      <th style="min-width: 270px"></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-accessKey>
+    <tr>
+      <td class="text-center" style="min-width: 80px">
+        <span class="w-full">{{ accessKey.barcode }}</span>
+      </td>
+      <td class="text-center" style="min-width: 150px">
+        <span class="w-full">{{ accessKey.identityUser | fio }}</span>
+      </td>
+      <td class="text-center" style="min-width: 100px">
+        <span class="w-full">{{ accessKey.expiresDt | date: 'dd.MM.yyyy HH:mm' }}</span>
+      </td>
+      <td class="text-center" style="min-width: 100px">
+        <span class="w-full">{{ accessKey.isDisposable ? 'Да' : 'Нет' }}</span>
+      </td>
+
+      <td class="p-text-center" style="min-width: 270px">
+        <p-table-actions
+          [permissionDetails]="permissionDetails"
+          [permissionUpdate]="permissionUpdate"
+          [permissionDelete]="permissionDelete"
+          (update)="onUpdate(accessKey)"
+          (delete)="onDelete(accessKey)"
+        >
+        </p-table-actions>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

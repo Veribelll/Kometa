@@ -1,0 +1,58 @@
+<ng-container *transloco="let t">
+  <div *ngIf="request">
+    <p-detail-body>
+      <p-detail-field label="Код:" [value]="request.code"></p-detail-field>
+      <p-detail-field label="Последняя миля:" [value]="request.lastMile.name"></p-detail-field>
+      <p-detail-field label="Курьер:" [value]="request.courier | fio"></p-detail-field>
+      <p-detail-field label="Причина:" [value]="request.cause"></p-detail-field>
+      <p-detail-field label="Комментарий для курьера:" [value]="request.comment"></p-detail-field>
+    </p-detail-body>
+    <div class="mt-4">
+      <p-panel header="Упаковочные места">
+        <p-table
+          styleClass="p-datatable-gridlines"
+          dataKey="id"
+          [value]="request.packingPlaces ?? []"
+        >
+          <ng-template pTemplate="header">
+            <tr>
+              <th class="text-center">
+                <span>Статус</span>
+              </th>
+
+              <th class="text-center">
+                <span>Штрих код</span>
+              </th>
+
+              <th class="text-center">
+                <span>Размер</span>
+              </th>
+
+              <th></th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-packingPlace>
+            <tr>
+              <td class="text-center">
+                {{ t('PackingPlaceStatus:' + getStatus(packingPlace)) }}
+              </td>
+              <td class="text-center">{{ packingPlace.barcode }}</td>
+              <td class="text-center">
+                {{ packingPlace.size?.name }}
+              </td>
+              <td class="text-center">
+                <p-table-actions
+                  [permissionDetails]="'PackingPlaceManagement.PackingPlaces'"
+                  [displayUpdate]="false"
+                  [displayDelete]="false"
+                  (details)="onPackingPlaceDetails(packingPlace)"
+                >
+                </p-table-actions>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-panel>
+    </div>
+  </div>
+</ng-container>

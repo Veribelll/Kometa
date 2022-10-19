@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="..\..\..\common.props" />
+    <Import Project="..\..\..\fody.props" />
+    
+    <PropertyGroup>
+        <RootNamespace>Kometa.AspNetCore.Mvc</RootNamespace>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="$(AbpPackageVersion)" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Kometa.AspNetCore.Mvc.Contracts\Kometa.AspNetCore.Mvc.Contracts.csproj" />
+      <ProjectReference Include="..\Kometa.MultiContractor\Kometa.MultiContractor.csproj" />
+    </ItemGroup>
+</Project>

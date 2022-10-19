@@ -1,0 +1,5 @@
+query GetTenant($where: TenantFilterInput) {
+  tenant(where: $where) {
+    ...Tenant
+  }
+}

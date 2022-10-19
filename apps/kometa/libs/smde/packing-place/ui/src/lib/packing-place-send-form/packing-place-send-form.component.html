@@ -1,0 +1,12 @@
+<div *ngIf="packingPlace">
+  <p class="m-1">
+    Вы действительно хотите отправить упаковочное место:
+    <br />
+    <span class="font-bold">'{{ packingPlace.barcode }}'</span>?
+  </p>
+  <p-form-actions
+    labelButtonSave="Отправить"
+    (save)="onSend()"
+    (cancel)="onCancel()"
+  ></p-form-actions>
+</div>

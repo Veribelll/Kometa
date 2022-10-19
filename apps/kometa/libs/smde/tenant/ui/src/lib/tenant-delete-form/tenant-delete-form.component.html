@@ -1,0 +1,8 @@
+<div *ngIf="tenant">
+  <p class="m-1">
+    Вы действительно хотите удалить арендатора:
+    <br />
+    <span class="font-bold">'{{ tenant.name }}'</span>?
+  </p>
+  <p-form-delete-actions (delete)="onDelete()" (cancel)="onCancel()"></p-form-delete-actions>
+</div>

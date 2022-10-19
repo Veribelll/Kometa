@@ -1,0 +1,12 @@
+mutation DeleteSmsCenterAccount($input: DeleteSmsCenterAccountInput!) {
+  deleteSmsCenterAccount(input: $input) {
+    smsCenterAccount {
+      ...SmsCenterAccount
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

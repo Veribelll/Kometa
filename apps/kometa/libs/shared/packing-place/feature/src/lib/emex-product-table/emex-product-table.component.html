@@ -1,0 +1,75 @@
+<ng-container *transloco="let t">
+  <p-table
+    [value]="products"
+    [loading]="(loading$ | async)!"
+    styleClass="p-datatable-gridlines p-datatable-sm"
+    dataKey="id"
+  >
+    <ng-template pTemplate="body" let-product let-rowIndex="rowIndex">
+      <tr *ngIf="rowGroupMetadata[product.order.id]?.index === rowIndex" class="surface-300">
+        <td colspan="14">
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <span>GlobalId: </span>
+                  <span class="text-bold ml-2">{{ product.order.globalId }}</span>
+                </td>
+                <td>
+                  <span>ФИО клиента: </span>
+                  <span class="text-bold ml-2">{{ product.order.customer.name }}</span>
+                </td>
+                <td>
+                  <span>Внешний ID клиента: </span>
+                  <span class="text-bold ml-2">{{ product.order.customer.externalId }}</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span>Внешний ID заказа: </span>
+                  <span class="text-bold ml-2">{{ product.order.externalId }}</span>
+                </td>
+                <td>
+                  <span>Телефон клиента: </span>
+                  <span class="text-bold ml-2">{{ product.order.customer.phone }}</span>
+                </td>
+                <td>
+                  <span>Email клиента: </span>
+                  <span class="text-bold ml-2">{{ product.order.customer.email }}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      <tr *ngIf="rowGroupMetadata[product.order.id]?.index === rowIndex">
+        <td class="text-center">Тип баланса</td>
+        <td class="text-center">Тип оплаты</td>
+        <td class="text-center">ШК</td>
+        <td class="text-center">Артикул</td>
+        <td class="text-center">Изг.</td>
+        <td class="text-center">Название</td>
+        <td class="text-center">Кол-во</td>
+        <td class="text-center">Цена</td>
+        <td class="text-center">Ставка НДС</td>
+        <td class="text-center">Сумма</td>
+      </tr>
+      <tr>
+        <td class="text-center">
+          {{ t('EmexTypeBalance:' + getTypeBalance(product)) }}
+        </td>
+        <td class="text-center">
+          {{ t('EmexTypePayment:' + getTypePayment(product)) }}
+        </td>
+        <td class="text-center">{{ product.barcode }}</td>
+        <td class="text-center">{{ product.vendorCode }}</td>
+        <td class="text-center">{{ product.manufacturer }}</td>
+        <td class="text-center">{{ product.name }}</td>
+        <td class="text-center">{{ product.quantity }}</td>
+        <td class="text-center">{{ product.price }}</td>
+        <td class="text-center">{{ product.vat }}</td>
+        <td class="text-center">{{ product.sum }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</ng-container>

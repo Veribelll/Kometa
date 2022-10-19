@@ -1,0 +1,18 @@
+mutation DeleteIndividualEntrepreneur($input: DeleteIndividualEntrepreneurInput!) {
+  deleteIndividualEntrepreneur(input: $input) {
+    individualEntrepreneur {
+      ...IndividualEntrepreneur
+    }
+    errors {
+      ... on ContractorHostDeletionError {
+        code
+        message
+        details
+      }
+
+      ... on Error {
+        message
+      }
+    }
+  }
+}

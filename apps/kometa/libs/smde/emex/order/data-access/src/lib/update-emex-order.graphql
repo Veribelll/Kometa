@@ -1,0 +1,50 @@
+mutation UpdateEmexOrder($input: UpdateEmexOrderInput!) {
+  updateEmexOrder(input: $input) {
+    emexOrder {
+      ...EmexOrder
+    }
+    errors {
+      ... on EmexOrderExternalIdAlreadyExistsError {
+        code
+        message
+        details
+      }
+      ... on EmexOrderLockedError {
+        code
+        message
+        details
+      }
+      ... on PackingPlaceLockedError {
+        code
+        message
+        details
+        packingPlace {
+          id
+          barcode
+        }
+      }
+      ... on EmexProductLockedError {
+        code
+        message
+        details
+        product {
+          id
+          barcode
+          name
+        }
+      }
+      ... on EmexOrderCustomerIdIsNotEqualError {
+        code
+        message
+        details
+        packingPlace {
+          id
+          barcode
+        }
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

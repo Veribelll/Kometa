@@ -1,0 +1,12 @@
+fragment SmsTemplate on SmsTemplate {
+  id
+  contractorId
+  eventType
+  contractor {
+    id
+    name
+  }
+  name
+  template
+  comment
+}

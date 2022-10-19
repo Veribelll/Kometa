@@ -1,0 +1,139 @@
+<div class="flex flex-column mx-3 h-full">
+  <div style="height: 70px" class="mb-4">
+    <span class="text-4xl mb-1">{{ message$ | async }}</span>
+    <br />
+    <span class="text-2xl">{{ description$ | async }}</span>
+  </div>
+  <div class="flex flex-row justify-content-between mb-2">
+    <div class="flex justify-content-center flex-grow-1">
+      <div class="flex flex-column">
+        <label for="barcode" class="text-2xl">Отсканированный штрих-код:</label>
+        <input
+          id="barcode"
+          style="width: 500px"
+          class="text-4xl"
+          [formControl]="scannedBarcode"
+          readonly
+          pInputText
+          pKeyboard
+        />
+      </div>
+    </div>
+    <div class="flex flex-row align-items-center">
+      <button
+        pButton
+        pRipple
+        label="Выбрать ячейку"
+        style="width: 130px; height: 80px"
+        class="text-xl mr-4"
+        (click)="onSelectCell()"
+        [disabled]="disableSelectCellButton$ | async"
+      ></button>
+      <button
+        pButton
+        pRipple
+        label="Поменять ячейку"
+        style="width: 140px; height: 80px"
+        class="text-xl mr-4"
+        (click)="onChangeCell()"
+        [disabled]="disableChangeCellButton$ | async"
+      ></button>
+      <button
+        pButton
+        pRipple
+        label="Отмена"
+        style="width: 130px; height: 80px"
+        class="text-2xl mr-4"
+        (click)="onOpenCancel()"
+      ></button>
+      <button
+        pButton
+        pRipple
+        label="Готово"
+        style="width: 130px; height: 80px"
+        class="text-2xl mr-4"
+        (click)="onSave()"
+      ></button>
+    </div>
+  </div>
+  <div class="flex flex-row flex-grow-1">
+    <div class="w-5">
+      <div class="mb-4">
+        <span class="text-xl">Товары для размещения:</span>
+        <kometa-packing-place-for-placement-table
+          [packingPlaces]="(placementList$ | async)!"
+          [loading]="(loading$ | async)!"
+        ></kometa-packing-place-for-placement-table>
+      </div>
+      <div>
+        <span class="text-xl">Размещенный товар:</span>
+        <kometa-packing-place-placed-table
+          [placedList]="(placedList$ | async)!"
+        ></kometa-packing-place-placed-table>
+      </div>
+    </div>
+    <div class="flex flex-column align-items-center flex-grow-1">
+      <div class="flex flex-grow-1 align-items-center">
+        <ngx-barcode6
+          *ngIf="selectedCell$ | async; let selectedCell"
+          [bc-format]="'CODE128'"
+          [bc-value]="selectedCell.barcode"
+          [bc-display-value]="true"
+        >
+        </ngx-barcode6>
+      </div>
+      <div class="w-full">
+        <div class="flex justify-content-between">
+          <div class="flex flex-column">
+            <button
+              pButton
+              pRipple
+              label="Подтвердить размещение"
+              class="p-button-outlined p-button-secondary mb-2"
+              [disabled]="disableConfirmPlacementButton$ | async"
+              (click)="onConfirmPlacement()"
+            ></button>
+            <button
+              pButton
+              pRipple
+              label="Уложить в виртуальную"
+              class="p-button-outlined p-button-secondary mb-2"
+              [disabled]="disableConfirmPlacementInVirtualButton$ | async"
+              (click)="onConfirmPlacementInVirtual()"
+            ></button>
+            <button
+              pButton
+              pRipple
+              label="Переложить товар"
+              class="p-button-outlined p-button-secondary mb-2"
+              (click)="onShift()"
+            ></button>
+            <button
+              pButton
+              pRipple
+              label="Открыть сервисную ячейку"
+              class="p-button-outlined p-button-secondary mb-2"
+              (click)="onOpenServiceCell()"
+            ></button>
+          </div>
+          <div class="flex-grow-1">
+            <p-detail-body>
+              <p-detail-field
+                label="Отсканированный ШК:"
+                [value]="scannedBarcode.valueChanges | async"
+              ></p-detail-field>
+              <p-detail-field
+                label="Ид клиента:"
+                [value]="(selectedPackingPlace$ | async)?.customer?.externalId"
+              ></p-detail-field>
+              <p-detail-field
+                label="Ячейка:"
+                [value]="(selectedCell$ | async)?.name"
+              ></p-detail-field>
+            </p-detail-body>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

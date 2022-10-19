@@ -1,0 +1,31 @@
+<div class="shadow-15">
+  <div class="mb-2">
+    <p-toolbar>
+      <button
+        pButton
+        pRipple
+        *permission="'NotificationManagement.SmsTemplates.Create'"
+        label="Добавить"
+        icon="pi pi-plus"
+        class="p-button-success"
+        (click)="onCreate()"
+      ></button>
+    </p-toolbar>
+  </div>
+  <div>
+    <p-panel header="Смс шаблоны">
+      <kometa-sms-template-table
+        [smsTemplates]="(smsTemplates$ | async)!"
+        [loading]="(loading$ | async)!"
+        [totalRecords]="(totalRecords$ | async)!"
+        [permissionDetails]="'NotificationManagement.SmsTemplates'"
+        [permissionUpdate]="'NotificationManagement.SmsTemplates.Update'"
+        [permissionDelete]="'NotificationManagement.SmsTemplates.Delete'"
+        (lazyLoad)="onLazyLoad($event)"
+        (details)="onDetails($event)"
+        (update)="onUpdate($event)"
+        (delete)="onDelete($event)"
+      ></kometa-sms-template-table>
+    </p-panel>
+  </div>
+</div>

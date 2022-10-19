@@ -1,0 +1,14 @@
+mutation UpdatePostamatNetworkPrinter($input: UpdatePostamatNetworkPrinterInput!) {
+  updatePostamatNetworkPrinter(input: $input) {
+    postamat {
+      networkPrinter {
+        ...PostamatNetworkPrinter
+      }
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

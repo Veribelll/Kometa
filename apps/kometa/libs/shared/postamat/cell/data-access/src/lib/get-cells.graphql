@@ -1,0 +1,5 @@
+query GetCells($postamatId: ID!, $where: CellFilterInput, $order: [CellSortInput!]) {
+  cells(postamatId: $postamatId, where: $where, order: $order) {
+    ...Cell
+  }
+}

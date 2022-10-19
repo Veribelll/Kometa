@@ -1,0 +1,4 @@
+fragment Lock on Lock {
+  id
+  address
+}

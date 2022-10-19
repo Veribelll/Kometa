@@ -1,0 +1,5 @@
+query GetPackingPlace($where: PackingPlaceFilterInput) {
+  packingPlace(where: $where) {
+    ...PackingPlace
+  }
+}

@@ -1,0 +1,13 @@
+overwrite: true
+schema:
+  - apps/smde/schema.graphql
+generates:
+  libs/postamat/admin-panel/data-access/src/lib/graphql-apollo.ts:
+    documents:
+      - libs/postamat/admin-panel/data-access/**/*.graphql
+    plugins:
+      - typescript-apollo-angular
+    config:
+      documentMode: 'external'
+      importOperationTypesFrom: 'Operations'
+      importDocumentNodeExternallyFrom: '@kometa/postamat/admin-panel/types'

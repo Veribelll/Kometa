@@ -1,0 +1,30 @@
+mutation UpdateIndividualEntrepreneur($input: UpdateIndividualEntrepreneurInput!) {
+  updateIndividualEntrepreneur(input: $input) {
+    individualEntrepreneur {
+      ...IndividualEntrepreneur
+    }
+    errors {
+      ... on ContractorInnAlreadyExistsError {
+        contractor {
+          id
+          name
+        }
+        code
+        message
+        details
+      }
+      ... on ContractorNameAlreadyExistsError {
+        contractor {
+          id
+          name
+        }
+        code
+        message
+        details
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

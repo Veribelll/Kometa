@@ -1,0 +1,12 @@
+mutation UpdateEmexProduct($input: UpdateEmexProductInput!) {
+  updateEmexProduct(input: $input) {
+    emexProduct {
+      ...EmexProduct
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

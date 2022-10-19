@@ -1,0 +1,5 @@
+query GetSmsTemplate($where: SmsTemplateFilterInput) {
+  smsTemplate(where: $where) {
+    ...SmsTemplate
+  }
+}

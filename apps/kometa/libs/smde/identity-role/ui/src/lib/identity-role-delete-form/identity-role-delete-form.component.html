@@ -1,0 +1,7 @@
+<div *ngIf="identityRole">
+  <p class="m-1">
+    Вы действительно хотите удалить роль:
+    <span class="font-bold">'{{ identityRole.name }}'</span>?
+  </p>
+  <p-form-delete-actions (delete)="onDelete()" (cancel)="onCancel()"></p-form-delete-actions>
+</div>

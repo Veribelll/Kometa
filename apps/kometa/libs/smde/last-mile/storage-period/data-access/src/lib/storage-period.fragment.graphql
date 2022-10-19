@@ -1,0 +1,5 @@
+fragment LastMileStoragePeriod on LastMileStoragePeriod {
+  lastMileId
+  typeOrder
+  period
+}

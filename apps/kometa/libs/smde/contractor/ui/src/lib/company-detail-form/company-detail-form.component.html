@@ -1,0 +1,29 @@
+<p-detail-body *ngIf="company">
+  <p-detail-field label="Наименование:" [value]="company.name"></p-detail-field>
+  <p-detail-field label="ИНН:" [value]="company.inn"></p-detail-field>
+  <p-detail-field label="ОКПО:" [value]="company.okpo"></p-detail-field>
+  <p-detail-field label="КПП:" [value]="company.kpp"></p-detail-field>
+  <p-detail-field label="ОГРН:" [value]="company.ogrn"></p-detail-field>
+  <p-detail-field label="Юридический адрес:" [value]="company.address"></p-detail-field>
+  <p-detail-field label="Фактический адрес:" [value]="company.actualAddress"></p-detail-field>
+  <p-detail-field label="Почтовый адрес:" [value]="company.mailingAddress"></p-detail-field>
+  <div class="mt-2">
+    <p-fieldset legend="Реквизиты банка">
+      <p-detail-body>
+        <p-detail-field
+          label="Наименование:"
+          [value]="company.accountBank.bankName"
+        ></p-detail-field>
+        <p-detail-field label="БИК:" [value]="company.accountBank.bic"></p-detail-field>
+        <p-detail-field
+          label="Расчетный счёт:"
+          [value]="company.accountBank.paymentAccount"
+        ></p-detail-field>
+        <p-detail-field
+          label="Корреспондентский счёт:"
+          [value]="company.accountBank.correspondentAccount"
+        ></p-detail-field>
+      </p-detail-body>
+    </p-fieldset>
+  </div>
+</p-detail-body>

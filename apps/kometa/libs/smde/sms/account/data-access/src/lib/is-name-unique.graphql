@@ -1,0 +1,3 @@
+query SmsAccountIsNameUnique($name: String!) {
+  smsAccountsAny(where: { name: { eq: $name } })
+}

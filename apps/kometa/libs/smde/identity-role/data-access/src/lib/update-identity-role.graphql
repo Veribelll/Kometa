@@ -1,0 +1,12 @@
+mutation UpdateIdentityRole($input: UpdateIdentityRoleInput!) {
+  updateIdentityRole(input: $input) {
+    identityRole {
+      ...IdentityRole
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

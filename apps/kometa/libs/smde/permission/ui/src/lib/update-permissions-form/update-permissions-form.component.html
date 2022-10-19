@@ -1,0 +1,43 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSave()">
+  <div class="grid">
+    <div class="col-4">
+      <div class="flex-column">
+        <div class="col text-center" *ngFor="let group of (groups$ | async)!">
+          <button
+            pButton
+            pRipple
+            type="button"
+            [label]="group.displayName"
+            class="p-button-secondary w-full"
+            [class.p-button-outlined]="(selectGroup$ | async) !== group"
+            (click)="onSelectGroup(group)"
+          ></button>
+        </div>
+      </div>
+    </div>
+    <p-divider layout="vertical"></p-divider>
+    <div *ngIf="selectGroup$ | async; let selectGroup" class="col">
+      <div class="grid flex-column">
+        <div class="col">
+          <button
+            pButton
+            pRipple
+            type="button"
+            label="Выбрать все"
+            class="mb-3"
+            (click)="onSelectAllByGroup()"
+          ></button>
+        </div>
+        <kometa-permission-fields
+          [formGroup]="formGroup"
+          [permissions]="selectGroup.permissions"
+        ></kometa-permission-fields>
+      </div>
+    </div>
+  </div>
+  <p-form-actions
+    [invalid]="formGroup.invalid"
+    [pending]="formGroup.pending"
+    (cancel)="onCancel()"
+  ></p-form-actions>
+</form>

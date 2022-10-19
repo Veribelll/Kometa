@@ -1,0 +1,17 @@
+query GetEmployees(
+  $where: IdentityUserFilterInput
+  $order: [IdentityUserSortInput!]
+  $take: Int
+  $skip: Int
+) {
+  employees(where: $where, order: $order, take: $take, skip: $skip) {
+    items {
+      ...Employee
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+    totalCount
+  }
+}

@@ -1,0 +1,12 @@
+mutation DeleteEmexAccount($input: DeleteEmexAccountInput!) {
+  deleteEmexAccount(input: $input) {
+    emexAccount {
+      ...EmexAccount
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

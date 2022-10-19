@@ -1,0 +1,51 @@
+<div class="flex flex-column m-3">
+  <div class="flex flex-row justify-content-between mb-4">
+    <kometa-place-order-button></kometa-place-order-button>
+    <kometa-cancel-button routerLink="/"></kometa-cancel-button>
+  </div>
+  <div class="flex flex-row" *ngIf="state === 0">
+    <div class="flex flex-column align-items-center w-4">
+      <label for="pinCode" class="text-4xl">ВВЕДИТЕ ПИН КОД</label>
+      <input id="pinCode" class="text-center text-4xl mb-3" [value]="pinCode" pInputText />
+      <p-key-pin [(pin)]="pinCode"></p-key-pin>
+    </div>
+    <div class="flex flex-column justify-content-between ml-6">
+      <div class="mt-6">
+        <div style="height: 120px">
+          <div *ngIf="error$ | async" class="flex flex-row mb-3">
+            <div>
+              <i style="font-size: 100px; font-weight: bold; color: red" class="pi pi-times"></i>
+            </div>
+            <div style="width: 170px">
+              <span style="color: red" class="text-4xl">Введен не верный пин-код</span>
+            </div>
+          </div>
+        </div>
+        <kometa-yellow-button
+          label="ПОДТВЕРДИТЬ ВВОД ПИН-КОДА"
+          (click)="onCheckPin()"
+        ></kometa-yellow-button>
+      </div>
+      <button
+        label="Я забыл пин-код, выслать повторно"
+        class="p-button-lg"
+        pButton
+        pRipple
+        (click)="sendNewPinCode()"
+      ></button>
+    </div>
+  </div>
+  <div [style.display]="state === 1 ? 'block' : 'none'">
+    <div class="flex flex-column align-items-center m-3">
+      <div class="mb-3">
+        <kometa-postamat-view-page
+          #postamatView
+          [postamatId]="postamatId"
+        ></kometa-postamat-view-page>
+      </div>
+      <div>
+        <kometa-yellow-button label="ПОТДВЕРДИТЬ" (click)="issue()"></kometa-yellow-button>
+      </div>
+    </div>
+  </div>
+</div>

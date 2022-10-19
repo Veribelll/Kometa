@@ -1,0 +1,22 @@
+mutation CreateTemplateCell($input: CreateTemplateCellInput!) {
+  createTemplateCell(input: $input) {
+    templateCell {
+      ...TemplateCell
+    }
+    errors {
+      ... on TemplateCellNameAlreadyExistsError {
+        code
+        message
+        details
+      }
+      ... on TemplateCellSizeIdEmptyError {
+        code
+        message
+        details
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

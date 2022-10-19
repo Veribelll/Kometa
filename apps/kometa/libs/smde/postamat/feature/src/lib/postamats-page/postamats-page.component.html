@@ -1,0 +1,41 @@
+<div class="p-shadow-15">
+  <div class="mb-2">
+    <p-toolbar>
+      <button
+        pButton
+        pRipple
+        *permission="'LastMileManagement.LastMiles.Create'"
+        label="Добавить"
+        icon="pi pi-plus"
+        class="p-button-success"
+        (click)="onCreate()"
+      ></button>
+    </p-toolbar>
+  </div>
+  <div>
+    <p-panel header="Постаматы">
+      <kometa-postamat-table
+        [postamats]="(postamats$ | async)!"
+        [loading]="(loading$ | async)!"
+        [totalRecords]="(totalRecords$ | async)!"
+        [permissionDetails]="'LastMileManagement.LastMiles'"
+        [permissionUpdate]="'LastMileManagement.LastMiles.Update'"
+        [permissionDelete]="'LastMileManagement.LastMiles.Delete'"
+        (lazyLoad)="onLazyLoad($event)"
+        (details)="onDetails($event)"
+        (update)="onUpdate($event)"
+        (delete)="onDelete($event)"
+        (showSettings)="onShowSettings($event)"
+        (showAccounts)="onShowAccounts($event)"
+        (showStoragePeriods)="onShowStoragePeriods($event)"
+        (showReturnPeriods)="onShowReturnPeriods($event)"
+        (showControllers)="onShowControllers($event)"
+        (showCells)="onShowCells($event)"
+        (showScanner)="onShowScanner($event)"
+        (showPrinters)="onShowPrinters($event)"
+        (showAccessKeys)="onShowAccessKeys($event)"
+        (showSmsTemplates)="onShowSmsTemplates($event)"
+      ></kometa-postamat-table>
+    </p-panel>
+  </div>
+</div>

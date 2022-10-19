@@ -1,0 +1,3 @@
+query PostamatIsFactoryNumberUnique($factoryNumber: String!) {
+  postamatsAny(where: { factoryNumber: { eq: $factoryNumber } })
+}

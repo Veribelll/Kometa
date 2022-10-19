@@ -1,0 +1,19 @@
+<form [formGroup]="formGroup" [validateOnSubmit]="true" (ngSubmit)="onSave()">
+  <p-form-body>
+    <p-form-field>
+      <label for="name" class="required">Наименование:</label>
+      <input id="name" formControlName="name" type="text" pInputText pKeyboard />
+    </p-form-field>
+    <p-form-field>
+      <kometa-serial-port-form
+        [formGroup]="formGroupSettings"
+        [portNames]="portNames"
+      ></kometa-serial-port-form>
+    </p-form-field>
+  </p-form-body>
+  <p-form-actions
+    [invalid]="formGroup.invalid"
+    [pending]="formGroup.pending"
+    (cancel)="onCancel()"
+  ></p-form-actions>
+</form>

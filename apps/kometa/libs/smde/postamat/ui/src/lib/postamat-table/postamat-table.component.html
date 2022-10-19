@@ -1,0 +1,77 @@
+<ng-container *transloco="let t">
+  <p-table
+    #table
+    styleClass="p-datatable-gridlines"
+    dataKey="id"
+    [value]="postamats"
+    [loading]="loading"
+    [totalRecords]="totalRecords"
+    [paginator]="true"
+    [rows]="25"
+    [rowsPerPageOptions]="[25, 50, 75]"
+    [responsive]="true"
+    [lazy]="true"
+    (onLazyLoad)="onLazyLoad($event)"
+  >
+    <ng-template pTemplate="caption">
+      <p-table-caption
+        (clear)="table.clear()"
+        (changeFilter)="table.filterGlobal($event, 'contains')"
+      ></p-table-caption>
+    </ng-template>
+
+    <ng-template pTemplate="header">
+      <tr>
+        <th class="text-center">
+          <span>Наименование</span>
+        </th>
+
+        <th class="text-center">
+          <span>Адрес</span>
+        </th>
+
+        <th class="text-center">
+          <span>Заводской номер</span>
+        </th>
+
+        <th class="text-center">
+          <span>Внешний ID</span>
+        </th>
+
+        <th class="text-center">
+          <span>Статус</span>
+        </th>
+
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-postamat>
+      <tr>
+        <td class="text-center">{{ postamat.name }}</td>
+        <td class="text-center">{{ postamat.address }}</td>
+        <td class="text-center">{{ postamat.factoryNumber }}</td>
+        <td class="text-center">{{ postamat.externalId }}</td>
+        <td class="text-center">
+          {{ t('LastMileStatus:' + getStatus(postamat)) }}
+        </td>
+        <td class="text-center">
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-ellipsis-v"
+            class="p-button-rounded p-button-info"
+            (click)="menu.toggle($event)"
+          ></button>
+          <p-menu
+            #menu
+            appendTo="body"
+            [popup]="true"
+            [model]="menuItems"
+            (onShow)="onShowMenu(postamat)"
+          ></p-menu>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</ng-container>

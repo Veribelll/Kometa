@@ -1,0 +1,8 @@
+query GetPackingPlaceChangesHistory($packingPlaceId: ID!) {
+  packingPlaceById(id: $packingPlaceId) {
+    changesHistory {
+      status
+      creationTime
+    }
+  }
+}

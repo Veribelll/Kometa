@@ -1,0 +1,7 @@
+query GetPostamatSettings($postamatId: ID!) {
+  postamatById(id: $postamatId) {
+    settings {
+      ...PostamatSettings
+    }
+  }
+}

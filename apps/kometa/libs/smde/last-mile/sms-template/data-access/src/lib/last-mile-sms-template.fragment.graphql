@@ -1,0 +1,10 @@
+fragment LastMileSmsTemplate on LastMileSmsTemplate {
+  lastMileId
+  typeOrder
+  eventType
+  smsTemplateId
+  smsTemplate {
+    id
+    name
+  }
+}

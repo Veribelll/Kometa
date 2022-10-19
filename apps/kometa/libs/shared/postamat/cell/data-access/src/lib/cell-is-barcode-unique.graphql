@@ -1,0 +1,3 @@
+query CellIsBarcodeUnique($postamatId: ID!, $barcode: String!) {
+  cellsAny(postamatId: $postamatId, where: { barcode: { eq: $barcode } })
+}

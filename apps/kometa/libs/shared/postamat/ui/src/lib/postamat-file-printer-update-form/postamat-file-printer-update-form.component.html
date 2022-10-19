@@ -1,0 +1,24 @@
+<form [formGroup]="formGroup" [validateOnSubmit]="true" (ngSubmit)="onSave()">
+  <p-form-body>
+    <p-form-field>
+      <label for="filePath">Путь к папке:</label>
+      <input id="filePath" formControlName="filePath" type="text" pInputText pKeyboard />
+    </p-form-field>
+    <p-form-field>
+      <p-toggleButton
+        inputId="isEnabled"
+        formControlName="isEnabled"
+        onLabel="Включен"
+        offLabel="Выключен"
+        onIcon="pi pi-check"
+        offIcon="pi pi-times"
+        [style]="{ width: '10em' }"
+      ></p-toggleButton>
+    </p-form-field>
+  </p-form-body>
+  <p-form-actions
+    [invalid]="formGroup.invalid"
+    [pending]="formGroup.pending"
+    (cancel)="onCancel()"
+  ></p-form-actions>
+</form>

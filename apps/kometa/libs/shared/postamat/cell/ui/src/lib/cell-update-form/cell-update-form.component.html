@@ -1,0 +1,25 @@
+<form [formGroup]="formGroup" [validateOnSubmit]="true" (ngSubmit)="onSave()">
+  <p-form-body>
+    <p-form-field>
+      <label for="name" class="required">Наименование:</label>
+      <input id="name" formControlName="name" type="text" pInputText />
+    </p-form-field>
+    <p-form-field>
+      <label for="barcode" class="required">ШК:</label>
+      <input id="barcode" formControlName="barcode" type="text" pInputText />
+    </p-form-field>
+    <p-form-field>
+      <label for="pinCode">Пин-код:</label>
+      <input id="pinCode" formControlName="pinCode" type="text" pInputText />
+    </p-form-field>
+    <p-form-field>
+      <label for="servicePinCode">Сервисный пин-код:</label>
+      <input id="servicePinCode" formControlName="servicePinCode" type="text" pInputText />
+    </p-form-field>
+  </p-form-body>
+  <p-form-actions
+    [invalid]="formGroup.invalid"
+    [pending]="formGroup.pending"
+    (cancel)="onCancel()"
+  ></p-form-actions>
+</form>

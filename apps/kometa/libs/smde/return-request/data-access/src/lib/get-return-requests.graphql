@@ -1,0 +1,17 @@
+query GetReturnRequests(
+  $where: ReturnRequestFilterInput
+  $order: [ReturnRequestSortInput!]
+  $take: Int
+  $skip: Int
+) {
+  returnRequests(where: $where, order: $order, take: $take, skip: $skip) {
+    items {
+      ...ReturnRequest
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+    totalCount
+  }
+}

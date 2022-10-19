@@ -1,0 +1,17 @@
+query GetTemplatesPostamat(
+  $where: TemplatePostamatFilterInput
+  $order: [TemplatePostamatSortInput!]
+  $take: Int
+  $skip: Int
+) {
+  templatesPostamat(where: $where, order: $order, take: $take, skip: $skip) {
+    items {
+      ...TemplatePostamat
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+    totalCount
+  }
+}

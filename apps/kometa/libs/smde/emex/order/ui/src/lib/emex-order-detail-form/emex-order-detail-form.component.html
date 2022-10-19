@@ -1,0 +1,16 @@
+<p-detail-body *ngIf="order">
+  <p-detail-field label="GlobalId:" [value]="order.globalId"></p-detail-field>
+  <p-detail-field label="ID заказа:" [value]="order.externalId"></p-detail-field>
+  <p-detail-field label="ФИО клиента:" [value]="order.customer.name"></p-detail-field>
+  <p-detail-field label="Телефон клиента:" [value]="order.customer.phone"></p-detail-field>
+  <p-detail-field label="Email клиента:" [value]="order.customer.email"></p-detail-field>
+  <p-detail-field label="ID клиента:" [value]="order.customer.externalId"></p-detail-field>
+  <div class="mt-4">
+    <p-panel header="Товары">
+      <kometa-emex-product-table
+        [products]="order.products ?? []"
+        [actionButtons]="false"
+      ></kometa-emex-product-table>
+    </p-panel>
+  </div>
+</p-detail-body>

@@ -1,0 +1,12 @@
+mutation DeleteSmsTemplate($input: DeleteSmsTemplateInput!) {
+  deleteSmsTemplate(input: $input) {
+    smsTemplate {
+      ...SmsTemplate
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+<div *ngIf="eventType" class="grid">
+  <div *ngFor="let filed of fields" class="col-4">
+    <button
+      *ngIf="isShow(filed)"
+      pButton
+      pRipple
+      type="button"
+      [label]="filed.label"
+      (click)="onSelect(filed.template)"
+      class="p-button-outlined p-button-secondary mt-2"
+    ></button>
+  </div>
+</div>

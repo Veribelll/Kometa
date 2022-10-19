@@ -1,0 +1,6 @@
+<kometa-topology-update-form
+  [formGroup]="formGroup"
+  [templatesPostamat]="(templatesPostamat$ | async)!"
+  (save)="onSave($event)"
+  (cancel)="onCancel()"
+></kometa-topology-update-form>

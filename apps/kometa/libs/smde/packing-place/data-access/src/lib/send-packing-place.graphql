@@ -1,0 +1,19 @@
+mutation SendPackingPlace($input: SendPackingPlaceInput!) {
+  sendPackingPlace(input: $input) {
+    packingPlace {
+      ...PackingPlace
+    }
+    errors {
+      ... on PackingPlaceIncorrectStatusError {
+        code
+        message
+        details
+        current
+        next
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+<div class="shadow-15">
+  <div class="mb-2">
+    <p-toolbar>
+      <button
+        *permission="'Emex.Orders.Create'"
+        pButton
+        pRipple
+        label="Добавить"
+        icon="pi pi-plus"
+        class="p-button-success"
+        (click)="onCreate()"
+      ></button>
+    </p-toolbar>
+  </div>
+  <div>
+    <p-panel header="Заказы">
+      <kometa-emex-order-table
+        [orders]="(orders$ | async)!"
+        [loading]="(loading$ | async)!"
+        [totalRecords]="(totalRecords$ | async)!"
+        [permissionDetails]="'Emex.Orders'"
+        [permissionUpdate]="'Emex.Orders.Update'"
+        [permissionDelete]="'Emex.Orders.Delete'"
+        (lazyLoad)="onLazyLoad($event)"
+        (details)="onDetails($event)"
+        (update)="onUpdate($event)"
+        (delete)="onDelete($event)"
+      ></kometa-emex-order-table>
+    </p-panel>
+  </div>
+</div>

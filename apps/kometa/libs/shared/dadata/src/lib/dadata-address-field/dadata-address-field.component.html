@@ -1,0 +1,15 @@
+<span>
+  <label [for]="inputId" [className]="classLabel">{{ label }}</label>
+  <p-autoComplete
+    [inputId]="inputId!"
+    [(ngModel)]="selected"
+    (ngModelChange)="change($event)"
+    appendTo="body"
+    field="value"
+    [suggestions]="(addresses$ | async)!"
+    (completeMethod)="filter($event)"
+    [minLength]="3"
+    [disabled]="disabled"
+  >
+  </p-autoComplete>
+</span>

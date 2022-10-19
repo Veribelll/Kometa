@@ -1,0 +1,7 @@
+query GetPostamatSerialPrinter($postamatId: ID!) {
+  postamatById(id: $postamatId) {
+    serialPrinter {
+      ...PostamatSerialPrinter
+    }
+  }
+}

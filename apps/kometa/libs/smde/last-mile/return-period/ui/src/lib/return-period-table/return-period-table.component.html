@@ -1,0 +1,45 @@
+<p-table
+  styleClass="p-datatable-gridlines"
+  dataKey="id"
+  [value]="returnPeriods"
+  [loading]="loading"
+  [paginator]="false"
+  [responsive]="true"
+  [lazy]="true"
+  (onLazyLoad)="onLazyLoad($event)"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th class="text-center">
+        <span class="w-full">Тип заказа</span>
+      </th>
+
+      <th class="text-center">
+        <span class="w-full">Период</span>
+      </th>
+
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-returnPeriod>
+    <tr>
+      <td class="text-center">
+        <span class="w-full">{{ returnPeriod.typeOrder }}</span>
+      </td>
+
+      <td class="text-center">
+        <span class="w-full">{{ returnPeriod.period }}</span>
+      </td>
+
+      <td class="p-text-center">
+        <p-table-actions
+          [displayDetails]="false"
+          [displayDelete]="false"
+          [permissionUpdate]="permissionUpdate"
+          (update)="onUpdate(returnPeriod)"
+        >
+        </p-table-actions>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

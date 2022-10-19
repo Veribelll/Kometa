@@ -1,0 +1,3 @@
+query EmployeeIsEmailUnique($email: String!) {
+  isEmailUnique(email: $email)
+}

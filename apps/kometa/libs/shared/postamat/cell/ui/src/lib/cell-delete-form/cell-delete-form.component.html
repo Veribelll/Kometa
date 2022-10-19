@@ -1,0 +1,8 @@
+<div *ngIf="cell">
+  <p class="m-1">
+    Вы действительно хотите удалить ячейку:
+    <br />
+    <span class="font-bold">'{{ cell.name }}'</span>?
+  </p>
+  <p-form-delete-actions (delete)="onDelete()" (cancel)="onCancel()"></p-form-delete-actions>
+</div>

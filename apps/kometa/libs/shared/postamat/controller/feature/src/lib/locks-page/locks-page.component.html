@@ -1,0 +1,5 @@
+<kometa-lock-table
+  [locks]="(locks$ | async)!"
+  [loading]="(loading$ | async)!"
+  (lazyLoad)="onLazyLoad($event)"
+></kometa-lock-table>

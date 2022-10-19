@@ -1,0 +1,5565 @@
+{
+  "version": 1,
+  "projects": {
+    "postamat": {
+      "projectType": "application",
+      "root": "apps/postamat",
+      "sourceRoot": "apps/postamat/src",
+      "prefix": "kometa",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/postamat",
+            "index": "apps/postamat/src/index.html",
+            "main": "apps/postamat/src/main.ts",
+            "polyfills": "apps/postamat/src/polyfills.ts",
+            "tsConfig": "apps/postamat/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/postamat/src/favicon.ico",
+              "apps/postamat/src/assets"
+            ],
+            "styles": [
+              "apps/postamat/src/styles.scss",
+              "node_modules/primeng/resources/themes/saga-orange/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeflex/primeflex.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/simple-keyboard/build/css/index.css"
+            ],
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "jsbarcode"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "5000kb",
+                  "maximumError": "10mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "200kb",
+                  "maximumError": "400kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/postamat/src/environments/environment.ts",
+                  "with": "apps/postamat/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "postamat:build:production"
+            },
+            "development": {
+              "browserTarget": "postamat:build:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "proxyConfig": "apps/postamat/proxy.conf.json"
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "postamat:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/postamat/src/**/*.ts",
+              "apps/postamat/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/postamat"
+          ],
+          "options": {
+            "jestConfig": "apps/postamat/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": [
+        "scope:postamat",
+        "type:app"
+      ]
+    },
+    "postamat-activate-data-access": {
+      "projectType": "library",
+      "root": "libs/postamat/activate/data-access",
+      "sourceRoot": "libs/postamat/activate/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/postamat/activate/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/postamat/activate/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/postamat/activate/data-access/src/**/*.ts",
+              "libs/postamat/activate/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/postamat/activate/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:postamat",
+        "type:data-access"
+      ]
+    },
+    "postamat-activate-feature": {
+      "projectType": "library",
+      "root": "libs/postamat/activate/feature",
+      "sourceRoot": "libs/postamat/activate/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/postamat/activate/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/postamat/activate/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/postamat/activate/feature/src/**/*.ts",
+              "libs/postamat/activate/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:postamat",
+        "type:feature"
+      ]
+    },
+    "postamat-activate-types": {
+      "projectType": "library",
+      "root": "libs/postamat/activate/types",
+      "sourceRoot": "libs/postamat/activate/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/postamat/activate/types"
+          ],
+          "options": {
+            "jestConfig": "libs/postamat/activate/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/postamat/activate/types/src/**/*.ts",
+              "libs/postamat/activate/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/postamat/activate/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:postamat",
+        "type:types"
+      ]
+    },
+    "postamat-admin-panel-data-access": {
+      "projectType": "library",
+      "root": "libs/postamat/admin-panel/data-access",
+      "sourceRoot": "libs/postamat/admin-panel/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/postamat/admin-panel/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/postamat/admin-panel/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/postamat/admin-panel/data-access/src/**/*.ts",
+              "libs/postamat/admin-panel/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/postamat/admin-panel/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:postamat",
+        "type:data-access"
+      ]
+    },
+    "postamat-admin-panel-feature": {
+      "projectType": "library",
+      "root": "libs/postamat/admin-panel/feature",
+      "sourceRoot": "libs/postamat/admin-panel/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/postamat/admin-panel/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/postamat/admin-panel/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/postamat/admin-panel/feature/src/**/*.ts",
+              "libs/postamat/admin-panel/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:postamat",
+        "type:feature"
+      ]
+    },
+    "postamat-admin-panel-types": {
+      "projectType": "library",
+      "root": "libs/postamat/admin-panel/types",
+      "sourceRoot": "libs/postamat/admin-panel/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/postamat/admin-panel/types"
+          ],
+          "options": {
+            "jestConfig": "libs/postamat/admin-panel/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/postamat/admin-panel/types/src/**/*.ts",
+              "libs/postamat/admin-panel/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/postamat/admin-panel/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:postamat",
+        "type:types"
+      ]
+    },
+    "postamat-admin-panel-ui": {
+      "projectType": "library",
+      "root": "libs/postamat/admin-panel/ui",
+      "sourceRoot": "libs/postamat/admin-panel/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/postamat/admin-panel/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/postamat/admin-panel/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/postamat/admin-panel/ui/src/**/*.ts",
+              "libs/postamat/admin-panel/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:postamat",
+        "type:ui"
+      ]
+    },
+    "postamat-core": {
+      "projectType": "library",
+      "root": "libs/postamat/core",
+      "sourceRoot": "libs/postamat/core/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/postamat/core"
+          ],
+          "options": {
+            "jestConfig": "libs/postamat/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/postamat/core/src/**/*.ts",
+              "libs/postamat/core/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:postamat",
+        "type:feature"
+      ]
+    },
+    "postamat-driver-feature": {
+      "projectType": "library",
+      "root": "libs/postamat/driver/feature",
+      "sourceRoot": "libs/postamat/driver/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/postamat/driver/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/postamat/driver/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/postamat/driver/feature/src/**/*.ts",
+              "libs/postamat/driver/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:postamat",
+        "type:feature"
+      ]
+    },
+    "postamat-e2e": {
+      "root": "apps/postamat-e2e",
+      "sourceRoot": "apps/postamat-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/postamat-e2e/cypress.json",
+            "devServerTarget": "postamat:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "postamat:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "options": {
+            "lintFilePatterns": [
+              "apps/postamat-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": [
+        "postamat"
+      ]
+    },
+    "postamat-electron": {
+      "root": "apps/postamat-electron",
+      "sourceRoot": "apps/postamat-electron/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "nx-electron:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/postamat-electron",
+            "main": "apps/postamat-electron/src/main.ts",
+            "tsConfig": "apps/postamat-electron/tsconfig.app.json",
+            "assets": [
+              "apps/postamat-electron/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/postamat-electron/src/environments/environment.ts",
+                  "with": "apps/postamat-electron/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "nx-electron:execute",
+          "options": {
+            "buildTarget": "postamat-electron:build"
+          }
+        },
+        "package": {
+          "builder": "nx-electron:package",
+          "options": {
+            "name": "postamat-electron",
+            "frontendProject": "postamat",
+            "outputPath": "dist/packages",
+            "prepackageOnly": true
+          }
+        },
+        "make": {
+          "builder": "nx-electron:make",
+          "options": {
+            "name": "postamat-electron",
+            "frontendProject": "postamat",
+            "outputPath": "dist/executables"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "options": {
+            "lintFilePatterns": [
+              "apps/postamat-electron/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/postamat-electron"
+          ],
+          "options": {
+            "jestConfig": "apps/postamat-electron/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "postamat-feature-scanner": {
+      "projectType": "library",
+      "root": "libs/postamat/feature-scanner",
+      "sourceRoot": "libs/postamat/feature-scanner/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/postamat/feature-scanner"
+          ],
+          "options": {
+            "jestConfig": "libs/postamat/feature-scanner/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/postamat/feature-scanner/src/**/*.ts",
+              "libs/postamat/feature-scanner/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:postamat",
+        "type:feature"
+      ]
+    },
+    "postamat-placing-packing-place-data-access": {
+      "projectType": "library",
+      "root": "libs/postamat/placing-packing-place/data-access",
+      "sourceRoot": "libs/postamat/placing-packing-place/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/postamat/placing-packing-place/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/postamat/placing-packing-place/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/postamat/placing-packing-place/data-access/src/**/*.ts",
+              "libs/postamat/placing-packing-place/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/postamat/placing-packing-place/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:postamat",
+        "type:data-access"
+      ]
+    },
+    "postamat-placing-packing-place-feature": {
+      "projectType": "library",
+      "root": "libs/postamat/placing-packing-place/feature",
+      "sourceRoot": "libs/postamat/placing-packing-place/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/postamat/placing-packing-place/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/postamat/placing-packing-place/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/postamat/placing-packing-place/feature/src/**/*.ts",
+              "libs/postamat/placing-packing-place/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:postamat",
+        "type:feature"
+      ]
+    },
+    "postamat-placing-packing-place-types": {
+      "projectType": "library",
+      "root": "libs/postamat/placing-packing-place/types",
+      "sourceRoot": "libs/postamat/placing-packing-place/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/postamat/placing-packing-place/types"
+          ],
+          "options": {
+            "jestConfig": "libs/postamat/placing-packing-place/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/postamat/placing-packing-place/types/src/**/*.ts",
+              "libs/postamat/placing-packing-place/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/postamat/placing-packing-place/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:postamat",
+        "type:types"
+      ]
+    },
+    "postamat-placing-packing-place-ui": {
+      "projectType": "library",
+      "root": "libs/postamat/placing-packing-place/ui",
+      "sourceRoot": "libs/postamat/placing-packing-place/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/postamat/placing-packing-place/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/postamat/placing-packing-place/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/postamat/placing-packing-place/ui/src/**/*.ts",
+              "libs/postamat/placing-packing-place/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:postamat",
+        "type:ui"
+      ]
+    },
+    "postamat-receive-packing-place-data-access": {
+      "projectType": "library",
+      "root": "libs/postamat/receive-packing-place/data-access",
+      "sourceRoot": "libs/postamat/receive-packing-place/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/postamat/receive-packing-place/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/postamat/receive-packing-place/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/postamat/receive-packing-place/data-access/src/**/*.ts",
+              "libs/postamat/receive-packing-place/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/postamat/receive-packing-place/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:postamat",
+        "type:data-access"
+      ]
+    },
+    "postamat-receive-packing-place-feature": {
+      "projectType": "library",
+      "root": "libs/postamat/receive-packing-place/feature",
+      "sourceRoot": "libs/postamat/receive-packing-place/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/postamat/receive-packing-place/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/postamat/receive-packing-place/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/postamat/receive-packing-place/feature/src/**/*.ts",
+              "libs/postamat/receive-packing-place/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:postamat",
+        "type:feature"
+      ]
+    },
+    "postamat-receive-packing-place-types": {
+      "projectType": "library",
+      "root": "libs/postamat/receive-packing-place/types",
+      "sourceRoot": "libs/postamat/receive-packing-place/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/postamat/receive-packing-place/types"
+          ],
+          "options": {
+            "jestConfig": "libs/postamat/receive-packing-place/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/postamat/receive-packing-place/types/src/**/*.ts",
+              "libs/postamat/receive-packing-place/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/postamat/receive-packing-place/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:postamat",
+        "type:types"
+      ]
+    },
+    "postamat-return-packing-place-data-access": {
+      "projectType": "library",
+      "root": "libs/postamat/return-packing-place/data-access",
+      "sourceRoot": "libs/postamat/return-packing-place/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/postamat/return-packing-place/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/postamat/return-packing-place/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/postamat/return-packing-place/data-access/src/**/*.ts",
+              "libs/postamat/return-packing-place/data-access/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
+    "postamat-return-packing-place-feature": {
+      "projectType": "library",
+      "root": "libs/postamat/return-packing-place/feature",
+      "sourceRoot": "libs/postamat/return-packing-place/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/postamat/return-packing-place/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/postamat/return-packing-place/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/postamat/return-packing-place/feature/src/**/*.ts",
+              "libs/postamat/return-packing-place/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
+    "postamat-return-packing-place-types": {
+      "projectType": "library",
+      "root": "libs/postamat/return-packing-place/types",
+      "sourceRoot": "libs/postamat/return-packing-place/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/postamat/return-packing-place/types"
+          ],
+          "options": {
+            "jestConfig": "libs/postamat/return-packing-place/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/postamat/return-packing-place/types/src/**/*.ts",
+              "libs/postamat/return-packing-place/types/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
+    "postamat-ui": {
+      "projectType": "library",
+      "root": "libs/postamat/ui",
+      "sourceRoot": "libs/postamat/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/postamat/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/postamat/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/postamat/ui/src/**/*.ts",
+              "libs/postamat/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:postamat",
+        "type:ui"
+      ]
+    },
+    "shared-abp": {
+      "projectType": "library",
+      "root": "libs/shared/abp",
+      "sourceRoot": "libs/shared/abp/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/abp"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/abp/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/abp/src/**/*.ts",
+              "libs/shared/abp/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/shared/abp/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:util"
+      ]
+    },
+    "shared-dadata": {
+      "projectType": "library",
+      "root": "libs/shared/dadata",
+      "sourceRoot": "libs/shared/dadata/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/dadata"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/dadata/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/dadata/src/**/*.ts",
+              "libs/shared/dadata/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:controls"
+      ]
+    },
+    "shared-driver-data-access": {
+      "projectType": "library",
+      "root": "libs/shared/driver/data-access",
+      "sourceRoot": "libs/shared/driver/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/driver/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/driver/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/driver/data-access/src/**/*.ts",
+              "libs/shared/driver/data-access/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
+    "shared-driver-feature": {
+      "projectType": "library",
+      "root": "libs/shared/driver/feature",
+      "sourceRoot": "libs/shared/driver/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/driver/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/driver/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/driver/feature/src/**/*.ts",
+              "libs/shared/driver/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:feature"
+      ]
+    },
+    "shared-driver-types": {
+      "projectType": "library",
+      "root": "libs/shared/driver/types",
+      "sourceRoot": "libs/shared/driver/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/driver/types"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/driver/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/driver/types/src/**/*.ts",
+              "libs/shared/driver/types/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
+    "shared-employee-controls": {
+      "projectType": "library",
+      "root": "libs/shared/employee/controls",
+      "sourceRoot": "libs/shared/employee/controls/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/employee/controls"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/employee/controls/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/employee/controls/src/**/*.ts",
+              "libs/shared/employee/controls/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:controls"
+      ]
+    },
+    "shared-employee-data-access": {
+      "projectType": "library",
+      "root": "libs/shared/employee/data-access",
+      "sourceRoot": "libs/shared/employee/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/employee/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/employee/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/employee/data-access/src/**/*.ts",
+              "libs/shared/employee/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/shared/employee/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:data-access"
+      ]
+    },
+    "shared-employee-types": {
+      "projectType": "library",
+      "root": "libs/shared/employee/types",
+      "sourceRoot": "libs/shared/employee/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/employee/types"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/employee/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/employee/types/src/**/*.ts",
+              "libs/shared/employee/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/shared/employee/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:types"
+      ]
+    },
+    "shared-employee-ui": {
+      "projectType": "library",
+      "root": "libs/shared/employee/ui",
+      "sourceRoot": "libs/shared/employee/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/employee/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/employee/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/employee/ui/src/**/*.ts",
+              "libs/shared/employee/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:ui"
+      ]
+    },
+    "shared-last-mile-access-key-data-access": {
+      "projectType": "library",
+      "root": "libs/shared/last-mile/access-key/data-access",
+      "sourceRoot": "libs/shared/last-mile/access-key/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/last-mile/access-key/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/last-mile/access-key/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/last-mile/access-key/data-access/src/**/*.ts",
+              "libs/shared/last-mile/access-key/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/shared/last-mile/access-key/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:data-access"
+      ]
+    },
+    "shared-last-mile-access-key-feature": {
+      "projectType": "library",
+      "root": "libs/shared/last-mile/access-key/feature",
+      "sourceRoot": "libs/shared/last-mile/access-key/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/last-mile/access-key/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/last-mile/access-key/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/last-mile/access-key/feature/src/**/*.ts",
+              "libs/shared/last-mile/access-key/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:feature"
+      ]
+    },
+    "shared-last-mile-access-key-types": {
+      "projectType": "library",
+      "root": "libs/shared/last-mile/access-key/types",
+      "sourceRoot": "libs/shared/last-mile/access-key/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/last-mile/access-key/types"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/last-mile/access-key/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/last-mile/access-key/types/src/**/*.ts",
+              "libs/shared/last-mile/access-key/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/shared/last-mile/access-key/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:types"
+      ]
+    },
+    "shared-last-mile-access-key-ui": {
+      "projectType": "library",
+      "root": "libs/shared/last-mile/access-key/ui",
+      "sourceRoot": "libs/shared/last-mile/access-key/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/last-mile/access-key/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/last-mile/access-key/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/last-mile/access-key/ui/src/**/*.ts",
+              "libs/shared/last-mile/access-key/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:ui"
+      ]
+    },
+    "shared-ng": {
+      "projectType": "library",
+      "root": "libs/shared/ng",
+      "sourceRoot": "libs/shared/ng/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/ng"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/ng/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/ng/src/**/*.ts",
+              "libs/shared/ng/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:util"
+      ]
+    },
+    "shared-packing-place-data-access": {
+      "projectType": "library",
+      "root": "libs/shared/packing-place/data-access",
+      "sourceRoot": "libs/shared/packing-place/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/packing-place/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/packing-place/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/packing-place/data-access/src/**/*.ts",
+              "libs/shared/packing-place/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/shared/packing-place/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:data-access"
+      ]
+    },
+    "shared-packing-place-feature": {
+      "projectType": "library",
+      "root": "libs/shared/packing-place/feature",
+      "sourceRoot": "libs/shared/packing-place/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/packing-place/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/packing-place/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/packing-place/feature/src/**/*.ts",
+              "libs/shared/packing-place/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:feature"
+      ]
+    },
+    "shared-packing-place-types": {
+      "projectType": "library",
+      "root": "libs/shared/packing-place/types",
+      "sourceRoot": "libs/shared/packing-place/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/packing-place/types"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/packing-place/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/packing-place/types/src/**/*.ts",
+              "libs/shared/packing-place/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/shared/packing-place/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:types"
+      ]
+    },
+    "shared-packing-place-ui": {
+      "projectType": "library",
+      "root": "libs/shared/packing-place/ui",
+      "sourceRoot": "libs/shared/packing-place/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/packing-place/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/packing-place/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/packing-place/ui/src/**/*.ts",
+              "libs/shared/packing-place/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:ui"
+      ]
+    },
+    "shared-postamat-cell-data-access": {
+      "projectType": "library",
+      "root": "libs/shared/postamat/cell/data-access",
+      "sourceRoot": "libs/shared/postamat/cell/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/postamat/cell/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/postamat/cell/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/postamat/cell/data-access/src/**/*.ts",
+              "libs/shared/postamat/cell/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/shared/postamat/cell/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:data-access"
+      ]
+    },
+    "shared-postamat-cell-feature": {
+      "projectType": "library",
+      "root": "libs/shared/postamat/cell/feature",
+      "sourceRoot": "libs/shared/postamat/cell/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/postamat/cell/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/postamat/cell/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/postamat/cell/feature/src/**/*.ts",
+              "libs/shared/postamat/cell/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:feature"
+      ]
+    },
+    "shared-postamat-cell-types": {
+      "projectType": "library",
+      "root": "libs/shared/postamat/cell/types",
+      "sourceRoot": "libs/shared/postamat/cell/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/postamat/cell/types"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/postamat/cell/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/postamat/cell/types/src/**/*.ts",
+              "libs/shared/postamat/cell/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/shared/postamat/cell/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:types"
+      ]
+    },
+    "shared-postamat-cell-ui": {
+      "projectType": "library",
+      "root": "libs/shared/postamat/cell/ui",
+      "sourceRoot": "libs/shared/postamat/cell/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/postamat/cell/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/postamat/cell/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/postamat/cell/ui/src/**/*.ts",
+              "libs/shared/postamat/cell/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:ui"
+      ]
+    },
+    "shared-postamat-controller-data-access": {
+      "projectType": "library",
+      "root": "libs/shared/postamat/controller/data-access",
+      "sourceRoot": "libs/shared/postamat/controller/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/postamat/controller/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/postamat/controller/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/postamat/controller/data-access/src/**/*.ts",
+              "libs/shared/postamat/controller/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/shared/postamat/controller/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:data-access"
+      ]
+    },
+    "shared-postamat-controller-feature": {
+      "projectType": "library",
+      "root": "libs/shared/postamat/controller/feature",
+      "sourceRoot": "libs/shared/postamat/controller/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/postamat/controller/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/postamat/controller/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/postamat/controller/feature/src/**/*.ts",
+              "libs/shared/postamat/controller/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:feature"
+      ]
+    },
+    "shared-postamat-controller-types": {
+      "projectType": "library",
+      "root": "libs/shared/postamat/controller/types",
+      "sourceRoot": "libs/shared/postamat/controller/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/postamat/controller/types"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/postamat/controller/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/postamat/controller/types/src/**/*.ts",
+              "libs/shared/postamat/controller/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/shared/postamat/controller/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:types"
+      ]
+    },
+    "shared-postamat-controller-ui": {
+      "projectType": "library",
+      "root": "libs/shared/postamat/controller/ui",
+      "sourceRoot": "libs/shared/postamat/controller/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/postamat/controller/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/postamat/controller/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/postamat/controller/ui/src/**/*.ts",
+              "libs/shared/postamat/controller/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:ui"
+      ]
+    },
+    "shared-postamat-data-access": {
+      "projectType": "library",
+      "root": "libs/shared/postamat/data-access",
+      "sourceRoot": "libs/shared/postamat/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/postamat/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/postamat/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/postamat/data-access/src/**/*.ts",
+              "libs/shared/postamat/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/shared/postamat/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:data-access"
+      ]
+    },
+    "shared-postamat-feature": {
+      "projectType": "library",
+      "root": "libs/shared/postamat/feature",
+      "sourceRoot": "libs/shared/postamat/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/postamat/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/postamat/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/postamat/feature/src/**/*.ts",
+              "libs/shared/postamat/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:feature"
+      ]
+    },
+    "shared-postamat-types": {
+      "projectType": "library",
+      "root": "libs/shared/postamat/types",
+      "sourceRoot": "libs/shared/postamat/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/postamat/types"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/postamat/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/postamat/types/src/**/*.ts",
+              "libs/shared/postamat/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/shared/postamat/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:types"
+      ]
+    },
+    "shared-postamat-ui": {
+      "projectType": "library",
+      "root": "libs/shared/postamat/ui",
+      "sourceRoot": "libs/shared/postamat/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/postamat/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/postamat/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/postamat/ui/src/**/*.ts",
+              "libs/shared/postamat/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:ui"
+      ]
+    },
+    "shared-primeng-ui-detail": {
+      "projectType": "library",
+      "root": "libs/shared/primeng/ui-detail",
+      "sourceRoot": "libs/shared/primeng/ui-detail/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/primeng/ui-detail"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/primeng/ui-detail/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/primeng/ui-detail/src/**/*.ts",
+              "libs/shared/primeng/ui-detail/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:ui"
+      ]
+    },
+    "shared-primeng-ui-form": {
+      "projectType": "library",
+      "root": "libs/shared/primeng/ui-form",
+      "sourceRoot": "libs/shared/primeng/ui-form/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/primeng/ui-form"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/primeng/ui-form/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/primeng/ui-form/src/**/*.ts",
+              "libs/shared/primeng/ui-form/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:ui"
+      ]
+    },
+    "shared-primeng-ui-table": {
+      "projectType": "library",
+      "root": "libs/shared/primeng/ui-table",
+      "sourceRoot": "libs/shared/primeng/ui-table/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/primeng/ui-table"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/primeng/ui-table/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/primeng/ui-table/src/**/*.ts",
+              "libs/shared/primeng/ui-table/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:ui"
+      ]
+    },
+    "shared-topology-data-access": {
+      "projectType": "library",
+      "root": "libs/shared/topology/data-access",
+      "sourceRoot": "libs/shared/topology/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/topology/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/topology/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/topology/data-access/src/**/*.ts",
+              "libs/shared/topology/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/shared/topology/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:data-access"
+      ]
+    },
+    "shared-topology-feature": {
+      "projectType": "library",
+      "root": "libs/shared/topology/feature",
+      "sourceRoot": "libs/shared/topology/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/topology/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/topology/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/topology/feature/src/**/*.ts",
+              "libs/shared/topology/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:feature"
+      ]
+    },
+    "shared-topology-types": {
+      "projectType": "library",
+      "root": "libs/shared/topology/types",
+      "sourceRoot": "libs/shared/topology/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/topology/types"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/topology/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/topology/types/src/**/*.ts",
+              "libs/shared/topology/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/shared/topology/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:types"
+      ]
+    },
+    "shared-topology-ui": {
+      "projectType": "library",
+      "root": "libs/shared/topology/ui",
+      "sourceRoot": "libs/shared/topology/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/topology/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/topology/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/topology/ui/src/**/*.ts",
+              "libs/shared/topology/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:ui"
+      ]
+    },
+    "shared-typed-form": {
+      "projectType": "library",
+      "root": "libs/shared/typed-form",
+      "sourceRoot": "libs/shared/typed-form/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/typed-form"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/typed-form/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/typed-form/src/**/*.ts",
+              "libs/shared/typed-form/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:util"
+      ]
+    },
+    "shared-ui-serial-port": {
+      "projectType": "library",
+      "root": "libs/shared/ui-serial-port",
+      "sourceRoot": "libs/shared/ui-serial-port/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/ui-serial-port"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/ui-serial-port/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/ui-serial-port/src/**/*.ts",
+              "libs/shared/ui-serial-port/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:ui"
+      ]
+    },
+    "shared-util-graphql": {
+      "projectType": "library",
+      "root": "libs/shared/util-graphql",
+      "sourceRoot": "libs/shared/util-graphql/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/util-graphql"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/util-graphql/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/util-graphql/src/**/*.ts",
+              "libs/shared/util-graphql/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/shared/util-graphql/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:util"
+      ]
+    },
+    "shared-utils": {
+      "projectType": "library",
+      "root": "libs/shared/utils",
+      "sourceRoot": "libs/shared/utils/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/utils"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/utils/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/utils/src/**/*.ts",
+              "libs/shared/utils/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:util"
+      ]
+    },
+    "shared-validate": {
+      "projectType": "library",
+      "root": "libs/shared/validate",
+      "sourceRoot": "libs/shared/validate/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/validate"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/validate/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/validate/src/**/*.ts",
+              "libs/shared/validate/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:shared",
+        "type:util"
+      ]
+    },
+    "smde": {
+      "projectType": "application",
+      "root": "apps/smde",
+      "sourceRoot": "apps/smde/src",
+      "prefix": "kometa",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/smde",
+            "index": "apps/smde/src/index.html",
+            "main": "apps/smde/src/main.ts",
+            "polyfills": "apps/smde/src/polyfills.ts",
+            "tsConfig": "apps/smde/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/smde/src/favicon.ico",
+              "apps/smde/src/assets"
+            ],
+            "styles": [
+              "apps/smde/src/styles.scss",
+              "node_modules/primeng/resources/themes/saga-orange/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeflex/primeflex.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/simple-keyboard/build/css/index.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "5000kb",
+                  "maximumError": "10mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "200kb",
+                  "maximumError": "400kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/smde/src/environments/environment.ts",
+                  "with": "apps/smde/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "smde:build:production"
+            },
+            "development": {
+              "browserTarget": "smde:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "smde:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/smde/src/**/*.ts",
+              "apps/smde/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/smde"
+          ],
+          "options": {
+            "jestConfig": "apps/smde/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:app"
+      ]
+    },
+    "smde-contractor-data-access": {
+      "projectType": "library",
+      "root": "libs/smde/contractor/data-access",
+      "sourceRoot": "libs/smde/contractor/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/contractor/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/contractor/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/contractor/data-access/src/**/*.ts",
+              "libs/smde/contractor/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/contractor/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:data-access"
+      ]
+    },
+    "smde-contractor-feature": {
+      "projectType": "library",
+      "root": "libs/smde/contractor/feature",
+      "sourceRoot": "libs/smde/contractor/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/contractor/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/contractor/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/contractor/feature/src/**/*.ts",
+              "libs/smde/contractor/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:feature"
+      ]
+    },
+    "smde-contractor-types": {
+      "projectType": "library",
+      "root": "libs/smde/contractor/types",
+      "sourceRoot": "libs/smde/contractor/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/contractor/types"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/contractor/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/contractor/types/src/**/*.ts",
+              "libs/smde/contractor/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/contractor/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:types"
+      ]
+    },
+    "smde-contractor-ui": {
+      "projectType": "library",
+      "root": "libs/smde/contractor/ui",
+      "sourceRoot": "libs/smde/contractor/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/contractor/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/contractor/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/contractor/ui/src/**/*.ts",
+              "libs/smde/contractor/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:ui"
+      ]
+    },
+    "smde-core": {
+      "projectType": "library",
+      "root": "libs/smde/core",
+      "sourceRoot": "libs/smde/core/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/core"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/core/src/**/*.ts",
+              "libs/smde/core/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:ui"
+      ]
+    },
+    "smde-courier-controls": {
+      "projectType": "library",
+      "root": "libs/smde/courier/controls",
+      "sourceRoot": "libs/smde/courier/controls/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/courier/controls"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/courier/controls/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/courier/controls/src/**/*.ts",
+              "libs/smde/courier/controls/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:controls"
+      ]
+    },
+    "smde-courier-data-access": {
+      "projectType": "library",
+      "root": "libs/smde/courier/data-access",
+      "sourceRoot": "libs/smde/courier/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/courier/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/courier/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/courier/data-access/src/**/*.ts",
+              "libs/smde/courier/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/courier/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:data-access"
+      ]
+    },
+    "smde-courier-feature": {
+      "projectType": "library",
+      "root": "libs/smde/courier/feature",
+      "sourceRoot": "libs/smde/courier/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/courier/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/courier/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/courier/feature/src/**/*.ts",
+              "libs/smde/courier/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:feature"
+      ]
+    },
+    "smde-courier-types": {
+      "projectType": "library",
+      "root": "libs/smde/courier/types",
+      "sourceRoot": "libs/smde/courier/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/courier/types"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/courier/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/courier/types/src/**/*.ts",
+              "libs/smde/courier/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/courier/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:types"
+      ]
+    },
+    "smde-courier-ui": {
+      "projectType": "library",
+      "root": "libs/smde/courier/ui",
+      "sourceRoot": "libs/smde/courier/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/courier/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/courier/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/courier/ui/src/**/*.ts",
+              "libs/smde/courier/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:ui"
+      ]
+    },
+    "smde-e2e": {
+      "root": "apps/smde-e2e",
+      "sourceRoot": "apps/smde-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/smde-e2e/cypress.json",
+            "devServerTarget": "smde:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "smde:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "options": {
+            "lintFilePatterns": [
+              "apps/smde-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": [
+        "smde"
+      ]
+    },
+    "smde-emex-account-data-access": {
+      "projectType": "library",
+      "root": "libs/smde/emex/account/data-access",
+      "sourceRoot": "libs/smde/emex/account/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/emex/account/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/emex/account/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/emex/account/data-access/src/**/*.ts",
+              "libs/smde/emex/account/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/emex/account/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:data-access"
+      ]
+    },
+    "smde-emex-account-feature": {
+      "projectType": "library",
+      "root": "libs/smde/emex/account/feature",
+      "sourceRoot": "libs/smde/emex/account/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/emex/account/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/emex/account/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/emex/account/feature/src/**/*.ts",
+              "libs/smde/emex/account/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:feature"
+      ]
+    },
+    "smde-emex-account-types": {
+      "projectType": "library",
+      "root": "libs/smde/emex/account/types",
+      "sourceRoot": "libs/smde/emex/account/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/emex/account/types"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/emex/account/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/emex/account/types/src/**/*.ts",
+              "libs/smde/emex/account/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/emex/account/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:types"
+      ]
+    },
+    "smde-emex-account-ui": {
+      "projectType": "library",
+      "root": "libs/smde/emex/account/ui",
+      "sourceRoot": "libs/smde/emex/account/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/emex/account/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/emex/account/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/emex/account/ui/src/**/*.ts",
+              "libs/smde/emex/account/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:ui"
+      ]
+    },
+    "smde-emex-order-data-access": {
+      "projectType": "library",
+      "root": "libs/smde/emex/order/data-access",
+      "sourceRoot": "libs/smde/emex/order/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/emex/order/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/emex/order/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/emex/order/data-access/src/**/*.ts",
+              "libs/smde/emex/order/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/emex/order/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:data-access"
+      ]
+    },
+    "smde-emex-order-feature": {
+      "projectType": "library",
+      "root": "libs/smde/emex/order/feature",
+      "sourceRoot": "libs/smde/emex/order/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/emex/order/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/emex/order/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/emex/order/feature/src/**/*.ts",
+              "libs/smde/emex/order/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:feature"
+      ]
+    },
+    "smde-emex-order-types": {
+      "projectType": "library",
+      "root": "libs/smde/emex/order/types",
+      "sourceRoot": "libs/smde/emex/order/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/emex/order/types"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/emex/order/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/emex/order/types/src/**/*.ts",
+              "libs/smde/emex/order/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/emex/order/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:types"
+      ]
+    },
+    "smde-emex-order-ui": {
+      "projectType": "library",
+      "root": "libs/smde/emex/order/ui",
+      "sourceRoot": "libs/smde/emex/order/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/emex/order/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/emex/order/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/emex/order/ui/src/**/*.ts",
+              "libs/smde/emex/order/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:ui"
+      ]
+    },
+    "smde-employee-data-access": {
+      "projectType": "library",
+      "root": "libs/smde/employee/data-access",
+      "sourceRoot": "libs/smde/employee/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/employee/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/employee/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/employee/data-access/src/**/*.ts",
+              "libs/smde/employee/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/employee/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:data-access"
+      ]
+    },
+    "smde-employee-feature": {
+      "projectType": "library",
+      "root": "libs/smde/employee/feature",
+      "sourceRoot": "libs/smde/employee/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/employee/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/employee/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/employee/feature/src/**/*.ts",
+              "libs/smde/employee/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:feature"
+      ]
+    },
+    "smde-employee-types": {
+      "projectType": "library",
+      "root": "libs/smde/employee/types",
+      "sourceRoot": "libs/smde/employee/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/employee/types"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/employee/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/employee/types/src/**/*.ts",
+              "libs/smde/employee/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/employee/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:types"
+      ]
+    },
+    "smde-employee-ui": {
+      "projectType": "library",
+      "root": "libs/smde/employee/ui",
+      "sourceRoot": "libs/smde/employee/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/employee/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/employee/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/employee/ui/src/**/*.ts",
+              "libs/smde/employee/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:ui"
+      ]
+    },
+    "smde-identity-role-data-access": {
+      "projectType": "library",
+      "root": "libs/smde/identity-role/data-access",
+      "sourceRoot": "libs/smde/identity-role/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/identity-role/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/identity-role/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/identity-role/data-access/src/**/*.ts",
+              "libs/smde/identity-role/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/identity-role/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:data-access"
+      ]
+    },
+    "smde-identity-role-feature": {
+      "projectType": "library",
+      "root": "libs/smde/identity-role/feature",
+      "sourceRoot": "libs/smde/identity-role/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/identity-role/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/identity-role/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/identity-role/feature/src/**/*.ts",
+              "libs/smde/identity-role/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:feature"
+      ]
+    },
+    "smde-identity-role-types": {
+      "projectType": "library",
+      "root": "libs/smde/identity-role/types",
+      "sourceRoot": "libs/smde/identity-role/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/identity-role/types"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/identity-role/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/identity-role/types/src/**/*.ts",
+              "libs/smde/identity-role/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/identity-role/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:types"
+      ]
+    },
+    "smde-identity-role-ui": {
+      "projectType": "library",
+      "root": "libs/smde/identity-role/ui",
+      "sourceRoot": "libs/smde/identity-role/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/identity-role/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/identity-role/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/identity-role/ui/src/**/*.ts",
+              "libs/smde/identity-role/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:ui"
+      ]
+    },
+    "smde-last-mile-controls": {
+      "projectType": "library",
+      "root": "libs/smde/last-mile/controls",
+      "sourceRoot": "libs/smde/last-mile/controls/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/last-mile/controls"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/last-mile/controls/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/last-mile/controls/src/**/*.ts",
+              "libs/smde/last-mile/controls/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:controls"
+      ]
+    },
+    "smde-last-mile-data-access": {
+      "projectType": "library",
+      "root": "libs/smde/last-mile/data-access",
+      "sourceRoot": "libs/smde/last-mile/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/last-mile/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/last-mile/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/last-mile/data-access/src/**/*.ts",
+              "libs/smde/last-mile/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/last-mile/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:data-access"
+      ]
+    },
+    "smde-last-mile-feature": {
+      "projectType": "library",
+      "root": "libs/smde/last-mile/feature",
+      "sourceRoot": "libs/smde/last-mile/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/last-mile/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/last-mile/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/last-mile/feature/src/**/*.ts",
+              "libs/smde/last-mile/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:feature"
+      ]
+    },
+    "smde-last-mile-return-period-data-access": {
+      "projectType": "library",
+      "root": "libs/smde/last-mile/return-period/data-access",
+      "sourceRoot": "libs/smde/last-mile/return-period/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/last-mile/return-period/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/last-mile/return-period/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/last-mile/return-period/data-access/src/**/*.ts",
+              "libs/smde/last-mile/return-period/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/last-mile/return-period/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:data-access"
+      ]
+    },
+    "smde-last-mile-return-period-feature": {
+      "projectType": "library",
+      "root": "libs/smde/last-mile/return-period/feature",
+      "sourceRoot": "libs/smde/last-mile/return-period/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/last-mile/return-period/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/last-mile/return-period/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/last-mile/return-period/feature/src/**/*.ts",
+              "libs/smde/last-mile/return-period/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:feature"
+      ]
+    },
+    "smde-last-mile-return-period-types": {
+      "projectType": "library",
+      "root": "libs/smde/last-mile/return-period/types",
+      "sourceRoot": "libs/smde/last-mile/return-period/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/last-mile/return-period/types"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/last-mile/return-period/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/last-mile/return-period/types/src/**/*.ts",
+              "libs/smde/last-mile/return-period/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/last-mile/return-period/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:types"
+      ]
+    },
+    "smde-last-mile-return-period-ui": {
+      "projectType": "library",
+      "root": "libs/smde/last-mile/return-period/ui",
+      "sourceRoot": "libs/smde/last-mile/return-period/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/last-mile/return-period/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/last-mile/return-period/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/last-mile/return-period/ui/src/**/*.ts",
+              "libs/smde/last-mile/return-period/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:ui"
+      ]
+    },
+    "smde-last-mile-sms-template-data-access": {
+      "projectType": "library",
+      "root": "libs/smde/last-mile/sms-template/data-access",
+      "sourceRoot": "libs/smde/last-mile/sms-template/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/last-mile/sms-template/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/last-mile/sms-template/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/last-mile/sms-template/data-access/src/**/*.ts",
+              "libs/smde/last-mile/sms-template/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/last-mile/sms-template/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:data-access"
+      ]
+    },
+    "smde-last-mile-sms-template-feature": {
+      "projectType": "library",
+      "root": "libs/smde/last-mile/sms-template/feature",
+      "sourceRoot": "libs/smde/last-mile/sms-template/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/last-mile/sms-template/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/last-mile/sms-template/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/last-mile/sms-template/feature/src/**/*.ts",
+              "libs/smde/last-mile/sms-template/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:feature"
+      ]
+    },
+    "smde-last-mile-sms-template-types": {
+      "projectType": "library",
+      "root": "libs/smde/last-mile/sms-template/types",
+      "sourceRoot": "libs/smde/last-mile/sms-template/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/last-mile/sms-template/types"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/last-mile/sms-template/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/last-mile/sms-template/types/src/**/*.ts",
+              "libs/smde/last-mile/sms-template/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/last-mile/sms-template/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:types"
+      ]
+    },
+    "smde-last-mile-sms-template-ui": {
+      "projectType": "library",
+      "root": "libs/smde/last-mile/sms-template/ui",
+      "sourceRoot": "libs/smde/last-mile/sms-template/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/last-mile/sms-template/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/last-mile/sms-template/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/last-mile/sms-template/ui/src/**/*.ts",
+              "libs/smde/last-mile/sms-template/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:ui"
+      ]
+    },
+    "smde-last-mile-storage-period-data-access": {
+      "projectType": "library",
+      "root": "libs/smde/last-mile/storage-period/data-access",
+      "sourceRoot": "libs/smde/last-mile/storage-period/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/last-mile/storage-period/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/last-mile/storage-period/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/last-mile/storage-period/data-access/src/**/*.ts",
+              "libs/smde/last-mile/storage-period/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/last-mile/storage-period/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:data-access"
+      ]
+    },
+    "smde-last-mile-storage-period-feature": {
+      "projectType": "library",
+      "root": "libs/smde/last-mile/storage-period/feature",
+      "sourceRoot": "libs/smde/last-mile/storage-period/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/last-mile/storage-period/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/last-mile/storage-period/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/last-mile/storage-period/feature/src/**/*.ts",
+              "libs/smde/last-mile/storage-period/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:feature"
+      ]
+    },
+    "smde-last-mile-storage-period-types": {
+      "projectType": "library",
+      "root": "libs/smde/last-mile/storage-period/types",
+      "sourceRoot": "libs/smde/last-mile/storage-period/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/last-mile/storage-period/types"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/last-mile/storage-period/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/last-mile/storage-period/types/src/**/*.ts",
+              "libs/smde/last-mile/storage-period/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/last-mile/storage-period/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:types"
+      ]
+    },
+    "smde-last-mile-storage-period-ui": {
+      "projectType": "library",
+      "root": "libs/smde/last-mile/storage-period/ui",
+      "sourceRoot": "libs/smde/last-mile/storage-period/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/last-mile/storage-period/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/last-mile/storage-period/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/last-mile/storage-period/ui/src/**/*.ts",
+              "libs/smde/last-mile/storage-period/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:ui"
+      ]
+    },
+    "smde-last-mile-types": {
+      "projectType": "library",
+      "root": "libs/smde/last-mile/types",
+      "sourceRoot": "libs/smde/last-mile/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/last-mile/types"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/last-mile/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/last-mile/types/src/**/*.ts",
+              "libs/smde/last-mile/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/last-mile/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:types"
+      ]
+    },
+    "smde-last-mile-ui": {
+      "projectType": "library",
+      "root": "libs/smde/last-mile/ui",
+      "sourceRoot": "libs/smde/last-mile/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/last-mile/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/last-mile/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/last-mile/ui/src/**/*.ts",
+              "libs/smde/last-mile/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:ui"
+      ]
+    },
+    "smde-packing-place-controls": {
+      "projectType": "library",
+      "root": "libs/smde/packing-place/controls",
+      "sourceRoot": "libs/smde/packing-place/controls/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/packing-place/controls"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/packing-place/controls/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/packing-place/controls/src/**/*.ts",
+              "libs/smde/packing-place/controls/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:controls"
+      ]
+    },
+    "smde-packing-place-data-access": {
+      "projectType": "library",
+      "root": "libs/smde/packing-place/data-access",
+      "sourceRoot": "libs/smde/packing-place/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/packing-place/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/packing-place/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/packing-place/data-access/src/**/*.ts",
+              "libs/smde/packing-place/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/packing-place/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:data-access"
+      ]
+    },
+    "smde-packing-place-feature": {
+      "projectType": "library",
+      "root": "libs/smde/packing-place/feature",
+      "sourceRoot": "libs/smde/packing-place/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/packing-place/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/packing-place/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/packing-place/feature/src/**/*.ts",
+              "libs/smde/packing-place/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:feature"
+      ]
+    },
+    "smde-packing-place-types": {
+      "projectType": "library",
+      "root": "libs/smde/packing-place/types",
+      "sourceRoot": "libs/smde/packing-place/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/packing-place/types"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/packing-place/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/packing-place/types/src/**/*.ts",
+              "libs/smde/packing-place/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/packing-place/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:types"
+      ]
+    },
+    "smde-packing-place-ui": {
+      "projectType": "library",
+      "root": "libs/smde/packing-place/ui",
+      "sourceRoot": "libs/smde/packing-place/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/packing-place/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/packing-place/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/packing-place/ui/src/**/*.ts",
+              "libs/smde/packing-place/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:ui"
+      ]
+    },
+    "smde-permission-data-access": {
+      "projectType": "library",
+      "root": "libs/smde/permission/data-access",
+      "sourceRoot": "libs/smde/permission/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/permission/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/permission/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/permission/data-access/src/**/*.ts",
+              "libs/smde/permission/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/permission/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:data-access"
+      ]
+    },
+    "smde-permission-feature": {
+      "projectType": "library",
+      "root": "libs/smde/permission/feature",
+      "sourceRoot": "libs/smde/permission/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/permission/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/permission/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/permission/feature/src/**/*.ts",
+              "libs/smde/permission/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:feature"
+      ]
+    },
+    "smde-permission-types": {
+      "projectType": "library",
+      "root": "libs/smde/permission/types",
+      "sourceRoot": "libs/smde/permission/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/permission/types"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/permission/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/permission/types/src/**/*.ts",
+              "libs/smde/permission/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/permission/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:types"
+      ]
+    },
+    "smde-permission-ui": {
+      "projectType": "library",
+      "root": "libs/smde/permission/ui",
+      "sourceRoot": "libs/smde/permission/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/permission/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/permission/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/permission/ui/src/**/*.ts",
+              "libs/smde/permission/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:ui"
+      ]
+    },
+    "smde-postamat-data-access": {
+      "projectType": "library",
+      "root": "libs/smde/postamat/data-access",
+      "sourceRoot": "libs/smde/postamat/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/postamat/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/postamat/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/postamat/data-access/src/**/*.ts",
+              "libs/smde/postamat/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/postamat/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:data-access"
+      ]
+    },
+    "smde-postamat-feature": {
+      "projectType": "library",
+      "root": "libs/smde/postamat/feature",
+      "sourceRoot": "libs/smde/postamat/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/postamat/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/postamat/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/postamat/feature/src/**/*.ts",
+              "libs/smde/postamat/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:feature"
+      ]
+    },
+    "smde-postamat-types": {
+      "projectType": "library",
+      "root": "libs/smde/postamat/types",
+      "sourceRoot": "libs/smde/postamat/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/postamat/types"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/postamat/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/postamat/types/src/**/*.ts",
+              "libs/smde/postamat/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/postamat/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:types"
+      ]
+    },
+    "smde-postamat-ui": {
+      "projectType": "library",
+      "root": "libs/smde/postamat/ui",
+      "sourceRoot": "libs/smde/postamat/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/postamat/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/postamat/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/postamat/ui/src/**/*.ts",
+              "libs/smde/postamat/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:ui"
+      ]
+    },
+    "smde-return-request-data-access": {
+      "projectType": "library",
+      "root": "libs/smde/return-request/data-access",
+      "sourceRoot": "libs/smde/return-request/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/return-request/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/return-request/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/return-request/data-access/src/**/*.ts",
+              "libs/smde/return-request/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/return-request/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:data-access"
+      ]
+    },
+    "smde-return-request-feature": {
+      "projectType": "library",
+      "root": "libs/smde/return-request/feature",
+      "sourceRoot": "libs/smde/return-request/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/return-request/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/return-request/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/return-request/feature/src/**/*.ts",
+              "libs/smde/return-request/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:feature"
+      ]
+    },
+    "smde-return-request-types": {
+      "projectType": "library",
+      "root": "libs/smde/return-request/types",
+      "sourceRoot": "libs/smde/return-request/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/return-request/types"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/return-request/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/return-request/types/src/**/*.ts",
+              "libs/smde/return-request/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/return-request/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:types"
+      ]
+    },
+    "smde-return-request-ui": {
+      "projectType": "library",
+      "root": "libs/smde/return-request/ui",
+      "sourceRoot": "libs/smde/return-request/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/return-request/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/return-request/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/return-request/ui/src/**/*.ts",
+              "libs/smde/return-request/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:ui"
+      ]
+    },
+    "smde-shipment-request-data-access": {
+      "projectType": "library",
+      "root": "libs/smde/shipment-request/data-access",
+      "sourceRoot": "libs/smde/shipment-request/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/shipment-request/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/shipment-request/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/shipment-request/data-access/src/**/*.ts",
+              "libs/smde/shipment-request/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/shipment-request/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:data-access"
+      ]
+    },
+    "smde-shipment-request-feature": {
+      "projectType": "library",
+      "root": "libs/smde/shipment-request/feature",
+      "sourceRoot": "libs/smde/shipment-request/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/shipment-request/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/shipment-request/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/shipment-request/feature/src/**/*.ts",
+              "libs/smde/shipment-request/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:feature"
+      ]
+    },
+    "smde-shipment-request-types": {
+      "projectType": "library",
+      "root": "libs/smde/shipment-request/types",
+      "sourceRoot": "libs/smde/shipment-request/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/shipment-request/types"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/shipment-request/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/shipment-request/types/src/**/*.ts",
+              "libs/smde/shipment-request/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/shipment-request/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:types"
+      ]
+    },
+    "smde-shipment-request-ui": {
+      "projectType": "library",
+      "root": "libs/smde/shipment-request/ui",
+      "sourceRoot": "libs/smde/shipment-request/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/shipment-request/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/shipment-request/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/shipment-request/ui/src/**/*.ts",
+              "libs/smde/shipment-request/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:ui"
+      ]
+    },
+    "smde-sms-account-controls": {
+      "projectType": "library",
+      "root": "libs/smde/sms/account/controls",
+      "sourceRoot": "libs/smde/sms/account/controls/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/sms/account/controls"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/sms/account/controls/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/sms/account/controls/src/**/*.ts",
+              "libs/smde/sms/account/controls/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:controls"
+      ]
+    },
+    "smde-sms-account-data-access": {
+      "projectType": "library",
+      "root": "libs/smde/sms/account/data-access",
+      "sourceRoot": "libs/smde/sms/account/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/sms/account/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/sms/account/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/sms/account/data-access/src/**/*.ts",
+              "libs/smde/sms/account/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/sms/account/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:data-access"
+      ]
+    },
+    "smde-sms-account-feature": {
+      "projectType": "library",
+      "root": "libs/smde/sms/account/feature",
+      "sourceRoot": "libs/smde/sms/account/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/sms/account/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/sms/account/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/sms/account/feature/src/**/*.ts",
+              "libs/smde/sms/account/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:feature"
+      ]
+    },
+    "smde-sms-account-types": {
+      "projectType": "library",
+      "root": "libs/smde/sms/account/types",
+      "sourceRoot": "libs/smde/sms/account/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/sms/account/types"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/sms/account/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/sms/account/types/src/**/*.ts",
+              "libs/smde/sms/account/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/sms/account/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:types"
+      ]
+    },
+    "smde-sms-account-ui": {
+      "projectType": "library",
+      "root": "libs/smde/sms/account/ui",
+      "sourceRoot": "libs/smde/sms/account/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/sms/account/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/sms/account/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/sms/account/ui/src/**/*.ts",
+              "libs/smde/sms/account/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:ui"
+      ]
+    },
+    "smde-sms-template-controls": {
+      "projectType": "library",
+      "root": "libs/smde/sms/template/controls",
+      "sourceRoot": "libs/smde/sms/template/controls/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/sms/template/controls"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/sms/template/controls/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/sms/template/controls/src/**/*.ts",
+              "libs/smde/sms/template/controls/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:controls"
+      ]
+    },
+    "smde-sms-template-data-access": {
+      "projectType": "library",
+      "root": "libs/smde/sms/template/data-access",
+      "sourceRoot": "libs/smde/sms/template/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/sms/template/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/sms/template/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/sms/template/data-access/src/**/*.ts",
+              "libs/smde/sms/template/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/sms/template/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:data-access"
+      ]
+    },
+    "smde-sms-template-feature": {
+      "projectType": "library",
+      "root": "libs/smde/sms/template/feature",
+      "sourceRoot": "libs/smde/sms/template/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/sms/template/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/sms/template/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/sms/template/feature/src/**/*.ts",
+              "libs/smde/sms/template/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:feature"
+      ]
+    },
+    "smde-sms-template-types": {
+      "projectType": "library",
+      "root": "libs/smde/sms/template/types",
+      "sourceRoot": "libs/smde/sms/template/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/sms/template/types"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/sms/template/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/sms/template/types/src/**/*.ts",
+              "libs/smde/sms/template/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/sms/template/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:types"
+      ]
+    },
+    "smde-sms-template-ui": {
+      "projectType": "library",
+      "root": "libs/smde/sms/template/ui",
+      "sourceRoot": "libs/smde/sms/template/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/sms/template/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/sms/template/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/sms/template/ui/src/**/*.ts",
+              "libs/smde/sms/template/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:ui"
+      ]
+    },
+    "smde-tenant-data-access": {
+      "projectType": "library",
+      "root": "libs/smde/tenant/data-access",
+      "sourceRoot": "libs/smde/tenant/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/tenant/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/tenant/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/tenant/data-access/src/**/*.ts",
+              "libs/smde/tenant/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/tenant/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:data-access"
+      ]
+    },
+    "smde-tenant-feature": {
+      "projectType": "library",
+      "root": "libs/smde/tenant/feature",
+      "sourceRoot": "libs/smde/tenant/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/tenant/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/tenant/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/tenant/feature/src/**/*.ts",
+              "libs/smde/tenant/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:feature"
+      ]
+    },
+    "smde-tenant-types": {
+      "projectType": "library",
+      "root": "libs/smde/tenant/types",
+      "sourceRoot": "libs/smde/tenant/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/tenant/types"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/tenant/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/tenant/types/src/**/*.ts",
+              "libs/smde/tenant/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/tenant/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:types"
+      ]
+    },
+    "smde-tenant-ui": {
+      "projectType": "library",
+      "root": "libs/smde/tenant/ui",
+      "sourceRoot": "libs/smde/tenant/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/tenant/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/tenant/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/tenant/ui/src/**/*.ts",
+              "libs/smde/tenant/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:ui"
+      ]
+    },
+    "smde-topology-template-cell-data-access": {
+      "projectType": "library",
+      "root": "libs/smde/topology/template-cell/data-access",
+      "sourceRoot": "libs/smde/topology/template-cell/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/topology/template-cell/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/topology/template-cell/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/topology/template-cell/data-access/src/**/*.ts",
+              "libs/smde/topology/template-cell/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/topology/template-cell/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:data-access"
+      ]
+    },
+    "smde-topology-template-cell-feature": {
+      "projectType": "library",
+      "root": "libs/smde/topology/template-cell/feature",
+      "sourceRoot": "libs/smde/topology/template-cell/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/topology/template-cell/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/topology/template-cell/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/topology/template-cell/feature/src/**/*.ts",
+              "libs/smde/topology/template-cell/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:feature"
+      ]
+    },
+    "smde-topology-template-cell-types": {
+      "projectType": "library",
+      "root": "libs/smde/topology/template-cell/types",
+      "sourceRoot": "libs/smde/topology/template-cell/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/topology/template-cell/types"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/topology/template-cell/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/topology/template-cell/types/src/**/*.ts",
+              "libs/smde/topology/template-cell/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/topology/template-cell/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:types"
+      ]
+    },
+    "smde-topology-template-cell-ui": {
+      "projectType": "library",
+      "root": "libs/smde/topology/template-cell/ui",
+      "sourceRoot": "libs/smde/topology/template-cell/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/topology/template-cell/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/topology/template-cell/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/topology/template-cell/ui/src/**/*.ts",
+              "libs/smde/topology/template-cell/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:ui"
+      ]
+    },
+    "smde-topology-template-postamat-data-access": {
+      "projectType": "library",
+      "root": "libs/smde/topology/template-postamat/data-access",
+      "sourceRoot": "libs/smde/topology/template-postamat/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/topology/template-postamat/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/topology/template-postamat/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/topology/template-postamat/data-access/src/**/*.ts",
+              "libs/smde/topology/template-postamat/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/topology/template-postamat/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:data-access"
+      ]
+    },
+    "smde-topology-template-postamat-feature": {
+      "projectType": "library",
+      "root": "libs/smde/topology/template-postamat/feature",
+      "sourceRoot": "libs/smde/topology/template-postamat/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/topology/template-postamat/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/topology/template-postamat/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/topology/template-postamat/feature/src/**/*.ts",
+              "libs/smde/topology/template-postamat/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:feature"
+      ]
+    },
+    "smde-topology-template-postamat-types": {
+      "projectType": "library",
+      "root": "libs/smde/topology/template-postamat/types",
+      "sourceRoot": "libs/smde/topology/template-postamat/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/topology/template-postamat/types"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/topology/template-postamat/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/topology/template-postamat/types/src/**/*.ts",
+              "libs/smde/topology/template-postamat/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/topology/template-postamat/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:types"
+      ]
+    },
+    "smde-topology-template-postamat-ui": {
+      "projectType": "library",
+      "root": "libs/smde/topology/template-postamat/ui",
+      "sourceRoot": "libs/smde/topology/template-postamat/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/topology/template-postamat/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/topology/template-postamat/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/topology/template-postamat/ui/src/**/*.ts",
+              "libs/smde/topology/template-postamat/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:ui"
+      ]
+    },
+    "smde-topology-template-section-data-access": {
+      "projectType": "library",
+      "root": "libs/smde/topology/template-section/data-access",
+      "sourceRoot": "libs/smde/topology/template-section/data-access/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/topology/template-section/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/topology/template-section/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/topology/template-section/data-access/src/**/*.ts",
+              "libs/smde/topology/template-section/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/topology/template-section/data-access/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:data-access"
+      ]
+    },
+    "smde-topology-template-section-feature": {
+      "projectType": "library",
+      "root": "libs/smde/topology/template-section/feature",
+      "sourceRoot": "libs/smde/topology/template-section/feature/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/topology/template-section/feature"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/topology/template-section/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/topology/template-section/feature/src/**/*.ts",
+              "libs/smde/topology/template-section/feature/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:feature"
+      ]
+    },
+    "smde-topology-template-section-types": {
+      "projectType": "library",
+      "root": "libs/smde/topology/template-section/types",
+      "sourceRoot": "libs/smde/topology/template-section/types/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/topology/template-section/types"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/topology/template-section/types/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/topology/template-section/types/src/**/*.ts",
+              "libs/smde/topology/template-section/types/src/**/*.html"
+            ]
+          }
+        },
+        "codegen": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "graphql-codegen --config libs/smde/topology/template-section/types/codegen.yml"
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:types"
+      ]
+    },
+    "smde-topology-template-section-ui": {
+      "projectType": "library",
+      "root": "libs/smde/topology/template-section/ui",
+      "sourceRoot": "libs/smde/topology/template-section/ui/src",
+      "prefix": "kometa",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/smde/topology/template-section/ui"
+          ],
+          "options": {
+            "jestConfig": "libs/smde/topology/template-section/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/smde/topology/template-section/ui/src/**/*.ts",
+              "libs/smde/topology/template-section/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": [
+        "scope:smde",
+        "type:ui"
+      ]
+    }
+  }
+}

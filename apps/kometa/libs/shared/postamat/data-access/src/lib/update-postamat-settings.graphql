@@ -1,0 +1,14 @@
+mutation UpdatePostamatSettings($input: UpdatePostamatSettingsInput!) {
+  updatePostamatSettings(input: $input) {
+    postamat {
+      settings {
+        ...PostamatSettings
+      }
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

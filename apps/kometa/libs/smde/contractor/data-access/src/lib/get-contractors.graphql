@@ -1,0 +1,21 @@
+query GetContractors(
+  $where: ContractorFilterInput
+  $order: [ContractorSortInput!]
+  $take: Int
+  $skip: Int
+) {
+  contractors(where: $where, order: $order, take: $take, skip: $skip) {
+    items {
+      id
+      name
+      address
+      inn
+      isHost
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+    totalCount
+  }
+}

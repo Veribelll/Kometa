@@ -1,0 +1,19 @@
+mutation CancelReturnRequest($input: CancelReturnRequestInput!) {
+  cancelReturnRequest(input: $input) {
+    returnRequest {
+      ...ReturnRequest
+    }
+    errors {
+      ... on ReturnRequestIncorrectStatusError {
+        code
+        message
+        details
+        current
+        next
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

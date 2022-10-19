@@ -1,0 +1,5 @@
+query GetAccessKey($lastMileId: ID!, $where: AccessKeyFilterInput) {
+  accessKey(lastMileId: $lastMileId, where: $where) {
+    ...AccessKey
+  }
+}

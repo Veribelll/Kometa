@@ -1,0 +1,7 @@
+fragment Contractor on Contractor {
+  id
+  name
+  address
+  inn
+  isHost
+}

@@ -1,0 +1,9 @@
+<kometa-last-mile-sms-template-table
+  [smsTemplates]="(smsTemplates$ | async)!"
+  [loading]="(loading$ | async)!"
+  [permissionUpdate]="'LastMileManagement.LastMiles.Update'"
+  [permissionDelete]="'LastMileManagement.LastMiles.Update'"
+  (lazyLoad)="onLazyLoad($event)"
+  (update)="onUpdate($event)"
+  (delete)="onDelete($event)"
+></kometa-last-mile-sms-template-table>

@@ -1,0 +1,9 @@
+fragment EmexAccount on EmexAccount {
+  id
+  contractor {
+    id
+    name
+  }
+  userId
+  name
+}

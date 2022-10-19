@@ -1,0 +1,3 @@
+query ShipmentRequestIsNameUnique($code: String!) {
+  shipmentRequestsAny(where: { code: { eq: $code } })
+}

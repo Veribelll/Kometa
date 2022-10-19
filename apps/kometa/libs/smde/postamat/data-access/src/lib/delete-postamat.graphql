@@ -1,0 +1,12 @@
+mutation DeletePostamat($input: DeletePostamatInput!) {
+  deletePostamat(input: $input) {
+    postamat {
+      ...Postamat
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

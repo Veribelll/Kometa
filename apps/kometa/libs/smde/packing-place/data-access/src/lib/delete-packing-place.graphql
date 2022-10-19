@@ -1,0 +1,12 @@
+mutation DeletePackingPlace($input: DeletePackingPlaceInput!) {
+  deletePackingPlace(input: $input) {
+    packingPlace {
+      ...PackingPlace
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

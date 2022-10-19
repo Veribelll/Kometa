@@ -1,0 +1,31 @@
+<div class="shadow-15">
+  <div class="mb-2">
+    <p-toolbar>
+      <button
+        pButton
+        pRipple
+        *permission="'Emex.Accounts.Create'"
+        label="Добавить"
+        icon="pi pi-plus"
+        class="p-button-success"
+        (click)="onCreate()"
+      ></button>
+    </p-toolbar>
+  </div>
+  <div>
+    <p-panel header="Аккаунты Emex">
+      <kometa-emex-account-table
+        [accounts]="(accounts$ | async)!"
+        [loading]="(loading$ | async)!"
+        [totalRecords]="(totalRecords$ | async)!"
+        [permissionDetails]="'Emex.Accounts'"
+        [permissionUpdate]="'Emex.Accounts.Update'"
+        [permissionDelete]="'Emex.Accounts.Delete'"
+        (lazyLoad)="onLazyLoad($event)"
+        (details)="onDetails($event)"
+        (update)="onUpdate($event)"
+        (delete)="onDelete($event)"
+      ></kometa-emex-account-table>
+    </p-panel>
+  </div>
+</div>

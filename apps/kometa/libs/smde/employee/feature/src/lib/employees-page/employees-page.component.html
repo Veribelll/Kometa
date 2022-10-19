@@ -1,0 +1,32 @@
+<div class="p-shadow-15">
+  <div class="mb-2">
+    <p-toolbar>
+      <button
+        *permission="'ContractorManagement.Employees.Create'"
+        pButton
+        pRipple
+        label="Добавить"
+        icon="pi pi-plus"
+        class="p-button-success"
+        (click)="onCreate()"
+      ></button>
+    </p-toolbar>
+  </div>
+  <div>
+    <p-panel header="Работники">
+      <kometa-employee-table
+        [employees]="(employees$ | async)!"
+        [loading]="(loading$ | async)!"
+        [totalRecords]="(totalRecords$ | async)!"
+        [permissionDetails]="'ContractorManagement.Employees'"
+        [permissionUpdate]="'ContractorManagement.Employees.Update'"
+        [permissionDelete]="'ContractorManagement.Employees.Delete'"
+        (lazyLoad)="onLazyLoad($event)"
+        (details)="onDetails($event)"
+        (update)="onUpdate($event)"
+        (delete)="onDelete($event)"
+        (updatePermissions)="onUpdatePermissions($event)"
+      ></kometa-employee-table>
+    </p-panel>
+  </div>
+</div>

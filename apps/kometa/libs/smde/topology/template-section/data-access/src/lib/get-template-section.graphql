@@ -1,0 +1,5 @@
+query GetTemplateSection($where: TemplateSectionFilterInput) {
+  templateSection(where: $where) {
+    ...TemplateSection
+  }
+}

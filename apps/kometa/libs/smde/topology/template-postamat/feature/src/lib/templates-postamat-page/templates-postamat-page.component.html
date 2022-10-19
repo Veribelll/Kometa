@@ -1,0 +1,31 @@
+<div class="container shadow-15">
+  <div class="mb-2">
+    <p-toolbar>
+      <button
+        pButton
+        pRipple
+        *permission="'TopologyManagement.Templates.Create'"
+        label="Добавить"
+        icon="pi pi-plus"
+        class="p-button-success"
+        (click)="onCreate()"
+      ></button>
+    </p-toolbar>
+  </div>
+  <div>
+    <p-panel header="Шаблоны постамата">
+      <kometa-template-postamat-table
+        [templatesPostamat]="(templatesPostamat$ | async)!"
+        [loading]="(loading$ | async)!"
+        [totalRecords]="(totalRecords$ | async)!"
+        [permissionDetails]="'TopologyManagement.Templates'"
+        [permissionUpdate]="'TopologyManagement.Templates.Update'"
+        [permissionDelete]="'TopologyManagement.Templates.Delete'"
+        (lazyLoad)="onLazyLoad($event)"
+        (details)="onDetails($event)"
+        (update)="onUpdate($event)"
+        (delete)="onDelete($event)"
+      ></kometa-template-postamat-table>
+    </p-panel>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+mutation CreatePromixController($input: CreatePromixControllerInput!) {
+  createPromixController(input: $input) {
+    promixController {
+      ...PromixController
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

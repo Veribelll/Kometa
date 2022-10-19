@@ -1,0 +1,98 @@
+<div class="flex">
+  <div style="width: 150px">
+    <span>Ячейки:</span>
+    <p-listbox
+      [(ngModel)]="select"
+      [options]="selectItems"
+      [listStyle]="{ height: '220px' }"
+      (ngModelChange)="onSelectChange()"
+    >
+      <ng-template let-item pTemplate="item">
+        <div class="text-center w-full">
+          <span>{{ item.name }}</span>
+        </div>
+      </ng-template>
+    </p-listbox>
+  </div>
+  <div class="align-self-end ml-3">
+    <div class="flex flex-column align-items-center">
+      <button
+        pButton
+        pRipple
+        icon="pi pi-arrow-up"
+        class="mb-1"
+        (click)="onUpCell()"
+        [disabled]="disableCellUp"
+      ></button>
+      <button
+        pButton
+        pRipple
+        icon="pi pi-arrow-down"
+        class="mb-1"
+        (click)="onDownCell()"
+        [disabled]="disableCellDown"
+      ></button>
+      <div>
+        <div class="flex">
+          <button
+            pButton
+            pRipple
+            icon="pi pi-plus"
+            class="p-ml-1"
+            (click)="overlayPanelDisplay.toggle($event)"
+          ></button>
+          <p-overlayPanel
+            #overlayPanelDisplay
+            appendTo="body"
+            [showCloseIcon]="true"
+            [style]="{ width: '700px' }"
+          >
+            <ng-template pTemplate>
+              <p-table
+                dataKey="id"
+                class="p-datatable-sm"
+                [value]="selectableList"
+                [paginator]="true"
+                [rows]="10"
+                selectionMode="single"
+              >
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th class="text-center">Наименование</th>
+                    <th class="text-center">Ширина</th>
+                    <th class="text-center">Высота</th>
+                    <th class="text-center">Размер</th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-cell>
+                  <tr (click)="onAddCell(cell)">
+                    <td class="text-center">
+                      {{ cell.name }}
+                    </td>
+                    <td class="text-center">
+                      {{ cell.width }}
+                    </td>
+                    <td class="text-center">
+                      {{ cell.height }}
+                    </td>
+                    <td class="text-center">
+                      {{ cell.size?.name }}
+                    </td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </ng-template>
+          </p-overlayPanel>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-minus"
+            class="ml-1"
+            (click)="onRemoveCell()"
+            [disabled]="isEmptySelect"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

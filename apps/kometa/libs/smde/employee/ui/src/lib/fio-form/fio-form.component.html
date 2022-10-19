@@ -1,0 +1,14 @@
+<p-form-body *ngIf="formGroup" [formGroup]="formGroup">
+  <p-form-field>
+    <label for="surname" class="required">Фамилия:</label>
+    <input id="surname" formControlName="surname" type="text" pInputText />
+  </p-form-field>
+  <p-form-field>
+    <label for="firstName" class="required">Имя:</label>
+    <input id="firstName" formControlName="firstName" type="text" pInputText />
+  </p-form-field>
+  <p-form-field>
+    <label for="middleName">Отчество:</label>
+    <input id="middleName" formControlName="middleName" type="text" pInputText />
+  </p-form-field>
+</p-form-body>

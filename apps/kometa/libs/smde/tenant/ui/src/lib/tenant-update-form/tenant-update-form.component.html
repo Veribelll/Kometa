@@ -1,0 +1,21 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSave()" [validateOnSubmit]="true">
+  <p-form-body>
+    <p-form-field>
+      <label for="name" class="required">Наименование:</label>
+      <input id="name" formControlName="name" type="text" pInputText />
+    </p-form-field>
+    <p-form-field>
+      <label for="emailForDocuments" class="required">Email для документов:</label>
+      <input id="emailForDocuments" formControlName="emailForDocuments" type="email" pInputText />
+    </p-form-field>
+  </p-form-body>
+  <ng-content-default>
+    <ng-content select="[actions]"></ng-content>
+    <p-form-actions
+      default
+      [invalid]="formGroup.invalid"
+      [pending]="formGroup.pending"
+      (cancel)="onCancel()"
+    ></p-form-actions>
+  </ng-content-default>
+</form>

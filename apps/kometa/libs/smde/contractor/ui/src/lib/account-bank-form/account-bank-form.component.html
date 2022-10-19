@@ -1,0 +1,34 @@
+<ng-container *ngIf="formGroup" [formGroup]="formGroup">
+  <p-form-body>
+    <p-form-field>
+      <dadata-bank-name-field
+        inputId="bankName"
+        label="Наименование:"
+        classLabel="required"
+        formControlName="bankName"
+        type="LEGAL"
+        (selectBank)="onSelectBank($event)"
+      ></dadata-bank-name-field>
+    </p-form-field>
+    <p-form-field>
+      <label [for]="'bic'" class="required">БИК:</label>
+      <p-inputMask inputId="bic" formControlName="bic" mask="999999999"></p-inputMask>
+    </p-form-field>
+    <p-form-field>
+      <label [for]="'paymentAccount'" class="required">Расчетный счёт:</label>
+      <p-inputMask
+        inputId="paymentAccount"
+        formControlName="paymentAccount"
+        mask="99999999999999999999"
+      ></p-inputMask>
+    </p-form-field>
+    <p-form-field>
+      <label [for]="'correspondentAccount'" class="required"> Корреспондентский счёт: </label>
+      <p-inputMask
+        inputId="correspondentAccount"
+        formControlName="correspondentAccount"
+        mask="99999999999999999999"
+      ></p-inputMask>
+    </p-form-field>
+  </p-form-body>
+</ng-container>

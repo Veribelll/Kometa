@@ -1,0 +1,36 @@
+query GetDataForPlacingPackingPlace($postamatId: ID!) {
+  postamatById(id: $postamatId) {
+    cells {
+      id
+      type
+      status
+      name
+      barcode
+      sizeId
+      lockId
+      lock {
+        id
+        address
+      }
+      size {
+        id
+        name
+      }
+      places {
+        packingPlaceId
+        packingPlace {
+          id
+          barcode
+          customerId
+          customer {
+            id
+            externalId
+          }
+        }
+      }
+    }
+  }
+  packingPlaceByLastMileId(lastMileId: $postamatId, where: { status: { eq: Sent } }) {
+    ...PackingPlaceForPlacement
+  }
+}

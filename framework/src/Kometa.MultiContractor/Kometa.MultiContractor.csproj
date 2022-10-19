@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="..\..\..\common.props" />
+    <Import Project="..\..\..\fody.props" />
+    
+    <PropertyGroup>
+        <RootNamespace>Kometa.MultiContractor</RootNamespace>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Volo.Abp.Data" Version="$(AbpPackageVersion)" />
+      <PackageReference Include="Volo.Abp.EventBus.Abstractions" Version="$(AbpPackageVersion)" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Kometa.Json\Kometa.Json.csproj" />
+      <ProjectReference Include="..\Kometa.Security\Kometa.Security.csproj" />
+    </ItemGroup>
+</Project>

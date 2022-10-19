@@ -1,0 +1,9 @@
+<div class="flex justify-content-center align-items-center w-full h-full">
+  <div style="width: 500px">
+    <p-panel header="Настройки принтера">
+      <kometa-postamat-serial-printer-update
+        [postamatId]="(postamatId$ | async)!"
+      ></kometa-postamat-serial-printer-update>
+    </p-panel>
+  </div>
+</div>

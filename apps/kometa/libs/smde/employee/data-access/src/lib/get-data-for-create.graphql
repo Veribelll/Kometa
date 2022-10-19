@@ -1,0 +1,14 @@
+query GetDataForCreateEmployee {
+  contractors {
+    items {
+      id
+      name
+    }
+  }
+  identityRoles(where: { isPublic: { eq: true } }) {
+    items {
+      id
+      name
+    }
+  }
+}

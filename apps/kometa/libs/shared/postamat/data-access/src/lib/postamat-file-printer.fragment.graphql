@@ -1,0 +1,4 @@
+fragment PostamatFilePrinter on FilePrinter {
+  filePath
+  isEnabled
+}

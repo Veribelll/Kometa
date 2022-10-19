@@ -1,0 +1,35 @@
+<form [formGroup]="formGroup" [validateOnSubmit]="true" (ngSubmit)="onSave()">
+  <p-form-body>
+    <p-form-field>
+      <label for="barcode" class="required">ШК:</label>
+      <input id="barcode" formControlName="barcode" type="text" pInputText pKeyboard />
+    </p-form-field>
+    <p-form-field>
+      <label [for]="'expiresDt'">Истекает в:</label>
+      <p-calendar
+        [showTime]="true"
+        [showSeconds]="false"
+        [hourFormat]="'24'"
+        dateFormat="dd.mm.yy"
+        inputId="expiresDt"
+        formControlName="expiresDt"
+        appendTo="body"
+      ></p-calendar>
+    </p-form-field>
+    <p-form-field>
+      <div class="flex">
+        <label [for]="'isDisposable'" class="align-self-center">Временный:</label>
+        <p-inputSwitch
+          inputId="isDisposable"
+          formControlName="isDisposable"
+          class="ml-2"
+        ></p-inputSwitch>
+      </div>
+    </p-form-field>
+  </p-form-body>
+  <p-form-actions
+    [invalid]="formGroup.invalid"
+    [pending]="formGroup.pending"
+    (cancel)="onCancel()"
+  ></p-form-actions>
+</form>

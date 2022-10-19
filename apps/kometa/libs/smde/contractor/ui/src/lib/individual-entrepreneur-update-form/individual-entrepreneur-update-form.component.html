@@ -1,0 +1,21 @@
+<form [formGroup]="formGroup" [validateOnSubmit]="true" (ngSubmit)="onSave()">
+  <p-form-body>
+    <p-form-field>
+      <kometa-individual-entrepreneur-requisites-form></kometa-individual-entrepreneur-requisites-form>
+    </p-form-field>
+    <p-form-field>
+      <p-fieldset legend="Реквизиты банка" [toggleable]="true">
+        <kometa-account-bank-form formGroupName="accountBank"></kometa-account-bank-form>
+      </p-fieldset>
+    </p-form-field>
+  </p-form-body>
+  <ng-content-default>
+    <ng-content select="[actions]"></ng-content>
+    <p-form-actions
+      default
+      [invalid]="formGroup.invalid"
+      [pending]="formGroup.pending"
+      (cancel)="onCancel()"
+    ></p-form-actions>
+  </ng-content-default>
+</form>

@@ -1,0 +1,11 @@
+fragment CompanyDetail on Company {
+  ...Company
+  accountBank {
+    ...AccountBank
+  }
+  kpp
+  okpo
+  ogrn
+  actualAddress
+  mailingAddress
+}

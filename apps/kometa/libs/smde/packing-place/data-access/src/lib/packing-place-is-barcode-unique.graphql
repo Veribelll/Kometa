@@ -1,0 +1,3 @@
+query PackingPlaceIsBarcodeUnique($barcode: String!) {
+  packingPlacesAny(where: { barcode: { eq: $barcode } })
+}

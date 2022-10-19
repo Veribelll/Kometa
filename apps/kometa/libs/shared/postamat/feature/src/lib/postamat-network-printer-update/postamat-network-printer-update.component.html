@@ -1,0 +1,13 @@
+<div>
+  <kometa-postamat-network-printer-skeleton
+    *ngIf="(loading$ | async)!; else form"
+  ></kometa-postamat-network-printer-skeleton>
+  <ng-template #form>
+    <kometa-postamat-network-printer-update-form
+      *ngIf="formGroup"
+      [formGroup]="formGroup"
+      (save)="onSave($event)"
+      (cancel)="onCancel()"
+    ></kometa-postamat-network-printer-update-form>
+  </ng-template>
+</div>

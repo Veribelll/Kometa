@@ -1,0 +1,114 @@
+<ng-container *transloco="let t">
+  <p-table
+    #table
+    styleClass="p-datatable-gridlines"
+    dataKey="id"
+    [value]="returnRequests"
+    [loading]="loading"
+    [totalRecords]="totalRecords"
+    [paginator]="true"
+    [rows]="25"
+    [rowsPerPageOptions]="[25, 50, 75]"
+    [responsive]="true"
+    [lazy]="true"
+    (onLazyLoad)="onLazyLoad($event)"
+  >
+    <ng-template pTemplate="caption">
+      <p-table-caption
+        (clear)="table.clear()"
+        (changeFilter)="table.filterGlobal($event, 'contains')"
+      ></p-table-caption>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th class="text-center">
+          <span>Статус</span>
+        </th>
+
+        <th class="text-center">
+          <span>Код</span>
+        </th>
+
+        <th class="text-center">
+          <span>У курьера</span>
+        </th>
+
+        <th class="text-center">
+          <span>В последней миле</span>
+        </th>
+
+        <th class="text-center">
+          <span>Назначеный курьер</span>
+        </th>
+
+        <th class="text-center">
+          <span>Причина</span>
+        </th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-request>
+      <tr>
+        <td class="text-center">{{ t('ReturnRequestStatus:' + getStatus(request)) }}</td>
+        <td class="text-center">{{ request.code }}</td>
+        <td class="text-center">{{ request.atCourier | fio }}</td>
+        <td class="text-center">{{ request.atLastMile?.name }}</td>
+        <td class="text-center">{{ request.courier | fio }}</td>
+        <td class="text-center">{{ request.cause }}</td>
+        <td class="text-center">
+          <p-table-actions
+            [permissionDetails]="permissionDetails"
+            [permissionUpdate]="permissionUpdate"
+            [permissionDelete]="permissionDelete"
+            [displayDelete]="false"
+            [displayUpdate]="showUpdate(request)"
+            (details)="onDetails(request)"
+            (update)="onUpdate(request)"
+            (delete)="onDelete(request)"
+          >
+            <ng-container ngProjectAs="first">
+              <ng-container>
+                <button
+                  *permission="permissionDetails"
+                  type="button"
+                  pButton
+                  pRipple
+                  pTooltip="История"
+                  icon="pi pi-clock"
+                  class="p-button-rounded mr-2"
+                  (click)="onTimeline(request)"
+                ></button>
+              </ng-container>
+            </ng-container>
+            <ng-container ngProjectAs="end">
+              <ng-container *ngIf="showReturn(request)">
+                <button
+                  *permission="permissionReturn"
+                  type="button"
+                  pButton
+                  pRipple
+                  pTooltip="Вернуть"
+                  icon="pi pi-download"
+                  class="p-button-rounded p-button-success mr-2"
+                  (click)="onReturn(request)"
+                ></button>
+              </ng-container>
+              <ng-container *ngIf="showCancel(request)">
+                <button
+                  *permission="permissionCancel"
+                  type="button"
+                  pButton
+                  pRipple
+                  pTooltip="Отменить"
+                  icon="pi pi-ban"
+                  class="p-button-rounded p-button-danger"
+                  (click)="onCancel(request)"
+                ></button>
+              </ng-container>
+            </ng-container>
+          </p-table-actions>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</ng-container>

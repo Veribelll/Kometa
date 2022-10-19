@@ -1,0 +1,14 @@
+mutation ActivatePostamat($input: ActivatePostamatInput!) {
+  activatePostamat(input: $input) {
+    activatedPostamat {
+      contractorId
+      postamatId
+      postamatIdRelay
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

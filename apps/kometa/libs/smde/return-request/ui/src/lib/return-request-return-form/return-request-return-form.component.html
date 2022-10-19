@@ -1,0 +1,12 @@
+<div *ngIf="request">
+  <p class="m-1">
+    Вы действительно хотите сделать возврат упаковочного места:
+    <br />
+    <span class="font-bold">'{{ request.code }}'</span>?
+  </p>
+  <p-form-delete-actions
+    labelDelete="Вернуть"
+    (delete)="onReturn()"
+    (cancel)="onCancel()"
+  ></p-form-delete-actions>
+</div>

@@ -1,0 +1,37 @@
+<form [formGroup]="formGroup" [validateOnSubmit]="true" (ngSubmit)="onSave()">
+  <p-form-body>
+    <p-form-field>
+      <label for="name" class="required">Наименование:</label>
+      <input id="name" formControlName="name" type="text" pInputText />
+    </p-form-field>
+    <p-form-field>
+      <label for="factoryNumber" class="required">Заводской номер:</label>
+      <input id="factoryNumber" formControlName="factoryNumber" type="text" pInputText />
+    </p-form-field>
+    <p-form-field>
+      <label for="externalId" class="required">Внешний ID:</label>
+      <input id="externalId" formControlName="externalId" type="text" pInputText />
+    </p-form-field>
+    <p-form-field>
+      <dadata-address-field
+        inputId="address"
+        label="Адрес"
+        classLabel="required"
+        formControlName="address"
+      ></dadata-address-field>
+    </p-form-field>
+    <p-form-field>
+      <label [for]="'defaultCourierId'" class="required">Прикреплённый курьер:</label>
+      <kometa-courier-select-control
+        inputId="defaultCourierId"
+        selectionMode="single"
+        formControlName="defaultCourierId"
+      ></kometa-courier-select-control>
+    </p-form-field>
+  </p-form-body>
+  <p-form-actions
+    [invalid]="formGroup.invalid"
+    [pending]="formGroup.pending"
+    (cancel)="onCancel()"
+  ></p-form-actions>
+</form>

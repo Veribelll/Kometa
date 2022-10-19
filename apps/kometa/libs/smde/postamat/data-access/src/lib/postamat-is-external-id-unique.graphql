@@ -1,0 +1,3 @@
+query PostamatIsExternalIdUnique($externalId: String!) {
+  postamatsAny(where: { externalId: { eq: $externalId } })
+}

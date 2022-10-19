@@ -1,0 +1,9 @@
+mutation UpdatePermissions($input: UpdatePermissionsInput!) {
+  updatePermissions(input: $input) {
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

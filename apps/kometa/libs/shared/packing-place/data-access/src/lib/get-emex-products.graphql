@@ -1,0 +1,33 @@
+query GetEmexProductsForPackingPlace($packingPlaceId: ID!) {
+  emexProducts(where: { packingPlaceId: { eq: $packingPlaceId } }) {
+    items {
+      id
+      orderId
+      order {
+        id
+        globalId
+        externalId
+        customer {
+          externalId
+          name
+          phone
+          email
+        }
+      }
+      barcode
+      typeBalance
+      typePayment
+      name
+      vendorCode
+      price
+      sum
+      quantity
+      vat
+      manufacturer
+      manufacturerCountry
+      manufacturerCountryCode
+      marking
+      gtd
+    }
+  }
+}

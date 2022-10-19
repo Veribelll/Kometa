@@ -1,0 +1,107 @@
+<div class="flex flex-column">
+  <div class="flex flex-row mb-1">
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="1"
+      class="button p-button-outlined p-button-secondary ml-1"
+      (click)="onChange('1')"
+    ></button>
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="2"
+      class="button p-button-outlined p-button-secondary ml-1"
+      (click)="onChange('2')"
+    ></button>
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="3"
+      class="button p-button-outlined p-button-secondary ml-1"
+      (click)="onChange('3')"
+    ></button>
+  </div>
+  <div class="flex flex-row mb-1">
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="4"
+      class="button p-button-outlined p-button-secondary ml-1"
+      (click)="onChange('4')"
+    ></button>
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="5"
+      class="button p-button-outlined p-button-secondary ml-1"
+      (click)="onChange('5')"
+    ></button>
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="6"
+      class="button p-button-outlined p-button-secondary ml-1"
+      (click)="onChange('6')"
+    ></button>
+  </div>
+  <div class="flex flex-row mb-1">
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="7"
+      class="button p-button-outlined p-button-secondary ml-1"
+      (click)="onChange('7')"
+    ></button>
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="8"
+      class="button p-button-outlined p-button-secondary ml-1"
+      (click)="onChange('8')"
+    ></button>
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="9"
+      class="button p-button-outlined p-button-secondary ml-1"
+      (click)="onChange('9')"
+    ></button>
+  </div>
+  <div class="flex flex-row mb-1">
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="C"
+      class="button p-button-outlined p-button-secondary ml-1"
+      (click)="onClear()"
+    ></button>
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="0"
+      class="button p-button-outlined p-button-secondary ml-1"
+      (click)="onChange('0')"
+    ></button>
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="<-"
+      class="button p-button-outlined p-button-secondary ml-1"
+      [disabled]="pin.length <= 0"
+      (click)="onRemove()"
+    ></button>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div>
+  <kometa-permission-skeleton
+    *ngIf="(loading$ | async)!; else form"
+  ></kometa-permission-skeleton>
+  <ng-template #form>
+    <kometa-update-permissions-form
+      [permissions]="(permissions$ | async)!"
+      (save)="onSave($event)"
+      (cancel)="onCancel()"
+    ></kometa-update-permissions-form>
+  </ng-template>
+</div>

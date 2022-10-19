@@ -1,0 +1,17 @@
+mutation CreateSmsCenterAccount($input: CreateSmsCenterAccountInput!) {
+  createSmsCenterAccount(input: $input) {
+    smsCenterAccount {
+      ...SmsCenterAccount
+    }
+    errors {
+      ... on SmsAccountNameAlreadyExistsError {
+        code
+        message
+        details
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+query GetLastMiles(
+  $where: LastMileFilterInput
+  $order: [LastMileSortInput!]
+  $take: Int
+  $skip: Int
+) {
+  lastMiles(where: $where, order: $order, take: $take, skip: $skip) {
+    items {
+      id
+      name
+      address
+      externalId
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+    totalCount
+  }
+}

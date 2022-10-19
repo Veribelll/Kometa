@@ -1,0 +1,12 @@
+mutation DeletePromixController($input: DeletePromixControllerInput!) {
+  deletePromixController(input: $input) {
+    promixController {
+      ...PromixController
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

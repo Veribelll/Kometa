@@ -1,0 +1,5 @@
+query GetTemplateCell($where: TemplateCellFilterInput) {
+  templateCell(where: $where) {
+    ...TemplateCell
+  }
+}

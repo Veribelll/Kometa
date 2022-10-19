@@ -1,0 +1,3 @@
+query EmexOrderIsExternalIdUnique($externalId: String!) {
+  emexOrdersAny(where: { externalId: { eq: $externalId } })
+}

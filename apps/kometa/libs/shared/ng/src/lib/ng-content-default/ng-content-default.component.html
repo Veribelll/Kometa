@@ -1,0 +1,7 @@
+<div #ref>
+  <ng-content></ng-content>
+  <ng-content
+    *ngIf="ref?.firstElementChild === null || ref?.firstElementChild?.hasAttribute('default')"
+    select="[default]"
+  ></ng-content>
+</div>

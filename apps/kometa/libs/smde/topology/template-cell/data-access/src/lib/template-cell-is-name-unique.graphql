@@ -1,0 +1,3 @@
+query TemplateCellIsNameUnique($name: String!) {
+  templatesCellAny(where: { name: { eq: $name } })
+}

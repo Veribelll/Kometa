@@ -1,0 +1,18 @@
+<div class="mt-5 flex justify-content-center">
+  <button
+    pButton
+    pRipple
+    label="Отменить"
+    icon="pi pi-times"
+    class="p-button-outlined"
+    (click)="onCancel()"
+  ></button>
+  <button
+    pButton
+    pRipple
+    [label]="labelDelete"
+    icon="pi pi-trash"
+    class="ml-4 p-button-outlined p-button-danger"
+    (click)="onDelete()"
+  ></button>
+</div>

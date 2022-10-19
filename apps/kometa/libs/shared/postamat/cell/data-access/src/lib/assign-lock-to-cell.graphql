@@ -1,0 +1,12 @@
+mutation AssignLockToCell($input: PostamatAssignLockToCellInput!) {
+  postamatAssignLockToCell(input: $input) {
+    postamat {
+      id
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

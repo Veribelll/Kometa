@@ -1,0 +1,5 @@
+fragment Tenant on Tenant {
+  id
+  name
+  emailForDocuments
+}

@@ -1,0 +1,3 @@
+query TemplatePostamatIsNameUnique($name: String!) {
+  templatesPostamatAny(where: { name: { eq: $name } })
+}

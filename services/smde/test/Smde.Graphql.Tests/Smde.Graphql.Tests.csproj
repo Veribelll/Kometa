@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="..\..\..\..\common.props" />
+    <Import Project="..\..\..\..\fody.props" />
+
+    <PropertyGroup>
+        <RootNamespace>Smde</RootNamespace>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\src\Smde.HttpApi.Graphql\Smde.HttpApi.Graphql.csproj" />
+        <ProjectReference Include="..\Smde.EntityFrameworkCore.Tests\Smde.EntityFrameworkCore.Tests.csproj" />
+        <ProjectReference Include="..\Smde.TestBase\Smde.TestBase.csproj" />
+    </ItemGroup>
+</Project>

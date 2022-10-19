@@ -1,0 +1,17 @@
+mutation DeleteCompany($input: DeleteCompanyInput!) {
+  deleteCompany(input: $input) {
+    company {
+      ...Company
+    }
+    errors {
+      ... on ContractorHostDeletionError {
+        code
+        message
+        details
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

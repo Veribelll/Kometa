@@ -1,0 +1,37 @@
+fragment ShipmentRequest on ShipmentRequest {
+  id
+  status
+  code
+  cause
+  comment
+  courierId
+  courier {
+    id
+    surname
+    name
+    middleName
+    phoneNumber
+  }
+  lastMileId
+  lastMile {
+    id
+    name
+    address
+    externalId
+    status
+  }
+  packingPlaces {
+    id
+    status
+    barcode
+    sizeId
+    size {
+      id
+      name
+    }
+  }
+  changesHistory {
+    creationTime
+    status
+  }
+}

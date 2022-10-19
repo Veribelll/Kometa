@@ -1,0 +1,7 @@
+query GetLastMileStoragePeriods($lastMileId: ID!) {
+  lastMileById(id: $lastMileId) {
+    storagePeriods {
+      ...LastMileStoragePeriod
+    }
+  }
+}

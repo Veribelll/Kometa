@@ -1,0 +1,3 @@
+query PostamatIsNameUnique($name: String!) {
+  postamatsAny(where: { name: { eq: $name } })
+}

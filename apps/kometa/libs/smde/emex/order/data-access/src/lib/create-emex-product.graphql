@@ -1,0 +1,12 @@
+mutation CreateEmexProduct($input: CreateEmexProductInput!) {
+  createEmexProduct(input: $input) {
+    emexProduct {
+      ...EmexProduct
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

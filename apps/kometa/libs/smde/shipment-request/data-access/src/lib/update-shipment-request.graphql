@@ -1,0 +1,20 @@
+mutation UpdateShipmentRequest($input: UpdateShipmentRequestInput!) {
+  updateShipmentRequest(input: $input) {
+    shipmentRequest {
+      ...ShipmentRequest
+    }
+    errors {
+      ... on ShipmentRequestCodeAlreadyExistsError {
+        code
+        message
+        details
+      }
+      ... on ShipmentRequestLockedError {
+        message
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

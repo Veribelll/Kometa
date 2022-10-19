@@ -1,0 +1,57 @@
+<p-table
+  #table
+  styleClass="p-datatable-gridlines"
+  dataKey="id"
+  [value]="contractors"
+  [loading]="loading"
+  [totalRecords]="totalRecords"
+  [paginator]="true"
+  [rows]="25"
+  [rowsPerPageOptions]="[25, 50, 75]"
+  [responsive]="true"
+  [lazy]="true"
+  (onLazyLoad)="onLazyLoad($event)"
+>
+  <ng-template pTemplate="caption">
+    <p-table-caption
+      (clear)="table.clear()"
+      (changeFilter)="table.filterGlobal($event, 'contains')"
+    ></p-table-caption>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th class="text-center">
+        <span>Наименование</span>
+      </th>
+
+      <th class="text-center">
+        <span>Адрес</span>
+      </th>
+
+      <th class="text-center">
+        <span>ИНН</span>
+      </th>
+
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-contractor>
+    <tr>
+      <td class="text-center">{{ contractor.name }}</td>
+      <td class="text-center">{{ contractor.address }}</td>
+      <td class="text-center">{{ contractor.inn }}</td>
+      <td class="text-center">
+        <p-table-actions
+          [permissionDetails]="permissionDetails"
+          [permissionUpdate]="permissionUpdate"
+          [permissionDelete]="permissionDelete"
+          [displayDelete]="!contractor.isHost"
+          (details)="onDetails(contractor)"
+          (update)="onUpdate(contractor)"
+          (delete)="onDelete(contractor)"
+        >
+        </p-table-actions>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

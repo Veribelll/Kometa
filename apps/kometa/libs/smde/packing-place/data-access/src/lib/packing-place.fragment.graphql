@@ -1,0 +1,34 @@
+fragment PackingPlace on PackingPlace {
+  id
+  status
+  barcode
+  typeOrder
+  customerId
+  customer {
+    id
+    name
+    externalId
+    phone
+    email
+  }
+  courierId
+  courier {
+    id
+    surname
+    name
+    middleName
+  }
+  sizeId
+  size {
+    id
+    name
+  }
+  lastMileId
+  lastMile {
+    id
+    name
+    address
+    externalId
+  }
+  isLocked
+}

@@ -1,0 +1,13 @@
+<div>
+  <kometa-postamat-scanner-skeleton
+    *ngIf="(loading$ | async)!; else form"
+  ></kometa-postamat-scanner-skeleton>
+  <ng-template #form>
+    <kometa-postamat-scanner-update-form
+      *ngIf="formGroup"
+      [formGroup]="formGroup"
+      (save)="onSave($event)"
+      (cancel)="onCancel()"
+    ></kometa-postamat-scanner-update-form>
+  </ng-template>
+</div>

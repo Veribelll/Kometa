@@ -1,0 +1,14 @@
+<ng-container *transloco="let t">
+  <p-detail-body *ngIf="packingPlace">
+    <p-detail-field label="Штрих-код:" [value]="packingPlace.barcode"></p-detail-field>
+    <p-detail-field
+      label="Статус:"
+      [value]="t('PackingPlaceStatus:' + packingPlace.status)"
+    ></p-detail-field>
+    <p-detail-field label="Последняя миля:" [value]="packingPlace.lastMile?.name"></p-detail-field>
+    <p-detail-field label="Размер:" [value]="packingPlace.size?.name"></p-detail-field>
+    <p-panel header="Заказы">
+      <ng-content></ng-content>
+    </p-panel>
+  </p-detail-body>
+</ng-container>

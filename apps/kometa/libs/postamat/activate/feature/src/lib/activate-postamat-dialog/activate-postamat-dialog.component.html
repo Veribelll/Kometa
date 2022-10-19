@@ -1,0 +1,17 @@
+<div class="mt-4">
+  <p-form-body>
+    <p-form-field>
+      <label for="token" class="required text-4xl">Код активации</label>
+      <input id="token" [formControl]="token" class="text-center text-4xl" pInputText pKeyboard />
+    </p-form-field>
+  </p-form-body>
+  <div class="flex justify-content-center w-full">
+    <button
+      label="Активировать"
+      class="mt-4 p-button-lg"
+      pButton
+      pRipple
+      (click)="onActivate()"
+    ></button>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div>
+  <div class="flex flex-row justify-content-between">
+    <kometa-receive-order-button></kometa-receive-order-button>
+    <kometa-cancel-button routerLink="/"></kometa-cancel-button>
+  </div>
+  <kometa-placing-packing-place-page
+    [postamatId]="(postamatId$ | async)!"
+  ></kometa-placing-packing-place-page>
+</div>

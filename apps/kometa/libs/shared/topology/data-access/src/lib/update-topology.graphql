@@ -1,0 +1,12 @@
+mutation UpdateTopology($input: UpdateTopologyInput!) {
+  updateTopology(input: $input) {
+    postamat {
+      id
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

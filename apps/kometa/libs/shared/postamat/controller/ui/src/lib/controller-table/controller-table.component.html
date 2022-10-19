@@ -1,0 +1,79 @@
+<p-table
+  #table
+  styleClass="p-datatable-gridlines"
+  dataKey="id"
+  [value]="controllers"
+  [loading]="loading"
+  [lazy]="true"
+  [scrollable]="scrollable"
+  [scrollHeight]="scrollHeight!"
+  (onLazyLoad)="onLazyLoad($event)"
+>
+  <ng-template pTemplate="caption">
+    <p-table-caption
+      (clear)="table.clear()"
+      (changeFilter)="table.filterGlobal($event, 'contains')"
+    ></p-table-caption>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th class="text-center" style="min-width: 180px">
+        <span class="w-full">Наименование</span>
+      </th>
+
+      <th class="text-center" style="min-width: 100px">
+        <span class="w-full">BaudRate</span>
+      </th>
+
+      <th class="text-center" style="min-width: 80px">
+        <span class="w-full">DataBits</span>
+      </th>
+
+      <th class="text-center" style="min-width: 80px">
+        <span class="w-full">Parity</span>
+      </th>
+
+      <th class="text-center" style="min-width: 80px">
+        <span class="w-full">StopBits</span>
+      </th>
+
+      <th class="text-center" style="min-width: 120px">
+        <span class="w-full">PortName</span>
+      </th>
+
+      <th style="min-width: 150px"></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-controller>
+    <tr>
+      <td class="text-center" style="min-width: 180px">
+        <span class="w-full">{{ controller.name }}</span>
+      </td>
+      <td class="text-center" style="min-width: 100px">
+        <span class="w-full">{{ controller.settings.baudRate }}</span>
+      </td>
+      <td class="text-center" style="min-width: 80px">
+        <span class="w-full">{{ controller.settings.dataBits }}</span>
+      </td>
+      <td class="text-center" style="min-width: 80px">
+        <span class="w-full">{{ controller.settings.parity }}</span>
+      </td>
+      <td class="text-center" style="min-width: 80px">
+        <span class="w-full">{{ controller.settings.stopBits }}</span>
+      </td>
+      <td class="text-center" style="min-width: 120px">
+        <span class="w-full">{{ controller.settings.portName }}</span>
+      </td>
+      <td class="text-center" style="min-width: 150px">
+        <p-table-actions
+          [displayDetails]="false"
+          [permissionDetails]="permissionDetails"
+          [permissionUpdate]="permissionUpdate"
+          [permissionDelete]="permissionDelete"
+          (update)="onUpdate(controller)"
+          (delete)="onDelete(controller)"
+        ></p-table-actions>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

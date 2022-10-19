@@ -1,0 +1,37 @@
+<form [formGroup]="formGroup" [validateOnSubmit]="true" (ngSubmit)="onSave()">
+  <p-form-body>
+    <p-form-field>
+      <label [for]="'typeOrder'" class="required">Тип заказа:</label>
+      <p-dropdown
+        formControlName="typeOrder"
+        inputId="typeOrder"
+        appendTo="body"
+        [options]="typesOrder"
+        optionLabel="name"
+        optionValue="id"
+        [showClear]="true"
+        [autoDisplayFirst]="false"
+      ></p-dropdown>
+    </p-form-field>
+    <p-form-field>
+      <label [for]="'period'">Период:</label>
+      <p-inputNumber
+        formControlName="period"
+        [showButtons]="true"
+        buttonLayout="horizontal"
+        inputId="period"
+        [step]="1"
+        decrementButtonClass="p-button-danger"
+        incrementButtonClass="p-button-success"
+        incrementButtonIcon="pi pi-plus"
+        decrementButtonIcon="pi pi-minus"
+      >
+      </p-inputNumber>
+    </p-form-field>
+  </p-form-body>
+  <p-form-actions
+    [invalid]="formGroup.invalid"
+    [pending]="formGroup.pending"
+    (cancel)="onCancel()"
+  ></p-form-actions>
+</form>

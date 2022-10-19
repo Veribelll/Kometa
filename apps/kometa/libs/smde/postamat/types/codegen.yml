@@ -1,0 +1,14 @@
+overwrite: true
+schema:
+  - apps/smde/schema.graphql
+generates:
+  libs/smde/postamat/types/src/lib/graphql-types.ts:
+    documents:
+      - libs/smde/postamat/data-access/**/*.graphql
+    plugins:
+      - graphql-codegen-typescript-operation-types
+      - typescript-operations
+      - typed-document-node
+    config:
+      omitObjectTypes: true
+      preResolveTypes: true

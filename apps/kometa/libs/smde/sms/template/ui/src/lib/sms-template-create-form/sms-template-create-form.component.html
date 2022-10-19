@@ -1,0 +1,51 @@
+<form [formGroup]="formGroup" [validateOnSubmit]="true" (ngSubmit)="onSave()">
+  <p-form-body>
+    <p-form-field>
+      <label [for]="'eventType'" class="required">Тип ивента:</label>
+      <p-dropdown
+        inputId="eventType"
+        formControlName="eventType"
+        appendTo="body"
+        [options]="notificationEventType"
+        optionLabel="name"
+        optionValue="id"
+        [showClear]="true"
+        [autoDisplayFirst]="false"
+      ></p-dropdown>
+    </p-form-field>
+    <p-form-field>
+      <label for="name" class="required">Наименование:</label>
+      <input id="name" formControlName="name" type="text" pInputText />
+    </p-form-field>
+    <p-form-field>
+      <label for="template" class="required">Шаблон:</label>
+      <textarea
+        id="template"
+        formControlName="template"
+        pInputTextarea
+        [rows]="5"
+        [cols]="30"
+        [autoResize]="true"
+      ></textarea>
+    </p-form-field>
+    <p-form-field>
+      <kometa-sms-template-fields-available
+        [eventType]="eventType"
+        (selectField)="onSelectField($event)"
+      ></kometa-sms-template-fields-available>
+    </p-form-field>
+    <p-form-field>
+      <label for="comment">Комментарий:</label>
+      <textarea
+        id="comment"
+        formControlName="comment"
+        pInputTextarea
+        [rows]="5"
+        [cols]="30"
+        [autoResize]="true"
+      ></textarea>
+    </p-form-field>
+  </p-form-body>
+  <p-form-actions [invalid]="formGroup.invalid" [pending]="formGroup.pending" (cancel)="onCancel()">
+  </p-form-actions>
+</form>

@@ -1,0 +1,10 @@
+overwrite: true
+schema:
+  - apps/smde/schema.graphql
+generates:
+  libs/shared/util-graphql/src/lib/apollo-helpers.ts:
+    documents:
+      - 'libs/smde/**/*.graphql'
+      - 'libs/postamat/**/*.graphql'
+    plugins:
+      - typescript-apollo-client-helpers

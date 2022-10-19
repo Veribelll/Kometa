@@ -1,0 +1,50 @@
+<form [formGroup]="formGroup" [validateOnSubmit]="true" (ngSubmit)="onSave()">
+  <p-form-body>
+    <p-form-field>
+      <kometa-select-contractors-field
+        [contractors]="contractors"
+      ></kometa-select-contractors-field>
+    </p-form-field>
+    <p-form-field>
+      <kometa-fio-form></kometa-fio-form>
+    </p-form-field>
+    <p-form-field>
+      <kometa-select-roles-field
+        [formGroup]="formGroup"
+        [identityRoles]="identityRoles"
+      ></kometa-select-roles-field>
+    </p-form-field>
+    <p-form-field>
+      <label [for]="'phoneNumber'" class="required">Номер телефона:</label>
+      <p-inputMask
+        inputId="phoneNumber"
+        formControlName="phoneNumber"
+        mask="+7(999)999-99-99"
+        [unmask]="true"
+      ></p-inputMask>
+    </p-form-field>
+    <p-form-field>
+      <label for="email" class="required">Email:</label>
+      <input id="email" formControlName="email" type="email" pInputText />
+    </p-form-field>
+    <p-form-field [size]="6">
+      <label for="password" class="required">Пароль:</label>
+      <input id="password" formControlName="password" type="password" pPassword />
+    </p-form-field>
+    <p-form-field [size]="6">
+      <label for="passwordConfirm" class="required">Подтвердите пароль:</label>
+      <input
+        id="passwordConfirm"
+        formControlName="passwordConfirm"
+        type="password"
+        pPassword
+        [feedback]="false"
+      />
+    </p-form-field>
+  </p-form-body>
+  <p-form-actions
+    [invalid]="formGroup.invalid"
+    [pending]="formGroup.pending"
+    (cancel)="onCancel()"
+  ></p-form-actions>
+</form>

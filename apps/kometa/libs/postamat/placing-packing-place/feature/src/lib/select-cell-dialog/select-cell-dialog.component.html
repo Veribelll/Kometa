@@ -1,0 +1,29 @@
+<div>
+  <div class="mb-4">
+    <kometa-postamat-view-page
+      [postamatId]="postamatId"
+      [disables]="disables"
+      [(select)]="select"
+    ></kometa-postamat-view-page>
+  </div>
+  <div class="flex flex-row justify-content-center">
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="Выйти"
+      class="p-button-outlined p-button-secondary p-button-lg mr-4"
+      (click)="onCancel()"
+    ></button>
+
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="Выбрать"
+      class="p-button-outlined p-button-success p-button-lg"
+      [disabled]="!select"
+      (click)="onSelect()"
+    ></button>
+  </div>
+</div>

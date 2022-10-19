@@ -1,0 +1,8 @@
+<div *ngIf="templatePostamat">
+  <p class="m-1">
+    Вы действительно хотите удалить шаблон постамата:
+    <br />
+    <span class="font-bold">'{{ templatePostamat.name }}'</span>?
+  </p>
+  <p-form-delete-actions (delete)="onDelete()" (cancel)="onCancel()"></p-form-delete-actions>
+</div>

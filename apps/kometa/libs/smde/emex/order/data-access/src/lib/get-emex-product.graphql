@@ -1,0 +1,21 @@
+query GetEmexProduct($where: EmexProductFilterInput) {
+  emexProduct(where: $where) {
+    ...EmexProduct
+    order {
+      id
+      contractorId
+      contractor {
+        id
+        name
+      }
+      globalId
+      externalId
+      customer {
+        externalId
+        name
+        phone
+        email
+      }
+    }
+  }
+}

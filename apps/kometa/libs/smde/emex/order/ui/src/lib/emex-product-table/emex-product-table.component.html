@@ -1,0 +1,96 @@
+<ng-container *transloco="let t">
+  <p-table [value]="clonedProducts" styleClass="p-datatable-gridlines p-datatable-sm" dataKey="id">
+    <ng-template pTemplate="body" let-product let-rowIndex="rowIndex">
+      <tr
+        class="surface-300"
+        *ngIf="rowGroupMetadata[product.packingPlace?.barcode ?? '']?.index === rowIndex"
+      >
+        <td [attr.colspan]="actionButtons ? 16 : 15">
+          <span>Упаковочное место: </span>
+          <span class="font-bold ml-2">{{ product.packingPlace?.barcode }}</span>
+        </td>
+      </tr>
+
+      <tr
+        *ngIf="rowGroupMetadata[product.packingPlace?.barcode ?? '']?.index === rowIndex"
+        class="surface-300"
+      >
+        <th *ngIf="actionButtons"></th>
+        <th class="text-center text-xs white-space-normal">Статус</th>
+        <th class="text-center text-xs white-space-normal">Тип баланса</th>
+        <th class="text-center text-xs white-space-normal">Тип оплаты</th>
+        <th class="text-center text-xs white-space-normal">ШК</th>
+        <th class="text-center text-xs white-space-normal">Артикул</th>
+        <th class="text-center text-xs white-space-normal">Изг.</th>
+        <th class="text-center text-xs white-space-normal">Название</th>
+        <th class="text-center text-xs white-space-normal">Кол-во</th>
+        <th class="text-center text-xs white-space-normal">Цена</th>
+        <th class="text-center text-xs white-space-normal">Сумма НДС</th>
+        <th class="text-center text-xs white-space-normal">Сумма</th>
+        <th class="text-center text-xs white-space-normal">Страна изг.</th>
+        <th class="text-center text-xs white-space-normal">Код страны изг.</th>
+        <th class="text-center text-xs white-space-normal">Маркировка</th>
+        <th class="text-center text-xs white-space-normal">ГТД</th>
+      </tr>
+
+      <tr>
+        <td *ngIf="actionButtons" class="text-center text-xs white-space-normal">
+          <p-table-actions
+            [permissionDetails]="permissionDetails"
+            [permissionUpdate]="permissionUpdate"
+            [permissionDelete]="permissionDelete"
+            (details)="onDetails(product)"
+            (update)="onUpdate(product)"
+            (delete)="onDelete(product)"
+          >
+          </p-table-actions>
+        </td>
+        <td class="text-center text-xs white-space-normal">
+          {{ t('EmexProductStatus:' + getStatus(product)) }}
+        </td>
+        <td class="text-center text-xs white-space-normal">
+          {{ t('EmexTypeBalance:' + getTypeBalance(product)) }}
+        </td>
+        <td class="text-center text-xs white-space-normal">
+          {{ t('EmexTypePayment:' + getTypePayment(product)) }}
+        </td>
+        <td class="text-center text-xs white-space-normal">
+          {{ product.barcode }}
+        </td>
+        <td class="text-center text-xs white-space-normal">
+          {{ product.vendorCode }}
+        </td>
+        <td class="text-center text-xs white-space-normal">
+          {{ product.manufacturer }}
+        </td>
+        <td class="text-center text-xs white-space-normal">
+          {{ product.name }}
+        </td>
+        <td class="text-center text-xs white-space-normal">
+          {{ product.quantity }}
+        </td>
+        <td class="text-center text-xs white-space-normal">
+          {{ product.price }}
+        </td>
+        <td class="text-center text-xs white-space-normal">
+          {{ product.vat }}
+        </td>
+        <td class="text-center text-xs white-space-normal">
+          {{ product.sum }}
+        </td>
+        <td class="text-center text-xs white-space-normal">
+          {{ product.manufacturerCountry }}
+        </td>
+        <td class="text-center text-xs white-space-normal">
+          {{ product.manufacturerCountryCode }}
+        </td>
+        <td class="text-center text-xs white-space-normal">
+          {{ product.marking }}
+        </td>
+        <td class="text-center text-xs white-space-normal">
+          {{ product.gtd }}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</ng-container>

@@ -1,0 +1,74 @@
+<p-table
+  #table
+  styleClass="p-datatable-gridlines"
+  dataKey="id"
+  [value]="employees"
+  [loading]="loading"
+  [totalRecords]="totalRecords"
+  [paginator]="true"
+  [rows]="25"
+  [rowsPerPageOptions]="[25, 50, 75]"
+  [responsive]="true"
+  [lazy]="true"
+  (onLazyLoad)="onLazyLoad($event)"
+>
+  <ng-template pTemplate="caption">
+    <p-table-caption
+      (clear)="table.clear()"
+      (changeFilter)="table.filterGlobal($event, 'contains')"
+    ></p-table-caption>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th class="text-center">
+        <span>Организации</span>
+      </th>
+
+      <th class="text-center">
+        <span>Фамилия</span>
+      </th>
+
+      <th class="text-center">
+        <span>Имя</span>
+      </th>
+
+      <th class="text-center">
+        <span>Отчество</span>
+      </th>
+
+      <th class="text-center">
+        <span>Роли</span>
+      </th>
+
+      <th *ngIf="actionButtons"></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-employee>
+    <tr>
+      <td class="text-center">{{ getContractorNames(employee).join(', ') }}</td>
+      <td class="text-center">{{ employee.surname }}</td>
+      <td class="text-center">{{ employee.name }}</td>
+      <td class="text-center">{{ employee.middleName }}</td>
+      <td class="text-center">{{ getRoleNames(employee).join(', ') }}</td>
+      <td class="text-center" *ngIf="actionButtons">
+        <p-table-actions
+          [permissionDetails]="permissionDetails"
+          [permissionUpdate]="permissionUpdate"
+          [permissionDelete]="permissionDelete"
+          (details)="onDetails(employee)"
+          (update)="onUpdate(employee)"
+          (delete)="onDelete(employee)"
+        >
+          <button
+            *permission="permissionUpdate"
+            pButton
+            pRipple
+            icon="pi pi-lock"
+            class="p-button-rounded p-button-secondary mr-2"
+            (click)="onUpdatePermissions(employee)"
+          ></button>
+        </p-table-actions>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

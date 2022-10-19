@@ -1,0 +1,32 @@
+<div class="shadow-15">
+  <div class="mb-2">
+    <p-toolbar>
+      <button
+        *permission="'ContractorManagement.Contractors.Create'"
+        pButton
+        pRipple
+        label="Добавить"
+        icon="pi pi-plus"
+        class="p-button-success"
+        (click)="menu.toggle($event)"
+      ></button>
+      <p-tieredMenu #menu [model]="menuToCreate" [popup]="true"></p-tieredMenu>
+    </p-toolbar>
+  </div>
+  <div>
+    <p-panel header="Контрагенты">
+      <kometa-contractor-table
+        [loading]="(loading$ | async)!"
+        [contractors]="(contractors$ | async)!"
+        [totalRecords]="(totalRecords$ | async)!"
+        [permissionDetails]="'ContractorManagement.Contractors'"
+        [permissionUpdate]="'ContractorManagement.Contractors.Update'"
+        [permissionDelete]="'ContractorManagement.Contractors.Delete'"
+        (lazyLoad)="onLazyLoad($event)"
+        (details)="onDetails($event)"
+        (update)="onUpdate($event)"
+        (delete)="onDelete($event)"
+      ></kometa-contractor-table>
+    </p-panel>
+  </div>
+</div>

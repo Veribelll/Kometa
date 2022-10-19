@@ -1,0 +1,8 @@
+query GetDataForUpdateTopology {
+  templatesPostamat {
+    items {
+      id
+      name
+    }
+  }
+}

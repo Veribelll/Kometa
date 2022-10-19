@@ -1,0 +1,66 @@
+query GetApplicationConfiguration {
+  applicationConfiguration {
+    auth {
+      grantedPolicies {
+        key
+        value
+      }
+      policies {
+        key
+        value
+      }
+    }
+    currentTenant {
+      id
+      name
+      isAvailable
+    }
+    currentContractor {
+      id
+      name
+    }
+    currentUser {
+      id
+      userName
+      surName
+      name
+      email
+      emailVerified
+      phoneNumber
+      phoneNumberVerified
+      roles
+    }
+    selectableContractors {
+      id
+      name
+    }
+    localization {
+      languages {
+        cultureName
+        displayName
+        flagIcon
+        uiCultureName
+      }
+      defaultResourceName
+      texts {
+        key
+        value {
+          key
+          value
+        }
+      }
+    }
+    features {
+      values {
+        key
+        value
+      }
+    }
+    setting {
+      values {
+        key
+        value
+      }
+    }
+  }
+}

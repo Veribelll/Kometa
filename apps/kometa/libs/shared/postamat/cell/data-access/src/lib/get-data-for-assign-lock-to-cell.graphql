@@ -1,0 +1,10 @@
+query GetDataForAssignLockToCell($postamatId: ID!) {
+  controllers(postamatId: $postamatId) {
+    id
+    name
+    locks {
+      id
+      address
+    }
+  }
+}

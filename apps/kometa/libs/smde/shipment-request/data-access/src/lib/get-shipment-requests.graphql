@@ -1,0 +1,17 @@
+query GetShipmentRequests(
+  $where: ShipmentRequestFilterInput
+  $order: [ShipmentRequestSortInput!]
+  $take: Int
+  $skip: Int
+) {
+  shipmentRequests(where: $where, order: $order, take: $take, skip: $skip) {
+    items {
+      ...ShipmentRequest
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+    totalCount
+  }
+}

@@ -1,0 +1,17 @@
+mutation CreateShipmentRequest($input: CreateShipmentRequestInput!) {
+  createShipmentRequest(input: $input) {
+    shipmentRequest {
+      ...ShipmentRequest
+    }
+    errors {
+      ... on ShipmentRequestCodeAlreadyExistsError {
+        code
+        message
+        details
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+<div *ngIf="company">
+  <p class="m-1">
+    Вы действительно хотите удалить компанию:
+    <br />
+    <span class="font-bold">"{{ company.name }}"</span>?
+  </p>
+  <p-form-delete-actions (delete)="onDelete()" (cancel)="onCancel()"></p-form-delete-actions>
+</div>

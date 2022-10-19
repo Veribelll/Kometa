@@ -1,0 +1,45 @@
+<form [formGroup]="formGroup" [validateOnSubmit]="true" (ngSubmit)="onAuth()" class="mt-4">
+  <p-form-body>
+    <p-form-field>
+      <label for="username" class="text-4xl required">Логин:</label>
+      <input
+        id="username"
+        class="text-center text-4xl"
+        formControlName="username"
+        pInputText
+        pKeyboard
+      />
+    </p-form-field>
+    <p-form-field>
+      <p-form-field>
+        <label for="password" class="text-4xl required">Пароль:</label>
+        <input
+          id="password"
+          class="text-center text-4xl"
+          formControlName="password"
+          type="password"
+          pInputText
+          pKeyboard
+        />
+      </p-form-field>
+    </p-form-field>
+  </p-form-body>
+  <div class="flex flex-row justify-content-center">
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="Выйти"
+      class="p-button-outlined p-button-secondary p-button-lg mr-4"
+      (click)="onCancel()"
+    ></button>
+
+    <button
+      pButton
+      pRipple
+      type="submit"
+      label="Войти"
+      class="p-button-outlined p-button-success p-button-lg"
+    ></button>
+  </div>
+</form>

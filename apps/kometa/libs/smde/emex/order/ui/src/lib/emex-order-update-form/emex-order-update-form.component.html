@@ -1,0 +1,22 @@
+<form [formGroup]="formGroup" [validateOnSubmit]="true" (ngSubmit)="onSave()">
+  <p-form-body>
+    <p-form-field>
+      <kometa-emex-customer-form
+        [formGroup]="customerFormGroup"
+      ></kometa-emex-customer-form>
+    </p-form-field>
+    <p-form-field [size]="6">
+      <label [for]="'globalId'" class="required">GlobalId:</label>
+      <p-inputNumber inputId="globalId" formControlName="globalId"></p-inputNumber>
+    </p-form-field>
+    <p-form-field [size]="6">
+      <label for="externalId" class="required">ID заказа:</label>
+      <input id="externalId" formControlName="externalId" type="text" pInputText />
+    </p-form-field>
+  </p-form-body>
+  <p-form-actions
+    [invalid]="formGroup.invalid"
+    [pending]="formGroup.pending"
+    (cancel)="onCancel()"
+  ></p-form-actions>
+</form>

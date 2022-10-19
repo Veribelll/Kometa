@@ -1,0 +1,12 @@
+mutation DeleteEmployee($input: DeleteEmployeeInput!) {
+  deleteEmployee(input: $input) {
+    identityUser {
+      ...Employee
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

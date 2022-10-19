@@ -1,0 +1,11 @@
+<div>
+  <p-panel header="Периоды хранения">
+    <kometa-storage-period-table
+      [storagePeriods]="(storagePeriods$ | async)!"
+      [loading]="(loading$ | async)!"
+      [permissionUpdate]="'LastMileManagement.LastMiles.ManageStoragePeriod'"
+      (lazyLoad)="onLazyLoad($event)"
+      (update)="onUpdate($event)"
+    ></kometa-storage-period-table>
+  </p-panel>
+</div>

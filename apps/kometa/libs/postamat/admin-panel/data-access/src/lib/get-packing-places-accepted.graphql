@@ -1,0 +1,22 @@
+query GetPackingPlacesAccepted(
+  $postamatId: ID!
+  $order: [PackingPlaceSortInput!]
+  $take: Int
+  $skip: Int
+) {
+  packingPlaces(
+    where: { lastMileId: { eq: $postamatId }, status: { in: [Accepted] } }
+    order: $order
+    take: $take
+    skip: $skip
+  ) {
+    items {
+      ...PackingPlaceAccepted
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+    totalCount
+  }
+}

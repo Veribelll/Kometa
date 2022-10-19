@@ -1,0 +1,13 @@
+fragment TemplateCell on TemplateCell {
+  id
+  isCell
+  name
+  width
+  height
+  sizeId
+  size {
+    id
+    name
+  }
+  imageUrl
+}

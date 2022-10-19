@@ -1,0 +1,30 @@
+mutation UpdateCompany($input: UpdateCompanyInput!) {
+  updateCompany(input: $input) {
+    company {
+      ...Company
+    }
+    errors {
+      ... on ContractorInnAlreadyExistsError {
+        contractor {
+          id
+          name
+        }
+        code
+        message
+        details
+      }
+      ... on ContractorNameAlreadyExistsError {
+        contractor {
+          id
+          name
+        }
+        code
+        message
+        details
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

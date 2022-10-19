@@ -1,0 +1,12 @@
+mutation UpdatePromixController($input: UpdatePromixControllerInput!) {
+  updatePromixController(input: $input) {
+    promixController {
+      ...PromixController
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

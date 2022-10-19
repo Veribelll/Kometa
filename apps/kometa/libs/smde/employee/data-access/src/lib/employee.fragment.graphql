@@ -1,0 +1,16 @@
+fragment Employee on IdentityUser {
+  id
+  surname
+  name
+  middleName
+  phoneNumber
+  contractors {
+    id
+    name
+  }
+  roles {
+    id
+    name
+  }
+  email
+}

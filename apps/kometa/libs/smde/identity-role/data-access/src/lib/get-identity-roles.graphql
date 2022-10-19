@@ -1,0 +1,17 @@
+query GetIdentityRoles(
+  $where: IdentityRoleFilterInput
+  $order: [IdentityRoleSortInput!]
+  $take: Int
+  $skip: Int
+) {
+  identityRoles(where: $where, order: $order, take: $take, skip: $skip) {
+    items {
+      ...IdentityRole
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+    totalCount
+  }
+}

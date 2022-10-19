@@ -1,0 +1,12 @@
+mutation CreateCell($input: CreateCellInput!) {
+  createCell(input: $input) {
+    cell {
+      ...Cell
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

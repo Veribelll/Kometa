@@ -1,0 +1,5 @@
+query GetTemplatePostamat($where: TemplatePostamatFilterInput) {
+  templatePostamat(where: $where) {
+    ...TemplatePostamat
+  }
+}

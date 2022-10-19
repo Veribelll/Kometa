@@ -1,0 +1,48 @@
+<form [formGroup]="formGroup" [validateOnSubmit]="true" (ngSubmit)="onSave()">
+  <p-form-body>
+    <p-form-field>
+      <label for="ipAddress">Ip адрус:</label>
+      <input id="ipAddress" formControlName="ipAddress" type="text" pInputText pKeyboard />
+    </p-form-field>
+    <p-form-field>
+      <label [for]="'port'" class="required">Порт:</label>
+      <p-inputNumber
+        inputId="port"
+        formControlName="port"
+        [min]="0"
+        [step]="1"
+        [showButtons]="true"
+        buttonLayout="horizontal"
+        decrementButtonClass="p-button-danger"
+        incrementButtonClass="p-button-success"
+        incrementButtonIcon="pi pi-plus"
+        decrementButtonIcon="pi pi-minus"
+        inputStyleClass="p-text-center"
+      ></p-inputNumber>
+    </p-form-field>
+    <p-form-field class="flex align-items-center">
+      <label [for]="'reconnectOnTimeout'">Переподключатся:</label>
+      <p-inputSwitch
+        inputId="reconnectOnTimeout"
+        formControlName="reconnectOnTimeout"
+        class="ml-2"
+      ></p-inputSwitch>
+    </p-form-field>
+    <p-form-field>
+      <p-toggleButton
+        inputId="isEnabled"
+        formControlName="isEnabled"
+        onLabel="Включен"
+        offLabel="Выключен"
+        onIcon="pi pi-check"
+        offIcon="pi pi-times"
+        [style]="{ width: '10em' }"
+      ></p-toggleButton>
+    </p-form-field>
+  </p-form-body>
+  <p-form-actions
+    [invalid]="formGroup.invalid"
+    [pending]="formGroup.pending"
+    (cancel)="onCancel()"
+  ></p-form-actions>
+</form>

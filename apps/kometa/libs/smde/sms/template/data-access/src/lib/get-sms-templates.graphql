@@ -1,0 +1,17 @@
+query GetSmsTemplates(
+  $where: SmsTemplateFilterInput
+  $order: [SmsTemplateSortInput!]
+  $take: Int
+  $skip: Int
+) {
+  smsTemplates(where: $where, order: $order, take: $take, skip: $skip) {
+    items {
+      ...SmsTemplate
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+    totalCount
+  }
+}

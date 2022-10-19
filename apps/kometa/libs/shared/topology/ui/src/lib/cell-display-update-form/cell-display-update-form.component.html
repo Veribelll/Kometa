@@ -1,0 +1,55 @@
+<div class="flex flex-column h-full">
+  <div class="flex-grow-1">
+    <kometa-postamat
+      [select]="(selectedCell$ | async)!"
+      [sections]="(sections$ | async)!"
+      class="mb-6"
+      (selectChange)="onClickCell($event)"
+    ></kometa-postamat>
+  </div>
+  <div class="flex flex-row justify-content-center mb-5">
+    <kometa-panel-edit-sections
+      class="mr-8"
+      [select]="(selectedSection$ | async)!"
+      [selectableList]="(selectableSectionList$ | async)!"
+      [selectItems]="(sections$ | async)!"
+      (selectChange)="onSelectSectionChange($event)"
+      (addSection)="onAddSection($event)"
+      (removeSection)="onRemoveSection($event)"
+      (upSection)="onUpSection($event)"
+      (downSection)="onDownSection($event)"
+    ></kometa-panel-edit-sections>
+    <div>
+      <div class="flex flex-row">
+        <kometa-panel-edit-cells
+          [select]="(selectedCell$ | async)!"
+          [selectableList]="(selectableCellList$ | async)!"
+          [selectItems]="(cells$ | async)!"
+          (selectChange)="onSelectCellChange($event)"
+          (addCell)="onAddCell($event)"
+          (removeCell)="onRemoveCell($event)"
+          (upCell)="onUpCell($event)"
+          (downCell)="onDownCell($event)"
+        ></kometa-panel-edit-cells>
+        <p-form-body style="width: 14rem">
+          <ng-container *ngIf="selectedCell$ | async; let selectedCell">
+            <p-form-field *ngIf="selectedCell.isCell">
+              <label [for]="'cellId'" class="required">Ячейка:</label>
+              <p-dropdown
+                [(ngModel)]="selectedCell.cellId"
+                inputId="cellId"
+                appendTo="body"
+                optionValue="id"
+                optionLabel="name"
+                [options]="(postamatCellsFree$ | async)!"
+                [showClear]="true"
+                [autoDisplayFirst]="false"
+              ></p-dropdown>
+            </p-form-field>
+          </ng-container>
+        </p-form-body>
+      </div>
+    </div>
+  </div>
+  <p-form-actions (save)="onSave()" (cancel)="onCancel()"></p-form-actions>
+</div>

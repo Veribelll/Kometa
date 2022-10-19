@@ -1,0 +1,40 @@
+<div class="flex flex-row">
+  <input
+    [id]="inputId"
+    type="text"
+    [value]="displayValue"
+    [class.ng-invalid]="control?.invalid"
+    [class.ng-dirty]="control?.dirty"
+    pInputText
+    readonly
+  />
+  <button pButton icon="pi pi-search" type="button" (click)="onOpen()"></button>
+</div>
+<p-dialog
+  header="Выбор курьера"
+  [(visible)]="open"
+  appendTo="body"
+  [style]="{ width: '1000px' }"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <div class="mb-4">
+    <kometa-courier-select-table
+      [selected]="selected"
+      [couriers]="(couriers$ | async)!"
+      [loading]="(loading$ | async)!"
+      [totalRecords]="(totalRecords$ | async)!"
+      [selectionMode]="selectionMode"
+      (selectedChange)="onSelectedChange($event)"
+      (lazyLoad)="onLazyLoad($event)"
+    ></kometa-courier-select-table>
+  </div>
+  <div>
+    <p-form-actions
+      labelButtonSave="Выбрать"
+      (save)="onClose()"
+      (cancel)="onClose()"
+    ></p-form-actions>
+  </div>
+</p-dialog>

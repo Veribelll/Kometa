@@ -1,0 +1,7 @@
+fragment IndividualEntrepreneur on IndividualEntrepreneur {
+  id
+  name
+  address
+  inn
+  isHost
+}

@@ -1,0 +1,4 @@
+fragment LastMileDetail on LastMile {
+  ...LastMile
+  status
+}

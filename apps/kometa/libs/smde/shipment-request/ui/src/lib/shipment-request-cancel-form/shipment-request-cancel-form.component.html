@@ -1,0 +1,12 @@
+<div *ngIf="request">
+  <p class="m-1">
+    Вы действительно хотите отменить заявку на отправку:
+    <br />
+    <span class="font-bold">'{{ request.code }}'</span>?
+  </p>
+  <p-form-delete-actions
+    labelDelete="Отменить"
+    (delete)="onDelete()"
+    (cancel)="onCancel()"
+  ></p-form-delete-actions>
+</div>

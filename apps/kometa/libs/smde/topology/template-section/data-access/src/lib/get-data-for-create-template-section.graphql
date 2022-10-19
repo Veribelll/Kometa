@@ -1,0 +1,17 @@
+query GetDataForCreateTemplateSection {
+  templatesCell {
+    items {
+      id
+      isCell
+      name
+      width
+      height
+      sizeId
+      size {
+        id
+        name
+      }
+      imageUrl
+    }
+  }
+}

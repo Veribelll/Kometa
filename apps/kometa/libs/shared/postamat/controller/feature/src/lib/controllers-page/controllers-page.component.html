@@ -1,0 +1,41 @@
+<div>
+  <div class="mb-2">
+    <p-toolbar>
+      <div class="flex flex-row">
+        <div class="mr-2">
+          <button
+            *permission="'LastMileManagement.Postamats.ManageControllers'"
+            pButton
+            pRipple
+            label="Добавить"
+            icon="pi pi-plus"
+            class="p-button-success"
+            (click)="menu.toggle($event)"
+          ></button>
+          <p-menu #menu appendTo="body" [model]="menuToCreate" [popup]="true"></p-menu>
+        </div>
+        <button
+          pButton
+          pRipple
+          label="Замки"
+          class="p-button-info"
+          (click)="onShowLocks()"
+        ></button>
+      </div>
+    </p-toolbar>
+  </div>
+  <div>
+    <p-panel header="Контроллеры">
+      <kometa-controller-table
+        [controllers]="(controllers$ | async)!"
+        [loading]="(loading$ | async)!"
+        [permissionDetails]="'LastMileManagement.Postamats.ManageControllers'"
+        [permissionUpdate]="'LastMileManagement.Postamats.ManageControllers'"
+        [permissionDelete]="'LastMileManagement.Postamats.ManageControllers'"
+        (lazyLoad)="onLazyLoad($event)"
+        (update)="onUpdate($event)"
+        (delete)="onDelete($event)"
+      ></kometa-controller-table>
+    </p-panel>
+  </div>
+</div>

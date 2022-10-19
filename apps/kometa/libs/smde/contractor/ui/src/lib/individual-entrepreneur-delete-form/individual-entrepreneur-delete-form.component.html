@@ -1,0 +1,8 @@
+<div *ngIf="individualEntrepreneur">
+  <p class="m-1">
+    Вы действительно хотите удалить индивидуального предпринимателя:
+    <br />
+    <span class="font-bold">"{{ individualEntrepreneur.name }}"</span>?
+  </p>
+  <p-form-delete-actions (delete)="onDelete()" (cancel)="onCancel()"></p-form-delete-actions>
+</div>

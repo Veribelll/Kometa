@@ -1,0 +1,60 @@
+<div>
+  <div class="mt-2 mb-3">
+    <p-steps
+      [model]="stepsItem"
+      [readonly]="true"
+      [activeIndex]="(activeIndex$ | async)!"
+    ></p-steps>
+  </div>
+  <div *ngIf="(activeIndex$ | async) === 0">
+    <p-form-body>
+      <p-form-field>
+        <label [for]="'typeContractor'" class="required">Тип контрагента:</label>
+        <p-dropdown
+          inputId="typeContractor"
+          [options]="typesContractor"
+          [(ngModel)]="typeContractor"
+          optionValue="id"
+          optionLabel="name"
+        ></p-dropdown>
+      </p-form-field>
+    </p-form-body>
+    <kometa-tenant-create-form [formGroup]="formGroup" (save)="onNext($event)">
+      <p-form-actions
+        actions
+        [invalid]="formGroup.invalid"
+        [pending]="formGroup.pending"
+        labelButtonSave="Дальше"
+        (cancel)="onCancel()"
+      ></p-form-actions>
+    </kometa-tenant-create-form>
+  </div>
+
+  <kometa-company-create-form
+    *ngIf="(activeIndex$ | async) === 1 && typeContractor === 1"
+    [formGroup]="formGroupCompany"
+    (save)="onSave($event)"
+  >
+    <p-form-actions
+      actions
+      [invalid]="formGroupCompany.invalid"
+      [pending]="formGroupCompany.pending"
+      labelButtonCancel="Назад"
+      (cancel)="onBack()"
+    ></p-form-actions>
+  </kometa-company-create-form>
+
+  <kometa-individual-entrepreneur-create-form
+    *ngIf="(activeIndex$ | async) === 1 && typeContractor === 2"
+    [formGroup]="formGroupIndividualEntrepreneur"
+    (save)="onSave($event)"
+  >
+    <p-form-actions
+      actions
+      [invalid]="formGroupIndividualEntrepreneur.invalid"
+      [pending]="formGroupIndividualEntrepreneur.pending"
+      labelButtonCancel="Назад"
+      (cancel)="onBack()"
+    ></p-form-actions>
+  </kometa-individual-entrepreneur-create-form>
+</div>

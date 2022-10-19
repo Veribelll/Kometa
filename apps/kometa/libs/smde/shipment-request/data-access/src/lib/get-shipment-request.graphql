@@ -1,0 +1,5 @@
+query GetShipmentRequest($where: ShipmentRequestFilterInput) {
+  shipmentRequest(where: $where) {
+    ...ShipmentRequest
+  }
+}

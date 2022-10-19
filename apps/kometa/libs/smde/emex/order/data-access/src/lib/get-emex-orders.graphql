@@ -1,0 +1,17 @@
+query GetEmexOrders(
+  $where: EmexOrderFilterInput
+  $order: [EmexOrderSortInput!]
+  $take: Int
+  $skip: Int
+) {
+  emexOrders(where: $where, order: $order, take: $take, skip: $skip) {
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+    items {
+      ...EmexOrder
+    }
+    totalCount
+  }
+}

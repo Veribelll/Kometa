@@ -1,0 +1,21 @@
+:host {
+  .select-button {
+    ::ng-deep {
+      .p-selectbutton.p-buttonset {
+        display: flex;
+        flex-direction: column;
+        .p-element {
+          width: 300px;
+          height: 70px;
+          padding: 0;
+          border-left: 0;
+          border-right: 0;
+          border-top: 0;
+        }
+        .p-highlight {
+          background-color: #ffe69c !important;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+mutation UpdateLastMileSmsTemplate($input: UpdateLastMileSmsTemplateInput!) {
+  updateLastMileSmsTemplate(input: $input) {
+    lastMileSmsTemplate {
+      ...LastMileSmsTemplate
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

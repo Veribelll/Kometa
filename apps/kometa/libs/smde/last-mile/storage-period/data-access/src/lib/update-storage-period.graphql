@@ -1,0 +1,12 @@
+mutation UpdateLastMileStoragePeriod($input: UpdateLastMileStoragePeriodInput!) {
+  updateLastMileStoragePeriod(input: $input) {
+    lastMileStoragePeriod {
+      ...LastMileStoragePeriod
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\..\..\common.props" />
+  <Import Project="..\..\..\..\fody.props" />
+
+  <PropertyGroup>
+    <RootNamespace>Smde.EntityFrameworkCore</RootNamespace>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore.Sqlite" Version="$(AbpPackageVersion)" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Smde.EntityFrameworkCore\Smde.EntityFrameworkCore.csproj"/>
+    <ProjectReference Include="..\Smde.TestBase\Smde.TestBase.csproj"/>
+  </ItemGroup>
+</Project>

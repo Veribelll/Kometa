@@ -1,0 +1,14 @@
+<div>
+  <kometa-last-mile-accounts-update-skeleton
+    *ngIf="!formGroup; else form"
+  ></kometa-last-mile-accounts-update-skeleton>
+  <ng-template #form>
+    <kometa-last-mile-accounts-update-form
+      [formGroup]="formGroup!"
+      [emexAccounts]="(emexAccounts$ | async)!"
+      [smsAccounts]="(smsAccounts$ | async)!"
+      (save)="onSave($event)"
+      (cancel)="onCancel()"
+    ></kometa-last-mile-accounts-update-form>
+  </ng-template>
+</div>

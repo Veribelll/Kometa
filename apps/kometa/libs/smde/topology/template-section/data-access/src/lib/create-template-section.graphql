@@ -1,0 +1,17 @@
+mutation CreateTemplateSection($input: CreateTemplateSectionInput!) {
+  createTemplateSection(input: $input) {
+    templateSection {
+      ...TemplateSection
+    }
+    errors {
+      ... on TemplateSectionNameAlreadyExistsError {
+        code
+        message
+        details
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

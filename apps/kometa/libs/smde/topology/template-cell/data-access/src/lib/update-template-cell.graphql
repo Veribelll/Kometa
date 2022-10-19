@@ -1,0 +1,17 @@
+mutation UpdateTemplateCell($input: UpdateTemplateCellInput!) {
+  updateTemplateCell(input: $input) {
+    templateCell {
+      ...TemplateCell
+    }
+    errors {
+      ... on TemplateCellNameAlreadyExistsError {
+        code
+        message
+        details
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+mutation DeleteCell($input: DeleteCellInput!) {
+  deleteCell(input: $input) {
+    cell {
+      ...Cell
+    }
+    errors {
+      ... on Error {
+        message
+      }
+    }
+  }
+}

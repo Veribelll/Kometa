@@ -1,0 +1,11 @@
+fragment PermissionGrantInfo on PermissionGrantInfo {
+  name
+  displayName
+  parentName
+  isGranted
+  allowedProviders
+  grantedProviders {
+    providerKey
+    providerName
+  }
+}

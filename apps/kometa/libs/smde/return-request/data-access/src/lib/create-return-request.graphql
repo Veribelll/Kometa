@@ -1,0 +1,17 @@
+mutation CreateReturnRequest($input: CreateReturnRequestInput!) {
+  createReturnRequest(input: $input) {
+    returnRequest {
+      ...ReturnRequest
+    }
+    errors {
+      ... on ReturnRequestCodeAlreadyExistsError {
+        code
+        message
+        details
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}

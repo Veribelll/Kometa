@@ -1,0 +1,17 @@
+mutation UpdateSmsCenterAccount($input: UpdateSmsCenterAccountInput!) {
+  updateSmsCenterAccount(input: $input) {
+    smsCenterAccount {
+      ...SmsCenterAccount
+    }
+    errors {
+      ... on SmsAccountNameAlreadyExistsError {
+        code
+        message
+        details
+      }
+      ... on Error {
+        message
+      }
+    }
+  }
+}
